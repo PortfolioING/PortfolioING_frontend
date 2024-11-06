@@ -59,4 +59,24 @@ const Section = styled.div`
     margin-bottom: 20px;
   }
 `;
-export { PriceWrapper, PriceTitle, PriceDivWrapper, Section };
+const CardWrapper = styled.div`
+  width: 620px;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  ::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e4ff0d; /* 스크롤바 색상 */
+  }
+
+  > * {
+    margin-right: 20px;
+    flex-shrink: 0; /* 카드가 줄어들지 않도록 설정 */
+  }
+`;
+export { PriceWrapper, PriceTitle, PriceDivWrapper, Section, CardWrapper };
