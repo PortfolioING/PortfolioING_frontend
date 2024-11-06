@@ -1,7 +1,7 @@
 import { MainContentWrapper } from "./MainContent.styles";
-import UserProfileEditor from "./UserProfileEidtor";
-import WorkSpace from "./WorkSpace";
-import PaymentAdmin from "./PaymentAdmin";
+import UserProfileEditor from "./MainContent/UserProfileEidtor";
+import WorkSpace from "./MainContent/WorkSpace";
+import PaymentAdmin from "./MainContent/PaymentAdmin/PaymentAdmin";
 
 const MainContent = ({ menu }) => {
   return (

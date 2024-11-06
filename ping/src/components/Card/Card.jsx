@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import { CardWrapper } from "./Card.styles";
 import Kakao from "../../asset/kakao.png";
 import Naver from "../../asset/naver.png";
 import Toss from "../../asset/toss.png";
-const Card = ({ name }) => {
-  const [select, setSelect] = useState(false);
+
+const Card = ({ name, selectedCard, onSelect }) => {
   const handleClick = () => {
-    setSelect((prev) => !prev);
+    onSelect(name); // 선택된 카드 업데이트
   };
   let color;
   let src;
@@ -26,7 +25,7 @@ const Card = ({ name }) => {
   }
   return (
     <CardWrapper color={color} onClick={handleClick}>
-      {select ? <div className="click">✓</div> : ""}
+      {selectedCard === name && <div className="click">✓</div>}
       <img src={src} alt="로고" />
       <p>{text}</p>
     </CardWrapper>

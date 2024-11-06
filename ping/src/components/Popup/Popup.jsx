@@ -2,9 +2,8 @@ import { useState } from "react";
 import { PayContainer, PopupWrapper } from "./Popup.styles";
 
 const PayDiv = ({ name, selectedMethods = [], togglePayMethod }) => {
-  const [isActive, setIsActive] = useState(false);
+  const isActive = selectedMethods.includes(name);
   const handleClick = () => {
-    setIsActive((prev) => !prev);
     togglePayMethod(name);
   };
 

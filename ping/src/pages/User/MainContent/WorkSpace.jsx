@@ -1,6 +1,6 @@
-import Portfolio from "../../components/Portfolio/Portfolio";
-import Search from "../../asset/search.svg";
-import { Wrapper, Title } from "./MainContent.styles";
+import Portfolio from "../../../components/Portfolio/Portfolio";
+import Search from "../../../asset/search.svg";
+import { Wrapper, Title } from "../MainContent.styles";
 import styled from "styled-components";
 const PortfolioWrapper = styled.div`
   display: flex;

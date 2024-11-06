@@ -1,5 +1,5 @@
-import FormField from "../../components/Form/FormField";
-import Button from "../../components/Button/Button";
+import FormField from "../../../components/Form/FormField";
+import Button from "../../../components/Button/Button";
 import styled from "styled-components";
 
 const UserProfileWrapper = styled.div`
