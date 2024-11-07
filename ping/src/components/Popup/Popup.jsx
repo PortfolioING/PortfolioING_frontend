@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PayContainer, PopupWrapper } from "./Popup.styles";
 
 const PayDiv = ({ name, selectedMethods = [], togglePayMethod }) => {

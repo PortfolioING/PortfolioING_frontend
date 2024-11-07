@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "daterangepicker": "^3.1.0",
+    "jquery": "^3.7.1",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "styled-components": "^6.1.13",

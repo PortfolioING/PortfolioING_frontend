@@ -7,6 +7,7 @@ const Bar = styled.div`
   height: 108px;
   width: 100%;
   background-color: #000000;
+  z-index: 10;
 
   > div {
     color: #ffffff;

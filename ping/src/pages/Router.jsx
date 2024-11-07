@@ -4,6 +4,7 @@ import Login from "./Login/Login";
 import User from "./User/User";
 import Price from "./Price/Price";
 import Survey from "./Survey/Survey";
+import Templates from "./PortfolioTemplates/Templates";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const Router = () => {
     {
       path: "/survey",
       element: <Survey />,
+    },
+    {
+      path: "/templates",
+      element: <Templates name="ping" />,
     },
   ]);
 

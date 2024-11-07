@@ -14,7 +14,7 @@ const PortfolioTitle = styled.div`
   font-weight: 700;
   text-align: left;
   width: var(--container-width);
-  margin-bottom: 30px;
+  margin: 30px 0;
 `;
 
 const PortfolioForm = styled.form`
@@ -36,11 +36,6 @@ const FileLabel = styled.label`
   border-radius: 30px;
   width: 200px;
   height: 200px;
-
-  &:focus {
-    border: 1px solid #e4ff0d;
-    outline: none;
-  }
   > img {
     opacity: 0.3;
     margin: auto;
