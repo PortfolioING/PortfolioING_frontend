@@ -16,6 +16,7 @@ import {
 import { useState } from "react";
 
 import ProjectSurvey from "./ProjectSurvey";
+import { useNavigate } from "react-router-dom";
 
 const PortfolioCreation = () => {
   const handleFileChange = (event) => {
@@ -31,6 +32,10 @@ const PortfolioCreation = () => {
       ...prevProjects,
       { id: prevProjects.length + 1 },
     ]);
+  };
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/templates");
   };
 
   return (
@@ -73,6 +78,15 @@ const PortfolioCreation = () => {
       {projects.map((project) => (
         <ProjectSurvey key={project.id} projectNum={project.id} />
       ))}
+      <Button
+        style={{ marginTop: "20px" }}
+        btnborderradius="20px"
+        childern="포토폴리오 만들기 >"
+        btnfontSize="20px"
+        btnwidth="190px"
+        btnheight="50px"
+        onClick={handleClick}
+      />
     </Wrapper>
   );
 };

@@ -57,7 +57,7 @@ const Category = styled.div`
   font-weight: 600;
   cursor: pointer;
   color: ${(props) => (props.isActive ? "#fff" : "#707070")};
-  background-color: ${(props) => (props.isActive ? "#00B3D7" : "#d7f8ff")};
+  background-color: ${(props) => (props.isActive ? "#fbb7cb" : "#FFE3E1")};
 `;
 
 const DateWrapper = styled.div`

@@ -1,7 +1,7 @@
 import "./MenuBar.styles";
 import { Bar, Placeholder } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
-function Menu() {
+function Menu({ login = false }) {
   const navigate = useNavigate();
   const navigateToLogin = () => {
     navigate("/login");
@@ -16,19 +16,23 @@ function Menu() {
     <>
       <Placeholder />
       <Bar>
-        <div className="wrap_menu">
+        <div className="left_menu">
           <p>🤍</p>
           <p>about PING</p>
-          <p>주요기능</p>
           <p onClick={navigatePrice}>요금</p>
-          <p>기타</p>
         </div>
         <div className="wrap_menu">
           <p onClick={navigateUserPage}>My Page</p>
-          <button className="login_btn" onClick={navigateToLogin}>
-            login
-          </button>
-          <button className="free_btn"> 무료로 시작하기</button>
+          {login ? (
+            <></>
+          ) : (
+            <>
+              <button className="login_btn" onClick={navigateToLogin}>
+                Login
+              </button>
+              <button className="free_btn">무료로 시작하기</button>
+            </>
+          )}
         </div>
       </Bar>
     </>
