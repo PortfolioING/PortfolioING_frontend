@@ -3,11 +3,13 @@ const Bar = styled.div`
   position: fixed;
   top: 0px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 108px;
   width: 100%;
   background-color: #000000;
   z-index: 10;
+  padding: 0 40px;
+  box-sizing: border-box;
 
   > div {
     color: #ffffff;
@@ -23,6 +25,22 @@ const Bar = styled.div`
 
   button {
     white-space: nowrap;
+  }
+  .left_menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    box-sizing: border-box;
+    > * {
+      font-size: 18px;
+      font-weight: 550;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    > p {
+      cursor: pointer;
+      line-height: 108px;
+    }
   }
   .wrap_menu {
     display: flex;

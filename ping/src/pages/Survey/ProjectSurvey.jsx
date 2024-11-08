@@ -119,10 +119,13 @@ const CategoryFrom = () => {
         <CategoryBtn label={"프론트엔드"} />
         <CategoryBtn label={"기획"} />
         <CategoryBtn label={"백엔드"} />
-        <CategoryBtn label={"데이터"} />
         <CategoryBtn label={"PM"} />
-        <CategoryBtn label={"서버"} />
-        <CategoryBtn label={"디자인"} />
+        <CategoryBtn label={"보안"} />
+        <CategoryBtn label={"DESIGN"} />
+        <CategoryBtn label={"안드로이드"} />
+        <CategoryBtn label={"IOS"} />
+        <CategoryBtn label={"기획"} />
+        <CategoryBtn label={"AI"} />
       </div>
     </CategoryFormWrapper>
   );
