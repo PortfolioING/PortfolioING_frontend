@@ -36,6 +36,7 @@ const Bar = styled.div`
       box-sizing: border-box;
     }
     > p {
+      cursor: pointer;
       line-height: 108px;
     }
     > button {

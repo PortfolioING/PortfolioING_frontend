@@ -17,6 +17,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addMonths } from "date-fns";
+import "../../styles/DatePicker.css";
 
 const ProjectSurvey = ({ projectNum }) => {
   const handleFileChange = (event) => {
@@ -93,6 +94,7 @@ const DateForm = () => {
         </p>
       </DateWrapper>
       <DatePicker
+        style={{ color: "#e4ff0d" }}
         selected={startDate}
         onChange={onChange}
         minDate={new Date()}

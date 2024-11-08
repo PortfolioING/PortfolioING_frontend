@@ -5,6 +5,8 @@ import User from "./User/User";
 import Price from "./Price/Price";
 import Survey from "./Survey/Survey";
 import Templates from "./PortfolioTemplates/Templates";
+import Simple from "../components/SimpleTemplate/Simple";
+import SimpleProject from "../components/SimpleTemplate/SimpleProject";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -34,6 +36,14 @@ const Router = () => {
     {
       path: "/templates",
       element: <Templates name="ping" />,
+    },
+    {
+      path: "/templates1",
+      element: <Simple />,
+    },
+    {
+      path: "/templates1-project",
+      element: <SimpleProject />,
     },
   ]);
 

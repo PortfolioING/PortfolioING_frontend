@@ -35,6 +35,7 @@ const PriceDiv = ({ title, price, using }) => {
         <p>/ 월</p>
       </div>
       <Button
+        isDisabled={using ? true : false}
         btnwidth="94px"
         btnheight="30px"
         childern={using ? "이용중" : "구독하기"}

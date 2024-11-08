@@ -38,7 +38,7 @@ const CategoryFormWrapper = styled.div`
     font-size: 10px;
     box-sizing: border-box;
     .bold {
-      color: #3621b7;
+      color: red;
       margin-right: 10px;
       font-weight: 600;
       margin-left: 10px;
@@ -65,6 +65,7 @@ const DateWrapper = styled.div`
   padding: 0 20px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   box-sizing: border-box;
   margin-bottom: 20px;
   > p {

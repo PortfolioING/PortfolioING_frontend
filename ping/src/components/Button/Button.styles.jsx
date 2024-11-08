@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button`
+  cursor: ${(props) => (props.isDisabled ? "no-drop" || "pointer" : "default")};
   border: none;
   font-family: Pretendard-Regular;
   font-size: ${(props) => props.btnfontSize || "12px"};

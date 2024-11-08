@@ -64,6 +64,7 @@ function LoginPage() {
         />
 
         <Button
+          btnfontSize="20px"
           btnborderradius="50px"
           childern="Login"
           btnbordercolor="#e4ff0d"

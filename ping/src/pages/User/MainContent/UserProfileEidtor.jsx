@@ -17,6 +17,7 @@ const UserProfileImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   > img {
     border-radius: 50%;
   }
@@ -39,6 +40,7 @@ const UserProfileEditor = () => {
         >
           <FormField label="Phone" width="254x" height="50px" />
           <Button
+            btnfontSize="16px"
             childern="인증하기"
             btnbordercolor="#C5C5C5"
             btnfontcolor="#C5C5C5"
@@ -57,8 +59,9 @@ const UserProfileEditor = () => {
         }}
       >
         <Button
+          btnfontSize="16px"
           childern="저장"
-          ntbordercolor="#FFFFFF"
+          btnbordercolor="#FFFFFF"
           btnfontcolor="#FFFFFF"
           btnwidth="132px"
           btnheight="50px"
@@ -67,6 +70,7 @@ const UserProfileEditor = () => {
         <p
           style={{
             marginTop: "10px",
+            cursor: "pointer",
           }}
         >
           회원탈퇴

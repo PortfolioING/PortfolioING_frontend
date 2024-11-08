@@ -1,0 +1,38 @@
+.react-datepicker__header {
+  background-color: black;
+  > * {
+    color: white;
+  }
+}
+.react-datepicker__day-name {
+  color: white;
+}
+
+.react-datepicker__day--in-selecting-range {
+  background-color: #e4ff0d !important;
+  color: black !important;
+  opacity: 0.6;
+}
+.react-datepicker__day--selected {
+  background-color: #e4ff0d !important;
+  color: black !important;
+}
+
+.react-datepicker__day--in-range {
+  background-color: #e4ff0d !important;
+  color: black !important;
+}
+
+.react-datepicker__day--range-start {
+  background-color: #e4ff0d !important;
+  color: black !important;
+}
+
+.react-datepicker__day--range-end {
+  background-color: #e4ff0d !important;
+  color: black !important;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: #e4ff0d !important; /* 범위 내 날짜 배경색 */
+  color: black !important; /* 범위 내 날짜 텍스트 색상 */
+}
