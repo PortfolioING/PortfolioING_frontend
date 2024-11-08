@@ -9,8 +9,8 @@ const Content = styled.div`
   margin: 0 auto;
   width: 1012px;
   height: inherit;
-  border-left: 2px solid #00ffa3;
-  border-right: 2px solid #00ffa3;
+  border-left: 2px solid ${(props) => (props.color ? props.color : "#00ffa3")};
+  border-right: 2px solid ${(props) => (props.color ? props.color : "#00ffa3")};
 
   display: flex;
   flex-direction: column;
@@ -20,7 +20,8 @@ const Content = styled.div`
     padding: 10px;
     height: 50px;
     color: white;
-    border-bottom: 1px solid #00ffa3;
+    border-bottom: 1px solid
+      ${(props) => (props.color ? props.color : "#00ffa3")};
     box-sizing: border-box;
   }
   .content-label {
@@ -28,8 +29,9 @@ const Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #00ffa3;
-    border-bottom: 1px solid #00ffa3;
+    color: ${(props) => (props.color ? props.color : "#00ffa3")};
+    border-bottom: 1px solid
+      ${(props) => (props.color ? props.color : "#00ffa3")};
     font-size: 28px;
     font-weight: 700;
   }
@@ -39,12 +41,12 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #00ffa3;
+    color: ${(props) => (props.color ? props.color : "#00ffa3")};
 
     font-size: 30px;
 
     > .img {
-      border: 1px solid #00ffa3;
+      border: 1px solid ${(props) => (props.color ? props.color : "#00ffa3")};
       width: 350px;
       height: 350px;
       border-radius: 50%;
@@ -66,7 +68,7 @@ const MainContent = styled.div`
     .content-title {
       font-size: 25px;
       font-weight: 400;
-      color: #00ffa3;
+      color: ${(props) => (props.color ? props.color : "#00ffa3")};
       margin-bottom: 10px;
     }
   }
@@ -80,7 +82,7 @@ const MainContent = styled.div`
       height: 90px;
       border-radius: 30px;
       font-size: 25px;
-      background-color: #00ffa3;
+      background-color: ${(props) => (props.color ? props.color : "#00ffa3")};
       color: black;
     }
   }
@@ -92,35 +94,39 @@ const ProjectWrapper = styled.div`
   width: 450px;
   height: 70px;
   color: white;
-  border-top: 1px solid #00ffa3;
-  border-bottom: 1px solid #00ffa3;
+  border-top: 1px solid ${(props) => (props.color ? props.color : "#00ffa3")};
+  border-bottom: 1px solid ${(props) => (props.color ? props.color : "#00ffa3")};
   box-sizing: border-box;
   > .desc {
+    width: 160px;
     height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     > .title {
       font-size: 20px;
     }
   }
   > .category-wrap {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    justify-content: center;
+
     > div {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 0.5px solid #00ffa3;
+      border: 0.5px solid ${(props) => (props.color ? props.color : "#00ffa3")};
       width: 72px;
       height: 20px;
       border-radius: 10px;
       font-size: 10px;
-      color: #00ffa3;
-      margin-bottom: 3px;
+      color: ${(props) => (props.color ? props.color : "#00ffa3")};
+      margin: 3px;
     }
   }
 `;

@@ -35,6 +35,7 @@ const PortfolioCreation = () => {
   };
   const navigate = useNavigate();
   const handleClick = () => {
+    //서버에 설문 전송 코드 추가
     navigate("/templates");
   };
 

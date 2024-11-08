@@ -7,6 +7,7 @@ import {
 } from "./Templates.styles";
 
 import TemplatePopup from "./TemplatePopup";
+import { useNavigate } from "react-router-dom";
 
 const TemplateDesc = ({ template, onClick }) => {
   return (
@@ -54,11 +55,20 @@ const Templates = ({ name }) => {
   const handlePopupClose = () => {
     setSelectedTemplate(null); // 팝업 닫기
   };
-
+  const navigator = useNavigate();
+  const handleUserPage = () => {
+    navigator("/user");
+  };
   return (
     <div style={{ background: "black" }}>
       <Header>
-        <div className="user-name">{name}</div>
+        <div
+          onClick={handleUserPage}
+          className="user-name"
+          style={{ cursor: "pointer" }}
+        >
+          {name}
+        </div>
         <img
           alt="user-img"
           src="http://via.placeholder.com/150x150"
