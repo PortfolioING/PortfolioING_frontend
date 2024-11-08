@@ -7,6 +7,7 @@ import Survey from "./Survey/Survey";
 import Templates from "./PortfolioTemplates/Templates";
 import Simple from "../components/SimpleTemplate/Simple";
 import SimpleProject from "../components/SimpleTemplate/SimpleProject";
+import AboutPing from "./AboutPing/AboutPing";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const Router = () => {
     {
       path: "/survey",
       element: <Survey />,
+    },
+    {
+      path: "/about-ping",
+      element: <AboutPing />,
     },
     {
       path: "/templates",
