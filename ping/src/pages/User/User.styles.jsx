@@ -34,8 +34,11 @@ const Nav = styled.nav`
     cursor: pointer;
     font-size: 20px;
     font-weight: 100;
-    &:hover {
+
+    &.active {
       background-color: #e4ff0d;
+      color: white;
+      font-weight: bold;
     }
 
     box-sizing: border-box;
