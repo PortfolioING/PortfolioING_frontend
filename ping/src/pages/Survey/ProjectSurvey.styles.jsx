@@ -5,7 +5,6 @@ const FileLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 230px;
   height: 50px;
 

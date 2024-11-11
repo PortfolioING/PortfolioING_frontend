@@ -8,6 +8,7 @@ const UserProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   > * {
     margin-bottom: 20px;
   }
@@ -28,18 +29,24 @@ const UserProfileEditor = () => {
       <UserProfileImg>
         <img src="http://via.placeholder.com/150x150" alt="user-photo" />
       </UserProfileImg>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+        }}
+      >
         <FormField label="NickName" width="400px" height="50px" />
         <FormField label="Job" width="400px" height="50px" />
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-around",
           }}
         >
-          <FormField label="Phone" width="254x" height="50px" />
+          <FormField label="Phone" width="270x" height="50px" />
           <Button
+            style={{ marginLeft: "12px" }}
             btnfontSize="16px"
             childern="인증하기"
             btnbordercolor="#C5C5C5"
@@ -50,12 +57,12 @@ const UserProfileEditor = () => {
           />
         </div>
       </div>
+
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-around",
         }}
       >
         <Button
@@ -69,7 +76,7 @@ const UserProfileEditor = () => {
         />
         <p
           style={{
-            marginTop: "10px",
+            marginTop: "15px",
             cursor: "pointer",
           }}
         >

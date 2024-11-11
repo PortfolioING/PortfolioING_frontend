@@ -9,23 +9,16 @@ import {
   Wrapper,
   PortfolioTitle,
   PortfolioForm,
-  HiddenFileInput,
   FileLabel,
 } from "./Survey.styles";
+import ProjectSurvey from "./ProjectSurvey";
+import FileUpdate from "../../components/FileUpdate/FileUpdate";
 
 import { useState } from "react";
 
-import ProjectSurvey from "./ProjectSurvey";
 import { useNavigate } from "react-router-dom";
 
 const PortfolioCreation = () => {
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      console.log("Selected file:", file.name); // 파일 이름 출력
-    }
-  };
-
   const [projects, setProjects] = useState([]);
   const handleAddProject = (event) => {
     setProjects((prevProjects) => [
@@ -35,6 +28,7 @@ const PortfolioCreation = () => {
   };
   const navigate = useNavigate();
   const handleClick = () => {
+    //서버에 설문 전송 코드 추가
     navigate("/templates");
   };
 
@@ -50,12 +44,13 @@ const PortfolioCreation = () => {
           height="200px"
         />
 
-        <div style={{ marginBottom: "20px" }}>
+        <div
+          style={{
+            marginBottom: "20px",
+          }}
+        >
           <FormLabel htmlFor="photo">3. 본인의 사진을 선택해주세요.</FormLabel>
-          <FileLabel htmlFor="photo">
-            <img src={Plus} alt="plus img" />
-          </FileLabel>
-          <HiddenFileInput id="photo" onChange={handleFileChange} />
+          <FileUpdate />
         </div>
         <FormField
           id="portfolio-title"

@@ -27,13 +27,6 @@ const TemplatePopup = ({ handlePopupClose }) => {
           btnfontSize="15px"
           btnfontWeight="700"
         />
-        <Button
-          btnwidth="100px"
-          btnheight="40px"
-          childern={"색상변경"}
-          btnfontSize="15px"
-          btnfontWeight="700"
-        />
       </div>
     </TemplateWrapper>
   );

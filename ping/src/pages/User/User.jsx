@@ -4,19 +4,31 @@ import MainContent from "./MainContent";
 
 import { useState } from "react";
 
-const LeftSideBar = ({ handleClick }) => {
+const LeftSideBar = ({ handleClick, activeId }) => {
   return (
     <LeftWrapper>
       <Title>My Page</Title>
       <Nav>
         <ul>
-          <li id="1" onClick={handleClick}>
+          <li
+            id="1"
+            className={activeId === "1" ? "active" : ""}
+            onClick={handleClick}
+          >
             개인정보
           </li>
-          <li id="2" onClick={handleClick}>
+          <li
+            id="2"
+            className={activeId === "2" ? "active" : ""}
+            onClick={handleClick}
+          >
             결제관리
           </li>
-          <li id="3" onClick={handleClick}>
+          <li
+            id="3"
+            className={activeId === "3" ? "active" : ""}
+            onClick={handleClick}
+          >
             워크스페이스
           </li>
         </ul>
@@ -34,7 +46,7 @@ export default function User() {
     <>
       <MenuBar />
       <Wrapper>
-        <LeftSideBar handleClick={handleClick} />
+        <LeftSideBar handleClick={handleClick} activeId={userClick} />
         <MainContent menu={userClick} />
       </Wrapper>
     </>
