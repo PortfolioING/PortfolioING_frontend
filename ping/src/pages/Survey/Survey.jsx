@@ -1,18 +1,10 @@
 import Menu from "../../components/MenuBar/MenuBar";
 import "../../styles/CreatePortfolio.css";
-import Plus from "../../asset/plus.svg";
 
-import FormLabel from "../../components/Form/FormLabel";
-import FormField from "../../components/Form/FormField";
 import Button from "../../components/Button/Button";
-import {
-  Wrapper,
-  PortfolioTitle,
-  PortfolioForm,
-  FileLabel,
-} from "./Survey.styles";
+import { Wrapper, PortfolioTitle } from "./Survey.styles";
 import ProjectSurvey from "./ProjectSurvey";
-import FileUpdate from "../../components/FileUpdate/FileUpdate";
+import PortfolioForm from "./PortfolioForm";
 
 import { useState } from "react";
 
@@ -35,30 +27,7 @@ const PortfolioCreation = () => {
   return (
     <Wrapper>
       <PortfolioTitle>포트폴리오 생성하기</PortfolioTitle>
-      <PortfolioForm>
-        <FormField id="name" label="1. 이름을 입력해주세요." chat="true" />
-        <FormField
-          id="introduction"
-          label="2. 자기소개를 해주세요."
-          chat="true"
-          height="200px"
-        />
-
-        <div
-          style={{
-            marginBottom: "20px",
-          }}
-        >
-          <FormLabel htmlFor="photo">3. 본인의 사진을 선택해주세요.</FormLabel>
-          <FileUpdate />
-        </div>
-        <FormField
-          id="portfolio-title"
-          label=" 4. 포트폴리오 제목을 입력해주세요."
-          chat="true"
-        />
-      </PortfolioForm>
-
+      <PortfolioForm />
       <Button
         btnborderradius="20px"
         onClick={handleAddProject}

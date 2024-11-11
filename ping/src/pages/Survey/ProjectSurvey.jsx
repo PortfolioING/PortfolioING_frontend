@@ -1,8 +1,6 @@
-import { useState } from "react";
 import FormLabel from "../../components/Form/FormLabel";
 import FormField from "../../components/Form/FormField";
-import { Wrapper, PortfolioTitle, PortfolioForm } from "./Survey.styles";
-import { FileLabel } from "./ProjectSurvey.styles";
+import { Wrapper, PortfolioTitle, PortfolioFormWrapper } from "./Survey.styles";
 import DateForm from "./DateForm";
 import CategoryForm from "./CategoryForm";
 import FileUpdate from "../../components/FileUpdate/FileUpdate";
@@ -11,7 +9,7 @@ const ProjectSurvey = ({ projectNum }) => {
   return (
     <Wrapper>
       <PortfolioTitle>프로젝트 {projectNum}</PortfolioTitle>
-      <PortfolioForm>
+      <PortfolioFormWrapper>
         <FormField
           id="project-name"
           label="1. 프로젝트 제목을 입력해주세요."
@@ -59,7 +57,7 @@ const ProjectSurvey = ({ projectNum }) => {
           <FormLabel>7. 자신의 역할을 선택해주세요.</FormLabel>
           <CategoryForm />
         </div>
-      </PortfolioForm>
+      </PortfolioFormWrapper>
     </Wrapper>
   );
 };
