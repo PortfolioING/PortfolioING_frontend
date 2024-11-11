@@ -56,15 +56,15 @@ const Category = styled.div`
   color: ${({ category }) => {
     switch (category) {
       case "프론트":
-        return "#cd12dd";
+        return "#585EFD";
       case "백":
-        return "#3621B7";
+        return "#37D0FD";
       case "디자인":
-        return "#21B76F";
+        return "#16FF00";
       case "UI/UX":
-        return "#FF9D00";
+        return "#FF7878";
       case "게임 개발":
-        return "#00DDFF";
+        return "#90FFCE";
       default:
         return "#000"; // 기본 색상 (필요에 따라 변경 가능)
     }
@@ -73,15 +73,15 @@ const Category = styled.div`
     ${({ category }) => {
       switch (category) {
         case "프론트":
-          return "#cd12dd";
+          return "#585EFD";
         case "백":
-          return "#3621B7";
+          return "#37D0FD";
         case "디자인":
-          return "#21B76F";
+          return "#16FF00";
         case "UI/UX":
-          return "#FF9D00";
+          return "#FF7878";
         case "게임 개발":
-          return "#00DDFF";
+          return "#90FFCE";
         default:
           return "#000"; // 기본 색상 (필요에 따라 변경 가능)
       }

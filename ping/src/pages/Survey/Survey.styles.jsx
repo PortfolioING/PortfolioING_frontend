@@ -23,10 +23,6 @@ const PortfolioForm = styled.form`
   width: var(--container-width);
 `;
 
-const HiddenFileInput = styled.input.attrs({ type: "file" })`
-  display: none;
-`;
-
 const FileLabel = styled.label`
   float: left;
   display: flex;
@@ -42,4 +38,4 @@ const FileLabel = styled.label`
   }
 `;
 
-export { Wrapper, PortfolioTitle, PortfolioForm, HiddenFileInput, FileLabel };
+export { Wrapper, PortfolioTitle, PortfolioForm, FileLabel };
