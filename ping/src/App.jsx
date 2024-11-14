@@ -3,6 +3,7 @@ import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import "./reset.css";
 import "./App.css";
+import { LoginProvider } from "./pages/LoginContext";
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
@@ -31,7 +32,9 @@ const App = () => {
     <>
       <GlobalStyle />
       <Normalize />
-      <Router />
+      <LoginProvider>
+        <Router />
+      </LoginProvider>
     </>
   );
 };

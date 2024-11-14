@@ -3,6 +3,7 @@ import { Wrapper, LeftWrapper, Title, Nav } from "./User.styles";
 import MainContent from "./MainContent";
 
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const LeftSideBar = ({ handleClick, activeId }) => {
   return (
@@ -38,10 +39,17 @@ const LeftSideBar = ({ handleClick, activeId }) => {
 };
 
 export default function User() {
-  const [userClick, setUSerClick] = useState("1");
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+
+  const [userClick, setUSerClick] = useState(id || "1");
+
   const handleClick = (e) => {
-    setUSerClick(e.target.id);
+    const selectedId = e.target.id;
+    setUSerClick(selectedId);
+    navigate(`/user/${selectedId}`); // URL을 업데이트
   };
+
   return (
     <>
       <MenuBar />
