@@ -75,7 +75,7 @@ function LoginPage() {
         <Button
           btnfontSize="20px"
           btnborderradius="50px"
-          childern="Login"
+          children="Login"
           btnbordercolor="#e4ff0d"
           btnwidth="350px"
           btnheight="50px"

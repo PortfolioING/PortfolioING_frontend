@@ -42,7 +42,7 @@ const UserProfileEditor = () => {
             style={{ marginLeft: "12px" }}
             isDisabled={true}
             btnfontSize="16px"
-            childern="인증하기"
+            children="인증하기"
             btnbordercolor="#C5C5C5"
             btnfontcolor="#C5C5C5"
             btnwidth="132px"
@@ -62,7 +62,7 @@ const UserProfileEditor = () => {
         <Button
           onClick={handleSaveBtn}
           btnfontSize="16px"
-          childern="저장"
+          children="저장"
           btnbordercolor="#FFFFFF"
           btnfontcolor="#FFFFFF"
           btnwidth="132px"

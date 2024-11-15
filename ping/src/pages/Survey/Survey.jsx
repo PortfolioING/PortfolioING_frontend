@@ -35,7 +35,7 @@ const PortfolioCreation = () => {
       <Button
         btnborderradius="15px"
         onClick={handleAddProject}
-        childern="+ 프로젝트 추가하기"
+        children="+ 프로젝트 추가하기"
         btnbordercolor="#000000"
         btnfontcolor="white"
         btnfontSize="20px"
@@ -46,7 +46,7 @@ const PortfolioCreation = () => {
       <Button
         style={{ marginTop: "20px" }}
         btnborderradius="15px"
-        childern="템플릿 선택하러가기"
+        children="템플릿 선택하러가기"
         btnfontSize="20px"
         btnwidth="190px"
         btnheight="50px"

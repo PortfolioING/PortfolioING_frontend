@@ -38,7 +38,7 @@ const PriceDiv = ({ title, price, using }) => {
         isDisabled={using ? true : false}
         btnwidth="94px"
         btnheight="30px"
-        childern={using ? "이용중" : "구독하기"}
+        children={using ? "이용중" : "구독하기"}
       />
     </PriceDivWrapper>
   );

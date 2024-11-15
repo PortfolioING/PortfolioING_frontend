@@ -32,6 +32,7 @@ const TemplateWrapper = styled.div`
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      cursor: pointer;
     }
     > .template {
       margin: 0 30px;

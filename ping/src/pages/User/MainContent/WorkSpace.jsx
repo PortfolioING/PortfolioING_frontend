@@ -2,7 +2,6 @@ import Portfolio from "../../../components/Portfolio/Portfolio";
 import Search from "../../../asset/search.svg";
 import { Wrapper, Title } from "../MainContent.styles";
 import styled from "styled-components";
-import Button from "../../../components/Button/Button";
 const PortfolioWrapper = styled.div`
   display: flex;
   flex-direction: column;
