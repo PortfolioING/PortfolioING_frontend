@@ -28,7 +28,7 @@ const PopupWrapper = styled.div`
 const PayContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 366px;
   height: 45px;
   padding: 10px;
@@ -38,20 +38,28 @@ const PayContainer = styled.div`
   font-size: 20px;
   margin-top: 20px;
   box-sizing: border-box;
-  .round {
-    border: 0.5px solid ${({ isActive }) => (isActive ? "#E4FF0D" : "black")};
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
+  > img {
+    width: 80px;
+  }
+  > div {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    > .small-round {
-      width: 20px;
-      height: 20px;
+    > .round {
+      border: 0.5px solid ${({ isActive }) => (isActive ? "#E4FF0D" : "black")};
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
-      background-color: ${({ isActive }) => (isActive ? "#E4FF0D" : "white")};
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > .small-round {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: ${({ isActive }) => (isActive ? "#E4FF0D" : "white")};
+      }
     }
   }
 `;
