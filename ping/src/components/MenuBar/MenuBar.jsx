@@ -33,7 +33,16 @@ function Menu() {
           <p onClick={navigatePrice}>요금</p>
         </div>
         <div className="wrap_menu">
-          <p onClick={navigateUserPage}>My Page</p>
+          {isLoggedIn ? (
+            <>
+              <p onClick={navigateUserPage}>My Page</p>
+            </>
+          ) : (
+            <>
+              <p onClick={navigateLoginPage}>My Page</p>
+            </>
+          )}
+
           {isLoggedIn ? (
             <>
               <button className="free_btn" onClick={navigateSurvey}>

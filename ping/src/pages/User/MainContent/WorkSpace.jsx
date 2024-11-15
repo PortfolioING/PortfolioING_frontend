@@ -22,31 +22,8 @@ const WorkSpace = () => {
     {
       title: "동아리용 포폴",
       img: "http://via.placeholder.com/240x240",
-      categories: "프론트, 백, 게임 개발, 디자인, UI/UX",
-      last: "2024/11/05",
-    },
-    {
-      title: "동아리용 포폴",
-      img: "http://via.placeholder.com/240x240",
-      categories: "프론트, 백, 게임 개발, 디자인, UI/UX",
-      last: "2024/11/05",
-    },
-    {
-      title: "동아리용 포폴",
-      img: "http://via.placeholder.com/240x240",
-      categories: "프론트, 백, 게임 개발, 디자인, UI/UX",
-      last: "2024/11/05",
-    },
-    {
-      title: "동아리용 포폴",
-      img: "http://via.placeholder.com/240x240",
-      categories: "프론트, 백, 게임 개발, 디자인, UI/UX",
-      last: "2024/11/05",
-    },
-    {
-      title: "동아리용 포폴",
-      img: "http://via.placeholder.com/240x240",
-      categories: "프론트, 백, 게임 개발, 디자인, UI/UX",
+      categories:
+        "프론트엔드, 백엔드, 디자인, UI/UX, 안드로이드, IOS, 기획, AI, 보안 ",
       last: "2024/11/05",
     },
   ];
