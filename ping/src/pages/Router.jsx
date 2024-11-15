@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Main from "./Main/Main";
 import Login from "./Login/Login";
 import User from "./User/User";
@@ -21,6 +25,10 @@ const Router = () => {
     {
       path: "/user",
       element: <User />,
+    },
+    {
+      path: "/user",
+      element: <Navigate to="/user/1" />,
     },
     {
       path: "/porfolio",

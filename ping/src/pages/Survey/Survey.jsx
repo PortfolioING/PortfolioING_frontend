@@ -1,18 +1,10 @@
 import Menu from "../../components/MenuBar/MenuBar";
 import "../../styles/CreatePortfolio.css";
-import Plus from "../../asset/plus.svg";
 
-import FormLabel from "../../components/Form/FormLabel";
-import FormField from "../../components/Form/FormField";
 import Button from "../../components/Button/Button";
-import {
-  Wrapper,
-  PortfolioTitle,
-  PortfolioForm,
-  FileLabel,
-} from "./Survey.styles";
+import { Wrapper, PortfolioTitle } from "./Survey.styles";
 import ProjectSurvey from "./ProjectSurvey";
-import FileUpdate from "../../components/FileUpdate/FileUpdate";
+import PortfolioForm from "./PortfolioForm";
 
 import { useState } from "react";
 
@@ -35,32 +27,13 @@ const PortfolioCreation = () => {
   return (
     <Wrapper>
       <PortfolioTitle>포트폴리오 생성하기</PortfolioTitle>
-      <PortfolioForm>
-        <FormField id="name" label="1. 이름을 입력해주세요." chat="true" />
-        <FormField
-          id="introduction"
-          label="2. 자기소개를 해주세요."
-          chat="true"
-          height="200px"
-        />
+      <PortfolioForm />
 
-        <div
-          style={{
-            marginBottom: "20px",
-          }}
-        >
-          <FormLabel htmlFor="photo">3. 본인의 사진을 선택해주세요.</FormLabel>
-          <FileUpdate />
-        </div>
-        <FormField
-          id="portfolio-title"
-          label=" 4. 포트폴리오 제목을 입력해주세요."
-          chat="true"
-        />
-      </PortfolioForm>
-
+      {projects.map((project) => (
+        <ProjectSurvey key={project.id} projectNum={project.id} />
+      ))}
       <Button
-        btnborderradius="20px"
+        btnborderradius="15px"
         onClick={handleAddProject}
         childern="+ 프로젝트 추가하기"
         btnbordercolor="#000000"
@@ -70,16 +43,14 @@ const PortfolioCreation = () => {
         btnheight="50px"
         btnbackgroundcolor="#000000"
       />
-      {projects.map((project) => (
-        <ProjectSurvey key={project.id} projectNum={project.id} />
-      ))}
       <Button
         style={{ marginTop: "20px" }}
-        btnborderradius="20px"
-        childern="포토폴리오 만들기 >"
+        btnborderradius="15px"
+        childern="템플릿 선택하러가기"
         btnfontSize="20px"
         btnwidth="190px"
         btnheight="50px"
+        btnbackgroundcolor="#E4FF0D"
         onClick={handleClick}
       />
     </Wrapper>

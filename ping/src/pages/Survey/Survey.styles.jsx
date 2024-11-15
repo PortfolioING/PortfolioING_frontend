@@ -17,7 +17,7 @@ const PortfolioTitle = styled.div`
   margin: 30px 0;
 `;
 
-const PortfolioForm = styled.form`
+const PortfolioFormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   width: var(--container-width);
@@ -38,4 +38,4 @@ const FileLabel = styled.label`
   }
 `;
 
-export { Wrapper, PortfolioTitle, PortfolioForm, FileLabel };
+export { Wrapper, PortfolioTitle, PortfolioFormWrapper, FileLabel };

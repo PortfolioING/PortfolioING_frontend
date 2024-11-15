@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import { Label, PreviewWrapper, ImgWrapper } from "./FileUpdate.styles";
-
+import Plus from "../../asset/plus.svg";
 const Img = ({ previewSrc, onClick }) => {
   return (
     <ImgWrapper>
       <img src={previewSrc} alt="미리보기" />
-      <button onClick={onClick}>+</button>
+      <button type="button" onClick={onClick}>
+        <img src={Plus} alt="plus icon" />
+      </button>
     </ImgWrapper>
   );
 };
 
-const FileUpdate = () => {
-  const [previewSrc, setPreviewSrc] = useState("");
+const FileUpdate = ({ defaultImg }) => {
+  console.log(defaultImg);
+  const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
+  const uniqueId = useId();
 
   const handleFileChange = (event) => {
     event.preventDefault();
@@ -26,18 +30,18 @@ const FileUpdate = () => {
   };
 
   const triggerFileInput = () => {
-    document.getElementById("file").click();
+    document.getElementById(uniqueId).click();
   };
 
   return (
     <PreviewWrapper>
       <input
-        id="file"
+        id={uniqueId}
         type="file"
         onChange={handleFileChange}
         style={{ display: "none" }}
       />
-      <Label htmlFor="file">
+      <Label htmlFor={uniqueId}>
         {previewSrc ? (
           <Img previewSrc={previewSrc} onClick={triggerFileInput} />
         ) : (
