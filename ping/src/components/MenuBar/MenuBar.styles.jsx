@@ -41,6 +41,9 @@ const Bar = styled.div`
       cursor: pointer;
       line-height: 108px;
     }
+    > img {
+      width: 60px;
+    }
   }
   .wrap_menu {
     display: flex;

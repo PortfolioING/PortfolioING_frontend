@@ -3,6 +3,7 @@ import "./MenuBar.styles";
 import { Bar, Placeholder } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../pages/LoginContext";
+import Ping from "../../asset/ping.svg";
 function Menu() {
   const navigate = useNavigate();
   const navigateToLogin = () => {
@@ -27,7 +28,7 @@ function Menu() {
       <Placeholder />
       <Bar>
         <div className="left_menu">
-          <p>🤍</p>
+          <img src={Ping} />
           <p>about PING</p>
           <p onClick={navigatePrice}>요금</p>
         </div>

@@ -76,4 +76,34 @@ const DateWrapper = styled.div`
   }
 `;
 
-export { FileLabel, Category, CategoryFormWrapper, DateWrapper };
+const ProblemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 0.5px dotted #c1c1c1;
+  > p {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+`;
+const ProblemBtn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+  > img {
+    width: 20px;
+  }
+  font-weight: 700;
+`;
+
+export {
+  FileLabel,
+  Category,
+  CategoryFormWrapper,
+  DateWrapper,
+  ProblemWrapper,
+  ProblemBtn,
+};

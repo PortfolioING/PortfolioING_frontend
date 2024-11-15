@@ -9,6 +9,7 @@ const Label = styled.label`
   color: #c1c1c1;
   border-radius: 20px;
   box-sizing: border-box;
+  text-align: center;
 `;
 
 const ImgWrapper = styled.div`

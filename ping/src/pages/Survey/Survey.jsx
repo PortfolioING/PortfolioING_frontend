@@ -28,8 +28,12 @@ const PortfolioCreation = () => {
     <Wrapper>
       <PortfolioTitle>포트폴리오 생성하기</PortfolioTitle>
       <PortfolioForm />
+
+      {projects.map((project) => (
+        <ProjectSurvey key={project.id} projectNum={project.id} />
+      ))}
       <Button
-        btnborderradius="20px"
+        btnborderradius="15px"
         onClick={handleAddProject}
         childern="+ 프로젝트 추가하기"
         btnbordercolor="#000000"
@@ -39,16 +43,14 @@ const PortfolioCreation = () => {
         btnheight="50px"
         btnbackgroundcolor="#000000"
       />
-      {projects.map((project) => (
-        <ProjectSurvey key={project.id} projectNum={project.id} />
-      ))}
       <Button
         style={{ marginTop: "20px" }}
-        btnborderradius="20px"
-        childern="포토폴리오 만들기 >"
+        btnborderradius="15px"
+        childern="템플릿 선택하러가기"
         btnfontSize="20px"
         btnwidth="190px"
         btnheight="50px"
+        btnbackgroundcolor="#E4FF0D"
         onClick={handleClick}
       />
     </Wrapper>
