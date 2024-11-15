@@ -11,6 +11,7 @@ const CATEGORY_OPTIONS = [
   "안드로이드",
   "IOS",
   "AI",
+  "UX/UI",
 ];
 
 const CategoryForm = () => {

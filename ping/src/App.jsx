@@ -12,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
     format("woff");
   font-weight: 400;
   font-style: normal;
-}
+   -ms-overflow-style: none;
+ }
+
 .react-datepicker {
   z-index: 5; /* 메뉴바보다 낮은 z-index 값 */
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const TemplateWrapper = styled.div`
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -18,7 +18,6 @@ const TemplateWrapper = styled.div`
   }
   > .show-template {
     width: 100%;
-    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,13 +32,14 @@ const TemplateWrapper = styled.div`
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      cursor: pointer;
     }
     > .template {
       margin: 0 30px;
-      width: 900px;
-      height: 454px;
       border-radius: 20px;
-      background-color: #e4ff0d;
+      > img {
+        width: 850px;
+      }
     }
   }
 `;

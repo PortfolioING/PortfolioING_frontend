@@ -7,3 +7,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 특정 부분에서 스크롤바 숨기기 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  -ms-overflow-style: none; /* Internet Explorer 및 Edge에서 스크롤바 숨기기 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
+}
+
+.scrollable-container {
+  overflow: auto;
+  -ms-overflow-style: none; /* Internet Explorer 및 Edge에서 스크롤바 숨기기 */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari에서 스크롤바 숨기기 */
+}

@@ -27,6 +27,9 @@ const PriceDivWrapper = styled.div`
   }
 `;
 const PriceDiv = ({ title, price, using }) => {
+  const handleClick = () => {
+    alert("현재 이용할 수 없습니다");
+  };
   return (
     <PriceDivWrapper using={using}>
       <div className="title">{title}</div>
@@ -35,10 +38,11 @@ const PriceDiv = ({ title, price, using }) => {
         <p>/ 월</p>
       </div>
       <Button
+        onClick={handleClick}
         isDisabled={using ? true : false}
         btnwidth="94px"
         btnheight="30px"
-        childern={using ? "이용중" : "구독하기"}
+        children={using ? "이용중" : "구독하기"}
       />
     </PriceDivWrapper>
   );
