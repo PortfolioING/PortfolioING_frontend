@@ -42,3 +42,18 @@ const App = () => {
 };
 
 export default App;
+// import React from 'react';
+// import UserDetail from './UserDetail';
+
+// function App() {
+//     const userId = 1; // 예시로 사용할 유저 ID
+
+//     return (
+//         <div>
+//             <h1>PING 애플리케이션</h1>
+//             <UserDetail userId={userId} />
+//         </div>
+//     );
+// }
+
+// export default App;
