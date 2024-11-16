@@ -89,7 +89,7 @@ const PayDiv = () => {
         btnfontSize="15px"
         btnwidth="620px"
         btnheight="45px"
-        childern="+ 결제 수단 등록"
+        children="+ 결제 수단 등록"
       />
     </>
   );

@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import MenuBar from "../../components/MenuBar/MenuBar";
 import { PriceContainer, StyledPriceCard } from "./Price.styles";
+import { useContext } from "react";
+import { LoginContext } from "../LoginContext";
 export default function PricePage() {
   return (
     <>
@@ -23,6 +26,17 @@ export default function PricePage() {
   );
 }
 function PriceCard({ title, desc, price, color }) {
+  const { isLoggedIn } = useContext(LoginContext);
+  const navigate = useNavigate();
+  const navigateLoginPage = () => {
+    navigate("/login");
+  };
+  const navigateSurvey = () => {
+    navigate("/user?id=2");
+  };
+  const handleClick = () => {
+    isLoggedIn ? navigateSurvey() : navigateLoginPage();
+  };
   return (
     <StyledPriceCard color={color}>
       <div className="price-card-title">{title}</div>
@@ -31,7 +45,9 @@ function PriceCard({ title, desc, price, color }) {
         <p className="price-card-value">{price}원</p>
         <p className="price-card-duration">/ 월</p>
       </div>
-      <button className={`price-card-button`}>선택</button>
+      <button className={`price-card-button`} onClick={handleClick}>
+        선택
+      </button>
     </StyledPriceCard>
   );
 }

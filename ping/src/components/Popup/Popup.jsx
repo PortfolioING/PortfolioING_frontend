@@ -1,6 +1,8 @@
 import { PayContainer, PopupWrapper } from "./Popup.styles";
-
-const PayDiv = ({ name, selectedMethods = [], togglePayMethod }) => {
+import NaverPay from "../../asset/naverpay.svg";
+import KakaoPay from "../../asset/kakaopay.png";
+import TossPay from "../../asset/tosspay.png";
+const PayDiv = ({ name, selectedMethods = [], togglePayMethod, img }) => {
   const isActive = selectedMethods.includes(name);
   const handleClick = () => {
     togglePayMethod(name);
@@ -8,10 +10,13 @@ const PayDiv = ({ name, selectedMethods = [], togglePayMethod }) => {
 
   return (
     <PayContainer isActive={isActive}>
-      <div className="round" onClick={handleClick}>
-        <div className="small-round"></div>
+      <div>
+        <div className="round" onClick={handleClick}>
+          <div className="small-round"></div>
+        </div>
+        <p>{name}</p>
       </div>
-      <p>{name}</p>
+      <img src={img} style={{ float: "right" }} />
     </PayContainer>
   );
 };
@@ -46,16 +51,19 @@ const PopUp = ({ handlePopupClose, selectedMethods = [], togglePayMethod }) => {
           name="네이버"
           selectedMethods={selectedMethods}
           togglePayMethod={togglePayMethod}
+          img={NaverPay}
         />
         <PayDiv
           name="카카오페이"
           selectedMethods={selectedMethods}
           togglePayMethod={togglePayMethod}
+          img={KakaoPay}
         />
         <PayDiv
           name="토스"
           selectedMethods={selectedMethods}
           togglePayMethod={togglePayMethod}
+          img={TossPay}
         />
       </PopupWrapper>
     </div>

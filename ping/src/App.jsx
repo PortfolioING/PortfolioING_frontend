@@ -3,6 +3,7 @@ import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import "./reset.css";
 import "./App.css";
+import { LoginProvider } from "./pages/LoginContext";
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
@@ -11,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
     format("woff");
   font-weight: 400;
   font-style: normal;
-}
+   -ms-overflow-style: none;
+ }
+
 .react-datepicker {
   z-index: 5; /* 메뉴바보다 낮은 z-index 값 */
 }
@@ -31,7 +34,9 @@ const App = () => {
     <>
       <GlobalStyle />
       <Normalize />
-      <Router />
+      <LoginProvider>
+        <Router />
+      </LoginProvider>
     </>
   );
 };

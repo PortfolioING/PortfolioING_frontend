@@ -11,7 +11,7 @@ const Simple = ({ mainColor = "" }) => {
       {
         number: "01",
         title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?sjsjjsjsjsjsjsj",
+        desc: "이거슨 프로젝트일까나..?몰라몰라몰라몰라몰라몰라몰라몰라",
         categories: ["프론트", "집갈래"],
       },
       {

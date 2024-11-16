@@ -13,6 +13,9 @@ import {
   Form,
 } from "./Login.styles";
 import Button from "../../components/Button/Button";
+import { useContext } from "react";
+import { LoginContext } from "../LoginContext";
+import { useNavigate } from "react-router-dom";
 
 function LogoSection() {
   return (
@@ -26,12 +29,18 @@ function LogoSection() {
 }
 
 function AccountCreationSection() {
+  const { login } = useContext(LoginContext);
+  const navigate = useNavigate();
+  const handlerClick = () => {
+    login();
+    navigate("/");
+  };
   return (
     <AccountCreationWrapper>
       <UnderlineText>
         <p className="text">Create an Account</p>
       </UnderlineText>
-      <GitImage src={GitLogo} alt="Git login button" />
+      <GitImage src={GitLogo} alt="Git login button" onClick={handlerClick} />
     </AccountCreationWrapper>
   );
 }
@@ -66,7 +75,7 @@ function LoginPage() {
         <Button
           btnfontSize="20px"
           btnborderradius="50px"
-          childern="Login"
+          children="Login"
           btnbordercolor="#e4ff0d"
           btnwidth="350px"
           btnheight="50px"

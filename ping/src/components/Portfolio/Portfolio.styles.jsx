@@ -40,14 +40,15 @@ const PortfolioDesc = styled.div`
   }
 `;
 const Category = styled.div`
-  width: 50px;
+  width: 55px;
   height: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 3px;
   box-sizing: border-box;
-  background-color: #f4f4f4;
+  background-color: #f6f5f5;
+  color: white;
   border-radius: 5px;
 
   font-size: 10px;
@@ -55,16 +56,26 @@ const Category = styled.div`
 
   color: ${({ category }) => {
     switch (category) {
-      case "프론트":
-        return "#cd12dd";
-      case "백":
-        return "#3621B7";
+      case "프론트엔드":
+        return "#DF0DF1";
+      case "백엔드":
+        return "#0C4CBB";
       case "디자인":
-        return "#21B76F";
+        return "#00DA95";
       case "UI/UX":
-        return "#FF9D00";
-      case "게임 개발":
-        return "#00DDFF";
+        return "#FC7831";
+      case "보안":
+        return "#43874B";
+      case "안드로이드":
+        return "#DBDE44";
+      case "PM":
+        return "#23BCCA";
+      case "기획":
+        return "#FF0D6E";
+      case "IOS":
+        return "#82DE44";
+      case "AI":
+        return "#D71F1F";
       default:
         return "#000"; // 기본 색상 (필요에 따라 변경 가능)
     }
@@ -72,16 +83,26 @@ const Category = styled.div`
   border: 1px solid
     ${({ category }) => {
       switch (category) {
-        case "프론트":
-          return "#cd12dd";
-        case "백":
-          return "#3621B7";
+        case "프론트엔드":
+          return "#DF0DF1";
+        case "백엔드":
+          return "#0C4CBB";
         case "디자인":
-          return "#21B76F";
+          return "#00DA95";
         case "UI/UX":
-          return "#FF9D00";
-        case "게임 개발":
-          return "#00DDFF";
+          return "#FC7831";
+        case "보안":
+          return "#43874B";
+        case "안드로이드":
+          return "#DBDE44";
+        case "PM":
+          return "#23BCCA";
+        case "기획":
+          return "#FF0D6E";
+        case "IOS":
+          return "#82DE44";
+        case "AI":
+          return "#D71F1F";
         default:
           return "#000"; // 기본 색상 (필요에 따라 변경 가능)
       }

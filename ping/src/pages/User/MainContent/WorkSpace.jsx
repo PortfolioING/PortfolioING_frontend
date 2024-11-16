@@ -18,64 +18,37 @@ const PortfolioWrapper = styled.div`
   }
 `;
 const WorkSpace = () => {
-  const portfolios = [];
+  const portfolios = [
+    {
+      title: "동아리용 포폴",
+      img: "http://via.placeholder.com/240x240",
+      categories:
+        "프론트엔드, 백엔드, 디자인, UI/UX, 안드로이드, IOS, 기획, AI, 보안 ",
+      last: "2024/11/05",
+    },
+  ];
   return (
     <Wrapper>
       <Title>
-        <div className="title">나의 포트폴리오</div>
+        <div className="title">
+          <p>나의 포트폴리오</p>
+        </div>
         <div className="search-wrapper">
           <input type="text" placeholder="포토폴리오 검색" />
           <img src={Search} alt="search icon" />
         </div>
       </Title>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
-      <PortfolioWrapper>
-        <Portfolio
-          title="동아리용 포폴"
-          img="http://via.placeholder.com/240x240"
-          categories="프론트, 백, 게임 개발, 디자인, UI/UX"
-          last="2024/11/05"
-        />
-      </PortfolioWrapper>
+
+      {portfolios.map((portfolio) => (
+        <PortfolioWrapper>
+          <Portfolio
+            title={portfolio.title}
+            img={portfolio.img}
+            categories={portfolio.categories}
+            last={portfolio.last}
+          />
+        </PortfolioWrapper>
+      ))}
     </Wrapper>
   );
 };

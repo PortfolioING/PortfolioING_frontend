@@ -5,7 +5,6 @@ const FileLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 230px;
   height: 50px;
 
@@ -57,7 +56,8 @@ const Category = styled.div`
   font-weight: 600;
   cursor: pointer;
   color: ${(props) => (props.isActive ? "#fff" : "#707070")};
-  background-color: ${(props) => (props.isActive ? "#fbb7cb" : "#FFE3E1")};
+  background-color: ${(props) => (props.isActive ? "#00B3D7" : "#D7F8FF")};
+  border: 2px solid ${(props) => (props.isActive ? "#007992" : "#D7F8FF")};
 `;
 
 const DateWrapper = styled.div`
@@ -77,4 +77,34 @@ const DateWrapper = styled.div`
   }
 `;
 
-export { FileLabel, Category, CategoryFormWrapper, DateWrapper };
+const ProblemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 0.5px dotted #c1c1c1;
+  > p {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+`;
+const ProblemBtn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+  > img {
+    width: 20px;
+  }
+  font-weight: 700;
+`;
+
+export {
+  FileLabel,
+  Category,
+  CategoryFormWrapper,
+  DateWrapper,
+  ProblemWrapper,
+  ProblemBtn,
+};

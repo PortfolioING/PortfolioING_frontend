@@ -28,7 +28,7 @@ const Portfolio = (props) => {
         </div>
         <div className="btn-wrapper">
           <Button
-            childern="보기"
+            children="보기"
             btnbordercolor="black"
             btnfontcolor="white"
             btnwidth="100px"
@@ -37,7 +37,7 @@ const Portfolio = (props) => {
             btnbackgroundcolor="black"
           />
           <Button
-            childern="수정"
+            children="수정"
             btnbordercolor="black"
             btnfontcolor="black"
             btnwidth="100px"

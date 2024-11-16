@@ -17,14 +17,10 @@ const PortfolioTitle = styled.div`
   margin: 30px 0;
 `;
 
-const PortfolioForm = styled.form`
+const PortfolioFormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   width: var(--container-width);
-`;
-
-const HiddenFileInput = styled.input.attrs({ type: "file" })`
-  display: none;
 `;
 
 const FileLabel = styled.label`
@@ -42,4 +38,4 @@ const FileLabel = styled.label`
   }
 `;
 
-export { Wrapper, PortfolioTitle, PortfolioForm, HiddenFileInput, FileLabel };
+export { Wrapper, PortfolioTitle, PortfolioFormWrapper, FileLabel };
