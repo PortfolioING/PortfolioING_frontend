@@ -15,7 +15,9 @@ const Login = (email, password) => {
         },
       })
       .then((response) => {
-        console.log("성공");
+        sessionStorage.setItem("userId", result.data.userId); // 세션에 사용자 ID 저장
+        console.log("사용자 정보 저장 성공: ", sessionStorage.getItem("userId"));
+        console.log("성공: ", reponse.data);
       })
       .catch((error) => {
         if (error.response.status === 401) {

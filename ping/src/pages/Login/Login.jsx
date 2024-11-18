@@ -15,6 +15,7 @@ import {
 import Button from "../../components/Button/Button";
 import Login from "../../apis/login";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function LogoSection() {
   return (
@@ -48,9 +49,24 @@ function LoginForm({ children }) {
 
 function LoginPage() {
   const navigate = useNavigate();
-  const handlerClick = () => {
-    Login();
+  const [email, setEmail] = useState(""); // 이메일 상태 저장
+  const [password, setPassword] = useState(""); // 비밀번호 상태 저장
+  
+  const handlerClick = async (event) => {
+
+    try {
+      const result = await Login(email, password);
+      if (result) {
+        console.log("로그인 성공");
+        navigate("/"); // 로그인 성공시 redirection
+      } else {
+        console.log("로그인 실패");
+      }
+    } catch (error) {
+      console.error("로그인 중 오류 발생:", error);
+    }
   };
+
   return (
     <Wrapper>
       <LogoSection />
