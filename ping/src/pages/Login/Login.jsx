@@ -51,14 +51,19 @@ function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState(""); // 이메일 상태 저장
   const [password, setPassword] = useState(""); // 비밀번호 상태 저장
+
+  const navigateToLoginSuccess = () => {
+    navigate("/");
+  };
   
   const handlerClick = async (event) => {
+    event.preventDefault();
 
     try {
       const result = await Login(email, password);
       if (result) {
         console.log("로그인 성공");
-        navigate("/"); // 로그인 성공시 redirection
+        navigateToLoginSuccess(); // 로그인 성공시 redirection
       } else {
         console.log("로그인 실패");
       }
@@ -76,6 +81,8 @@ function LoginPage() {
           placeholder="ping@konkuk.ac.kr"
           width="350px"
           height="50px"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <FormField
           label="Password"
@@ -83,6 +90,8 @@ function LoginPage() {
           placeholder="●●●●●●●●"
           width="350px"
           height="50px"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button

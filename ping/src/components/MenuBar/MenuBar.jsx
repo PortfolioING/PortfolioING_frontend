@@ -8,6 +8,10 @@ function Menu() {
   const navigateToLogin = () => {
     navigate("/login");
   };
+  const navigateToLogout = () => {
+    sessionStorage.clear("userId");
+    navigate("/");
+  };
   const navigatePrice = () => {
     navigate("/price");
   };
@@ -21,7 +25,7 @@ function Menu() {
     navigate("/survey");
   };
 
-  const loginIn = sessionStorage.getItem("isLogin");
+  const loginIn = sessionStorage.getItem("userId"); // 로그인 정보를 가져옴
   return (
     <>
       <Placeholder />
@@ -35,21 +39,16 @@ function Menu() {
           {loginIn ? (
             <>
               <p onClick={navigateUserPage}>My Page</p>
-            </>
-          ) : (
-            <>
-              <p onClick={navigateLoginPage}>My Page</p>
-            </>
-          )}
-
-          {loginIn ? (
-            <>
+              <button className="login_btn" onClick={navigateToLogout}>
+                Logout
+              </button>
               <button className="free_btn" onClick={navigateSurvey}>
                 무료로 시작하기
               </button>
             </>
           ) : (
             <>
+              <p onClick={navigateLoginPage}>My Page</p>
               <button className="login_btn" onClick={navigateToLogin}>
                 Login
               </button>
