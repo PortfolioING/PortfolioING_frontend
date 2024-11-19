@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import "./MenuBar.styles";
 import { Bar, Placeholder } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../../pages/LoginContext";
+
 import Ping from "../../asset/ping.svg";
 function Menu() {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ function Menu() {
     navigate("/survey");
   };
 
-  const { isLoggedIn } = useContext(LoginContext);
+  const loginIn = sessionStorage.getItem("isLogin");
   return (
     <>
       <Placeholder />
@@ -33,7 +32,7 @@ function Menu() {
           <p onClick={navigatePrice}>요금</p>
         </div>
         <div className="wrap_menu">
-          {isLoggedIn ? (
+          {loginIn ? (
             <>
               <p onClick={navigateUserPage}>My Page</p>
             </>
@@ -43,7 +42,7 @@ function Menu() {
             </>
           )}
 
-          {isLoggedIn ? (
+          {loginIn ? (
             <>
               <button className="free_btn" onClick={navigateSurvey}>
                 무료로 시작하기

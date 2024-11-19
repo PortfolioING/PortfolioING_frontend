@@ -1,26 +1,38 @@
 import { useState, useEffect } from 'react';
 import APICall from "./apis/instance";
 
+import Login from "./apis/login";
 export default function UserDetail({ userId }) {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const [user, setUser] = useState('');
+    const email = "example@example.com";
+    const password = "password123";
+
+    Login(email, password).then((result) => {
+      if (result) {
+        console.log("로그인 성공");
+      } else {
+        console.log("로그인 실패");
+      }
+    });
+  };
 
   useEffect(() => {
-    APICall.get(`/api/auth/${userId}`) // '/api'로 시작하여 프록시가 동작하도록 설정
-      .then((response) => {
-        setUser(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (userId) {
+      APICall.get(`/api/auth/${userId}`)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   }, [userId]);
 
-  return <div key={user.userId}>
-          <h2>유저 상세 정보</h2>
-          <p><strong>유저 이름: </strong>{user.name}</p>
-          <p><strong>이메일: </strong>{user.email}</p>
-          <p><strong>닉네임: </strong>{user.nickname}</p>
-          <p><strong>프사 url: </strong>{user.profilePic}</p>
-  </div>;
+  return (
+    <div>
+      <button onClick={handleSubmit}>로그인 및 유저 상세 정보</button>
+    </div>
+  );
 }
