@@ -3,7 +3,7 @@
 // import { createGlobalStyle } from "styled-components";
 // import "./reset.css";
 // import "./App.css";
-// import { LoginProvider } from "./pages/LoginContext";
+
 // const GlobalStyle = createGlobalStyle`
 
 //   @font-face {
@@ -33,14 +33,11 @@
 //     <>
 //       <GlobalStyle />
 //       <Normalize />
-//       <LoginProvider>
-//         <Router />
-//       </LoginProvider>
+//       <Router />
 //     </>
 //   );
 // };
 
-//export default App;
 import React from "react";
 import UserDetail from "./UserDetail";
 
