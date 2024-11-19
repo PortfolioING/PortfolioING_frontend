@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MenuBar from "../../components/MenuBar/MenuBar";
 import { PriceContainer, StyledPriceCard } from "./Price.styles";
-import { useContext } from "react";
-import { LoginContext } from "../LoginContext";
+
 export default function PricePage() {
   return (
     <>
@@ -26,7 +25,6 @@ export default function PricePage() {
   );
 }
 function PriceCard({ title, desc, price, color }) {
-  const { isLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
   const navigateLoginPage = () => {
     navigate("/login");
