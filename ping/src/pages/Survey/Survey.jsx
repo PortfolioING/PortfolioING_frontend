@@ -11,26 +11,74 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PortfolioCreation = () => {
-  const [projects, setProjects] = useState([]);
-  const handleAddProject = (event) => {
-    setProjects((prevProjects) => [
-      ...prevProjects,
-      { id: prevProjects.length + 1 },
-    ]);
+  const [formData, setFormData] = useState({
+    portfolioData: {
+      name: "",
+      introduction: "",
+      portfolioTitle: "",
+      photo: null,
+    },
+    projects: [],
+  });
+
+  // 포트폴리오 데이터 update
+  const handlePortfolioChange = (data) => {
+    setFormData((prev) => ({
+      ...prev,
+      portfolioData: { ...prev.portfolioData, ...data },
+    }));
+    console.log("포트폴리오 데이터:", data); // 포트폴리오 데이터 확인
   };
+
+  // 프로젝트 데이터 update
+  const handleProjectChange = (projectId, data) => {
+    setFormData((prev) => {
+      const updatedProjects = prev.projects.map((project) =>
+        project.id === projectId ? { ...project, ...data } : project
+      );
+      return { ...prev, projects: updatedProjects };
+    });
+    console.log("프로젝트 데이터:", data); // 프로젝트 데이터 확인
+  };
+
+  const handleAddProject = (event) => {
+    setFormData((prev) => ({
+      ...prev,
+      projects: [
+        ...prev.projects,
+        {
+          id: prev.projects.length + 1,
+          projectName: "",
+          projectPhoto: null,
+          projectLink: "",
+          projectDescLine: "",
+          projectDesc: "",
+          category: "",
+          problems: [],
+        },
+      ],
+    }));
+  };
+
   const navigate = useNavigate();
   const handleClick = () => {
-    //서버에 설문 전송 코드 추가
+    //서버에 project, survey, portfolio POST 요청
     navigate("/templates");
   };
 
   return (
     <Wrapper>
       <PortfolioTitle>포트폴리오 생성하기</PortfolioTitle>
-      <PortfolioForm />
+      <PortfolioForm onChange={handlePortfolioChange} />
 
-      {projects.map((project) => (
-        <ProjectSurvey key={project.id} projectNum={project.id} />
+      {formData.projects.map((project) => (
+        <ProjectSurvey
+        key={project.id}
+        projectNum={project.id}
+        projectData={project}
+        onChange={(data) => handleProjectChange(project.id, data)}
+        // onChange={handleProjectChange}
+        />
       ))}
       <Button
         btnborderradius="15px"
