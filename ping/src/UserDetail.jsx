@@ -6,15 +6,11 @@ export default function UserDetail({ userId }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const email = "example@example.com";
-    const password = "password123";
+    const email = "seanlancekim0@gmail.com";
+    const password = "tksguqvld";
 
     Login(email, password).then((result) => {
-      if (result) {
-        console.log("로그인 성공");
-      } else {
-        console.log("로그인 실패");
-      }
+      console.log(result);
     });
   };
 
