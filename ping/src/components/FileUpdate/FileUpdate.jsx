@@ -13,7 +13,7 @@ const Img = ({ previewSrc, onClick }) => {
 };
 
 const FileUpdate = ({ defaultImg }) => {
-  console.log(defaultImg);
+  // console.log(defaultImg);
   const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
   const uniqueId = useId();
 
