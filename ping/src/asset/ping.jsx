@@ -1,5 +1,5 @@
 import React from "react";
-
+//pr 확인용
 const Ping = ({
   fillPath1 = "#E4FF0D",
 
