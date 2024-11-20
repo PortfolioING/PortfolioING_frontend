@@ -2,7 +2,7 @@ import FormField from "../../../components/Form/FormField";
 import Button from "../../../components/Button/Button";
 import styled from "styled-components";
 import FileUpdate from "../../../components/FileUpdate/FileUpdate";
-import Ping from "../../../asset/ping.svg";
+import Ping from "../../../asset/ping.jsx";
 const UserProfileWrapper = styled.div`
   padding-left: 40px;
   width: 400px;
@@ -29,8 +29,12 @@ const UserProfileEditor = () => {
           alignItems: "flex-start",
         }}
       >
+        <FormField label="Name" width="400px" height="50px" />
         <FormField label="NickName" width="400px" height="50px" />
+        <FormField label="Password" width="400px" height="50px" />
+        {/* 이 주석 지우지 마세요 - ㄱㄷㅎ  
         <FormField label="Job" width="400px" height="50px" />
+         
         <div
           style={{
             display: "flex",
@@ -48,8 +52,8 @@ const UserProfileEditor = () => {
             btnwidth="132px"
             btnheight="50px"
             btnbackgroundcolor="white"
-          />
-        </div>
+          /> 
+        </div>*/}
       </div>
 
       <div
