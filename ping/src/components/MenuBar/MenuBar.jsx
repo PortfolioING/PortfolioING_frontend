@@ -2,7 +2,7 @@ import "./MenuBar.styles";
 import { Bar, Placeholder } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
 
-import Ping from "../../asset/ping.svg";
+import Ping from "../../asset/ping.jsx";
 function Menu() {
   const navigate = useNavigate();
   const navigateToLogin = () => {
@@ -25,13 +25,14 @@ function Menu() {
     navigate("/survey");
   };
 
-  const loginIn = sessionStorage.getItem("userId"); // 로그인 정보를 가져옴
+  const loginIn = sessionStorage.getItem("isLogin"); // 로그인 정보를 가져옴
+  console.log(loginIn);
   return (
     <>
       <Placeholder />
       <Bar>
         <div className="left_menu">
-          <img src={Ping} />
+          <Ping width={40} height={40} />
           <p>about PING</p>
           <p onClick={navigatePrice}>요금</p>
         </div>

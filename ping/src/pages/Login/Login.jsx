@@ -14,6 +14,7 @@ import {
 } from "./Login.styles";
 import Button from "../../components/Button/Button";
 import Login from "../../apis/login";
+import Ping from "../../asset/ping.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -21,7 +22,7 @@ function LogoSection() {
   return (
     <LogoWrapper>
       <div className="logo">
-        <p>🫧</p>
+        <Ping width={40} height={40} fillPath1="black" fillPath2="#E4FF0D" />
         <p>Ping</p>
       </div>
     </LogoWrapper>
@@ -55,7 +56,7 @@ function LoginPage() {
   const navigateToLoginSuccess = () => {
     navigate("/");
   };
-  
+
   const handlerClick = async (event) => {
     event.preventDefault();
 
@@ -63,6 +64,8 @@ function LoginPage() {
       const result = await Login(email, password);
       if (result) {
         console.log("로그인 성공");
+        sessionStorage.setItem("isLogin", true);
+        sessionStorage.setItem("userId", result.data.userId);
         navigateToLoginSuccess(); // 로그인 성공시 redirection
       } else {
         console.log("로그인 실패");
