@@ -67,21 +67,12 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
       {/* 버튼 섹션 */}
       <div className="btn-wrapper">
         <Button
-          btnwidth="100px"
-          btnheight="40px"
+          size="sm"
+          mainColor="LimeBlack"
           onClick={handlePopupClose}
-          btnfontWeight="700"
           children="돌아가기"
-          btnfontSize="15px"
         />
-        <Button
-          btnwidth="100px"
-          btnheight="40px"
-          btnbackgroundcolor="#E4FF0D"
-          children="사용하기"
-          btnfontSize="15px"
-          btnfontWeight="700"
-        />
+        <Button size="sm" mainColor="LimeBlack" children="사용하기" />
       </div>
     </TemplateWrapper>
   );

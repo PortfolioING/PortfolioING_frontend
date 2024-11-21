@@ -23,9 +23,6 @@ const Bar = styled.div`
     white-space: nowrap;
   }
 
-  button {
-    white-space: nowrap;
-  }
   .left_menu {
     display: flex;
     gap: 25px;
@@ -60,12 +57,7 @@ const Bar = styled.div`
       cursor: pointer;
       line-height: 108px;
     }
-    > button {
-      border-radius: 20px;
-      padding: 1px;
-      height: 40px;
-      box-sizing: border-box;
-    }
+
     .login_btn {
       border: none;
       border: 1px solid #ffffff;

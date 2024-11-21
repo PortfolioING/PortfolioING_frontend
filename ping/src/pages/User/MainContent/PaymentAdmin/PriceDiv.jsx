@@ -40,8 +40,8 @@ const PriceDiv = ({ title, price, using }) => {
       <Button
         onClick={handleClick}
         isDisabled={using ? true : false}
-        btnwidth="94px"
-        btnheight="30px"
+        size="sm"
+        mainColor="WhiteBlack"
         children={using ? "이용중" : "구독하기"}
       />
     </PriceDivWrapper>
