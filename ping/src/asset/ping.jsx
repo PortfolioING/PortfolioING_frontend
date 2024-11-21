@@ -1,8 +1,7 @@
 import React from "react";
-//pr 확인용
+
 const Ping = ({
   fillPath1 = "#E4FF0D",
-
   fillPath2 = "black",
   width = 74, // 기본 너비
   height = 111, // 기본 높이

@@ -59,7 +59,7 @@ const UserProfileEditor = () => {
 
   return (
     <UserProfileWrapper>
-      <FileUpdate defaultImg={Ping} />
+      <FileUpdate defaultImg={<Ping width="140" height="140" />} />
       <div
         style={{
           display: "flex",
@@ -126,13 +126,9 @@ const UserProfileEditor = () => {
       >
         <Button
           onClick={handleSaveBtn}
-          btnfontSize="16px"
           children="저장"
-          btnbordercolor="#FFFFFF"
-          btnfontcolor="#FFFFFF"
-          btnwidth="132px"
-          btnheight="50px"
-          btnbackgroundcolor="#000000"
+          mainColor="BlackWhite"
+          size="sm"
         />
         <p
           style={{

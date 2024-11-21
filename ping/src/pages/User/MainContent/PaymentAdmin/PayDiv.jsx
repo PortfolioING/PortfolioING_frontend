@@ -86,9 +86,8 @@ const PayDiv = () => {
       </CardWrapper>
       <Button
         onClick={() => setPopup(true)}
-        btnfontSize="15px"
-        btnwidth="620px"
-        btnheight="45px"
+        size="xl"
+        mainColor="WhiteBlack"
         children="+ 결제 수단 등록"
       />
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FormLabel from "../../components/Form/FormLabel";
 import FormField from "../../components/Form/FormField";
 import FileUpdate from "../../components/FileUpdate/FileUpdate";
@@ -21,10 +21,11 @@ const PortfolioForm = ({ onChange }) => {
   return (
     <PortfolioFormWrapper>
       <FormField
-      id="name"
-      label="1. 이름을 입력해주세요."
-      chat="true"
-        onChange={handleNameChange} // onChange handler 추가
+        id="name"
+        label="1. 이름을 입력해주세요."
+        chat="true"
+        onChange={handleNameChange}
+        size="xl"
       />
       <FormField
         id="introduction"
@@ -32,6 +33,7 @@ const PortfolioForm = ({ onChange }) => {
         chat="true"
         height="200px"
         onChange={handleIntroductionChange}
+        size="xl"
       />
 
       <div
@@ -40,7 +42,7 @@ const PortfolioForm = ({ onChange }) => {
         }}
       >
         <FormLabel htmlFor="photo">3. 본인의 사진을 선택해주세요.</FormLabel>
-        <FileUpdate onChange={handlePhotoChange}/>
+        <FileUpdate onChange={handlePhotoChange} />
       </div>
 
       <FormField
@@ -48,6 +50,7 @@ const PortfolioForm = ({ onChange }) => {
         label="4. 포트폴리오 제목을 입력해주세요."
         chat="true"
         onChange={handlePortfolioTitleChange}
+        size="xl"
       />
     </PortfolioFormWrapper>
   );
