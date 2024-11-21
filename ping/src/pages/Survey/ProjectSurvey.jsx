@@ -112,7 +112,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
         />
         <div style={{ marginBottom: "20px" }}>
           <FormLabel>7. 자신의 역할을 선택해주세요.</FormLabel>
-          <CategoryForm onChange={(e) => handleProjectChange("category", e.target.value)} />
+          <CategoryForm onChange={(categories) => handleProjectChange("category", categories)} />
         </div>
         <div style={{ marginBottom: "20px" }}>
           <FormLabel>8. 문제점과 해결 과정 및 느낀점을 입력해주세요.</FormLabel>
