@@ -27,7 +27,7 @@ const PortfolioCreation = () => {
       ...prev,
       portfolioData: { ...prev.portfolioData, ...data },
     }));
-    console.log("포트폴리오 데이터:", data); // 포트폴리오 데이터 확인
+    console.log("포트폴리오 데이터:", formData.portfolioData); // 포트폴리오 데이터 확인
   };
 
   // 프로젝트 데이터 update
@@ -38,7 +38,7 @@ const PortfolioCreation = () => {
       );
       return { ...prev, projects: updatedProjects };
     });
-    console.log("프로젝트 데이터:", data); // 프로젝트 데이터 확인
+    console.log("프로젝트 데이터:", formData.projects); // 프로젝트 데이터 확인
   };
 
   const handleAddProject = (event) => {

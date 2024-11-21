@@ -12,6 +12,7 @@ import Plus from "../../asset/plus.svg";
 const ProjectSurvey = ({ projectNum, onChange }) => {
   // 상태 변수 추가
   const [projectName, setProjectName] = useState("");
+  const [projectPhoto, setProjectPhoto] = useState("");
   const [projectLink, setProjectLink] = useState("");
   const [projectDescLine, setProjectDescLine] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
@@ -33,6 +34,9 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       case "projectName":
         setProjectName(value);
         break;
+      case "projectPhoto":
+        setProjectPhoto(value);
+        break;
       case "projectLink":
         setProjectLink(value);
         break;
@@ -48,7 +52,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       default:
         break;
     }
-    onChange({ projectName, projectLink, projectDescLine, projectDesc, category, problems });
+    onChange({ projectName, projectPhoto, projectLink, projectDescLine, projectDesc, category, problems });
   };
 
   return (
