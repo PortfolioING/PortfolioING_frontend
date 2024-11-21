@@ -12,6 +12,8 @@ import Templates from "./PortfolioTemplates/Templates";
 import Simple from "../components/SimpleTemplate/Simple";
 import SimpleProject from "../components/SimpleTemplate/SimpleProject";
 import AboutPing from "./AboutPing/AboutPing";
+import Creative from "../components/CreativeTemplate/Creative";
+import CreativeProject from "../components/CreativeTemplate/CreativeProject";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -51,12 +53,20 @@ const Router = () => {
       element: <Templates name="ping" />,
     },
     {
-      path: "/templates1",
+      path: "/template1",
       element: <Simple />,
     },
     {
-      path: "/templates1-project",
+      path: "/template1-project",
       element: <SimpleProject />,
+    },
+    {
+      path: "/template2",
+      element: <Creative />,
+    },
+    {
+      path: "/template2-project",
+      element: <CreativeProject />,
     },
   ]);
 
