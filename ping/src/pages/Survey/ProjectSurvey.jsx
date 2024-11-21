@@ -14,6 +14,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
   const [projectName, setProjectName] = useState("");
   const [projectPhoto, setProjectPhoto] = useState("");
   const [projectLink, setProjectLink] = useState("");
+  const [projectDate, setProjectDate] = useState(null);
   const [projectDescLine, setProjectDescLine] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
   const [category, setCategory] = useState("");
@@ -40,6 +41,9 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       case "projectLink":
         setProjectLink(value);
         break;
+      case "projectDate":
+        setProjectDate(value);
+        break;
       case "projectDescLine":
         setProjectDescLine(value);
         break;
@@ -52,7 +56,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       default:
         break;
     }
-    onChange({ projectName, projectPhoto, projectLink, projectDescLine, projectDesc, category, problems });
+    onChange({ projectName, projectPhoto, projectLink, projectDate, projectDescLine, projectDesc, category, problems });
   };
 
   return (
@@ -86,8 +90,10 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
           onChange={(e) => handleProjectChange("projectLink", e.target.value)} // 상태 업데이트
         />
         <div style={{ marginBottom: "20px" }}>
-          <FormLabel>4. 진행 일자를 입력해주세요.</FormLabel>
-          <DateForm />
+          <FormLabel>
+            4. 진행 일자를 입력해주세요.
+            </FormLabel>
+          <DateForm onChange={(dates) => handleProjectChange("projectDate", dates)} />
         </div>
         <FormField
           id="project-desc_line"

@@ -51,6 +51,7 @@ const PortfolioCreation = () => {
           projectName: "",
           projectPhoto: null,
           projectLink: "",
+          projectDate: null,
           projectDescLine: "",
           projectDesc: "",
           category: "",
