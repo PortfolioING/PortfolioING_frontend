@@ -14,7 +14,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
   const [projectName, setProjectName] = useState("");
   const [projectPhoto, setProjectPhoto] = useState("");
   const [projectLink, setProjectLink] = useState("");
-  const [projectDate, setProjectDate] = useState(null);
+  const [projectDate, setProjectDate] = useState("");
   const [projectDescLine, setProjectDescLine] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
   const [category, setCategory] = useState("");
