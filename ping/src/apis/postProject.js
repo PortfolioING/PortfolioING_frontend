@@ -22,7 +22,7 @@ const PostProject = async (projects) => {
       target: "", // 필요에 따라 추가
       role: "", // 필요에 따라 추가
       problem: "", // 필요에 따라 추가
-      solution: "", // 필요에 따라 추가
+      solution: "", // 필요에 따라 추가 
       feedback: "" // 필요에 따라 추가
     }));
   

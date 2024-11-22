@@ -12,9 +12,9 @@ const Img = ({ previewSrc, onClick }) => {
     </ImgWrapper>
   );
 };
-
-const FileUpdate = ({ onChange }) => {
-  const [previewSrc, setPreviewSrc] = useState("");
+const FileUpdate = ({ onChange, defaultImg }) => {
+  // console.log(defaultImg);
+  const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
   const uniqueId = useId();
 
   const handleFileChange = (event) => {
