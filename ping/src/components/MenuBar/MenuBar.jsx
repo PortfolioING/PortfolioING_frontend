@@ -3,6 +3,7 @@ import { Bar, Placeholder } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
 
 import Ping from "../../asset/ping.jsx";
+import { Button } from "../Button/Button.styles.jsx";
 function Menu() {
   const navigate = useNavigate();
   const navigateToLogin = () => {
@@ -39,23 +40,49 @@ function Menu() {
         <div className="wrap_menu">
           {loginIn ? (
             <>
-              <p onClick={navigateUserPage}>My Page</p>
-              <button className="login_btn" onClick={navigateToLogout}>
-                Logout
-              </button>
-              <button className="free_btn" onClick={navigateSurvey}>
-                무료로 시작하기
-              </button>
+              <Button
+                onClick={navigateUserPage}
+                children={"MyPage"}
+                size="xs"
+                mainColor="BlackWhite"
+              />
+
+              <Button
+                onClick={navigateToLogout}
+                children={"Logout"}
+                size="xs"
+                mainColor="BlackWhiteW"
+              />
+
+              <Button
+                onClick={navigateSurvey}
+                children={"무료로 시작하기"}
+                size="sm"
+                mainColor="LimeBlack"
+              />
             </>
           ) : (
             <>
-              <p onClick={navigateLoginPage}>My Page</p>
-              <button className="login_btn" onClick={navigateToLogin}>
-                Login
-              </button>
-              <button className="free_btn" onClick={navigateLoginPage}>
-                무료로 시작하기
-              </button>
+              <Button
+                onClick={navigateLoginPage}
+                children={"MyPage"}
+                size="xs"
+                mainColor="BlackWhite"
+              />
+
+              <Button
+                onClick={navigateToLogin}
+                children={"LogIn"}
+                size="xs"
+                mainColor="BlackWhiteW"
+              />
+
+              <Button
+                onClick={navigateLoginPage}
+                children={"무료로 시작하기"}
+                size="sm"
+                mainColor="LimeBlack"
+              />
             </>
           )}
         </div>

@@ -94,32 +94,24 @@ const PortfolioCreation = () => {
 
       {formData.projects.map((project) => (
         <ProjectSurvey
-        key={project.id}
-        projectNum={project.id}
-        projectData={project}
-        onChange={(data) => handleProjectChange(project.id, data)}
-        // onChange={handleProjectChange}
+          key={project.id}
+          projectNum={project.id}
+          projectData={project}
+          onChange={(data) => handleProjectChange(project.id, data)}
+          // onChange={handleProjectChange}
         />
       ))}
       <Button
-        btnborderradius="15px"
         onClick={handleAddProject}
         children="+ 프로젝트 추가하기"
-        btnbordercolor="#000000"
-        btnfontcolor="white"
-        btnfontSize="20px"
-        btnwidth="190px"
-        btnheight="50px"
-        btnbackgroundcolor="#000000"
+        mainColor="BlackWhite"
+        size="lg"
       />
       <Button
         style={{ marginTop: "20px" }}
-        btnborderradius="15px"
         children="템플릿 선택하러가기"
-        btnfontSize="20px"
-        btnwidth="190px"
-        btnheight="50px"
-        btnbackgroundcolor="#E4FF0D"
+        mainColor="LimeBlack"
+        size="lg"
         onClick={handleClick}
       />
     </Wrapper>

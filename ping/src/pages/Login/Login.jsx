@@ -59,7 +59,10 @@ function LoginPage() {
 
   const handlerClick = async (event) => {
     event.preventDefault();
-
+    if (email == "" || password == "") {
+      alert("email과 password를 입력해주세요.");
+      return;
+    }
     try {
       const result = await Login(email, password);
       if (result) {
@@ -82,8 +85,6 @@ function LoginPage() {
         <FormField
           label="Email"
           placeholder="ping@konkuk.ac.kr"
-          width="350px"
-          height="50px"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -91,20 +92,14 @@ function LoginPage() {
           label="Password"
           type="password"
           placeholder="●●●●●●●●"
-          width="350px"
-          height="50px"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button
-          btnfontSize="20px"
-          btnborderradius="50px"
+          size="lg"
           children="Login"
-          btnbordercolor="#e4ff0d"
-          btnwidth="350px"
-          btnheight="50px"
-          btnbackgroundcolor="#e4ff0d"
+          mainColor="LimeBlack"
           onClick={handlerClick}
         />
 

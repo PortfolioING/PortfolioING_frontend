@@ -1,13 +1,13 @@
 // FormField.js
 import styled from "styled-components";
 import Label from "./FormLabel";
+import TextArea from "./FormTextArea";
 import Input from "./FormInput";
-
 const FormFieldWrapper = styled.div`
   margin-bottom: 25px;
 `;
 
-const FormField = ({ label, onChange, id, ...props }) => {
+const FormField = ({ label, onChange, id, size = "lg", ...props }) => {
   return (
     <FormFieldWrapper>
       <Label htmlFor={id}>{label}</Label>
@@ -16,8 +16,7 @@ const FormField = ({ label, onChange, id, ...props }) => {
         onChange={onChange} // onChange handler 추가
         chat={props.chat}
         placeholder={props.placeholder}
-        width={props.width}
-        height={props.height}
+        size={size}
         type={props.type}
       />
     </FormFieldWrapper>

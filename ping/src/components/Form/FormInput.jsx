@@ -1,22 +1,30 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
-const Input = styled.textarea.attrs((props) => ({
+const sizeStyles = {
+  sm: {
+    padding: "8px 14px 8px 15px",
+    fontSize: "13px",
+  },
+  lg: {
+    width: "350px",
+    height: "50px",
+  },
+  xl: {
+    width: "550px",
+    height: "50px",
+  },
+};
+const Input = styled.input.attrs((props) => ({
   type: props.type || "text",
-  rows: props.rows || 3, // 기본 줄 수
 }))`
-  width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "40px"};
-  padding: 10px 20px; /* 여백 */
+  width: ${(props) => sizeStyles[props.size]?.width};
+  height: ${(props) => sizeStyles[props.size]?.height};
+  padding: 10px 20px;
   box-sizing: border-box;
   border: 1px solid #c1c1c1;
   border-radius: ${(props) =>
     props.chat === "true" ? "0px 30px 30px 30px" : "30px"};
   font-size: 16px;
-  resize: none; /* 크기 조정 비활성화 */
-  white-space: pre-wrap; /* 줄바꿈 및 공백 유지 */
-  word-wrap: break-word; /* 단어 줄바꿈 */
-  overflow-wrap: break-word; /* 브라우저 호환 줄바꿈 */
   &:focus {
     border: 1px solid #e4ff0d;
     outline: none;
@@ -24,7 +32,7 @@ const Input = styled.textarea.attrs((props) => ({
 `;
 
 Input.propTypes = {
-  children: PropTypes.oneOf([undefined]),
+  children: PropTypes.oneOf([undefined]), // input은 children을 가지지 않음
 };
 
 export default Input;
