@@ -2,7 +2,7 @@ import { useState, useId } from "react";
 import { Label, PreviewWrapper, ImgWrapper } from "./FileUpdate.styles";
 import Plus from "../../asset/plus.svg";
 
-const Img = ({ previewSrc, onClick }) => {
+const Img = ({ previewSrc, onClick, defaultImg }) => {
   return (
     <ImgWrapper>
       <img src={previewSrc} alt="미리보기" />
