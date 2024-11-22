@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Oh from "../../asset/oh";
+import Hello from "../../asset/hello";
 
 const Wrapper = styled.div`
   position: relative;
@@ -16,12 +18,6 @@ const Wrapper = styled.div`
     width: 200px;
     top: 10px;
     left: 830px;
-  }
-  > .oh {
-    position: absolute;
-    width: 100px;
-    top: 45px;
-    left: 1150px;
   }
 `;
 const LeftWrapper = styled.div`
@@ -66,8 +62,74 @@ const ProjectWrapper = styled.div`
   display: grid;
   width: 900px;
   height: 400px;
+  position: relative;
   overflow-x: scroll;
+
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 `;
-export { Wrapper, LeftWrapper, RightWrapper, Header, ProjectWrapper };
+const CustomOh = styled(Oh)`
+  position: absolute;
+  width: 100px;
+  top: 45px;
+  left: 1150px;
+  fill: ${(props) => props.fill || "#0075FF"};
+`;
+const CustomHello = styled(Hello)`
+  position: absolute;
+  width: 1000px;
+  bottom: 0;
+  left: 20%;
+`;
+
+const ProjectContainer = styled.div`
+  width: 340px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 1px 1px
+    ${(props) => (props.color ? props.color.subColor_3 : "defaultColor")};
+  border-radius: 20px;
+  padding: 30px;
+
+  background-color: ${(props) =>
+    props.color ? props.color.subColor : "defaultColor"};
+  > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  > .number {
+    font-size: 40px;
+    font-weight: 600;
+    color: ${(props) => (props.color ? props.color.mainColor : "defaultColor")};
+  }
+  > .title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  > .desc,
+  .categories {
+    font-size: 14px;
+    color: ${(props) =>
+      props.color ? props.color.subColor_4 : "defaultColor"};
+  }
+  > .categories {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+  box-sizing: border-box;
+`;
+
+export {
+  Wrapper,
+  LeftWrapper,
+  RightWrapper,
+  Header,
+  ProjectWrapper,
+  CustomOh,
+  CustomHello,
+  ProjectContainer,
+};
