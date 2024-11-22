@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addMonths } from "date-fns";
 import { DateWrapper } from "./ProjectSurvey.styles";
 import "../../styles/DatePicker.css";
-const DateForm = () => {
+const DateForm = ({ onChange }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
@@ -12,6 +12,7 @@ const DateForm = () => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+    onChange(dates);
   };
 
   return (

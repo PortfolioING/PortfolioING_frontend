@@ -12,7 +12,9 @@ import FormTextArea from "../../components/Form/FormTextArea";
 const ProjectSurvey = ({ projectNum, onChange }) => {
   // 상태 변수 추가
   const [projectName, setProjectName] = useState("");
+  const [projectPhoto, setProjectPhoto] = useState("");
   const [projectLink, setProjectLink] = useState("");
+  const [projectDate, setProjectDate] = useState("");
   const [projectDescLine, setProjectDescLine] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
   const [category, setCategory] = useState("");
@@ -40,8 +42,14 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       case "projectName":
         setProjectName(value);
         break;
+      case "projectPhoto":
+        setProjectPhoto(value);
+        break;
       case "projectLink":
         setProjectLink(value);
+        break;
+      case "projectDate":
+        setProjectDate(value);
         break;
       case "projectDescLine":
         setProjectDescLine(value);
@@ -55,14 +63,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
       default:
         break;
     }
-    onChange({
-      projectName,
-      projectLink,
-      projectDescLine,
-      projectDesc,
-      category,
-      problems,
-    });
+    onChange({ projectName, projectPhoto, projectLink, projectDate, projectDescLine, projectDesc, category, problems });
   };
 
   return (
@@ -100,8 +101,10 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
           onChange={(e) => handleProjectChange("projectLink", e.target.value)} // 상태 업데이트
         />
         <div style={{ marginBottom: "20px" }}>
-          <FormLabel>4. 진행 일자를 입력해주세요.</FormLabel>
-          <DateForm />
+          <FormLabel>
+            4. 진행 일자를 입력해주세요.
+            </FormLabel>
+          <DateForm onChange={(dates) => handleProjectChange("projectDate", dates)} />
         </div>
         <FormField
           id="project-desc_line"
@@ -124,9 +127,7 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
 
         <div style={{ marginBottom: "20px" }}>
           <FormLabel>7. 자신의 역할을 선택해주세요.</FormLabel>
-          <CategoryForm
-            onChange={(e) => handleProjectChange("category", e.target.value)}
-          />
+          <CategoryForm onChange={(categories) => handleProjectChange("category", categories)} />
         </div>
         <div style={{ marginBottom: "20px" }}>
           <FormLabel>8. 문제점과 해결 과정 및 느낀점을 입력해주세요.</FormLabel>

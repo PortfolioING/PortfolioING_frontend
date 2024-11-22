@@ -14,7 +14,7 @@ const CATEGORY_OPTIONS = [
   "UX/UI",
 ];
 
-const CategoryForm = () => {
+const CategoryForm = ({ onChange }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const toggleCategory = (category) => {
@@ -23,6 +23,7 @@ const CategoryForm = () => {
         ? prev.filter((item) => item !== category)
         : [...prev, category]
     );
+    onChange(selectedCategories);
   };
 
   return (

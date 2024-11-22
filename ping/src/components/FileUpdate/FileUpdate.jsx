@@ -25,19 +25,24 @@ const Img = ({ previewSrc, onClick, defaultImg }) => {
     </ImgWrapper>
   );
 };
-
-const FileUpdate = ({ defaultImg }) => {
-  const [previewSrc, setPreviewSrc] = useState(defaultImg || ""); // 이미지 URL 상태
+const FileUpdate = ({ onChange, defaultImg }) => {
+  // console.log(defaultImg);
+  const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
   const uniqueId = useId();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e) => setPreviewSrc(e.target.result);
+      reader.onload = (e) => {
+        setPreviewSrc(e.target.result);
+        onChange(file); // 파일 정보를 부모 컴포넌트에 전달
+        console.log("선택한 파일:", file); // 파일 정보 출력
+    };
       reader.readAsDataURL(file);
     } else {
       setPreviewSrc("");
+      onChange(null); // 파일이 선택되지 않았을 때 null 전달
     }
   };
 

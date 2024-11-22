@@ -5,10 +5,11 @@ import Button from "../../components/Button/Button";
 import { Wrapper, PortfolioTitle } from "./Survey.styles";
 import ProjectSurvey from "./ProjectSurvey";
 import PortfolioForm from "./PortfolioForm";
-
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
+import PostProject from "../../apis/postProject";
+// import PostSurvey from "../../apis/postSurvey";
+// import PostPortfolio from "../../apis/postPortfolio";
 
 const PortfolioCreation = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const PortfolioCreation = () => {
       ...prev,
       portfolioData: { ...prev.portfolioData, ...data },
     }));
-    console.log("포트폴리오 데이터:", data); // 포트폴리오 데이터 확인
+    console.log("포트폴리오 데이터:", formData.portfolioData); // 포트폴리오 데이터 확인
   };
 
   // 프로젝트 데이터 update
@@ -38,7 +39,7 @@ const PortfolioCreation = () => {
       );
       return { ...prev, projects: updatedProjects };
     });
-    console.log("프로젝트 데이터:", data); // 프로젝트 데이터 확인
+    console.log("프로젝트 데이터:", formData.projects); // 프로젝트 데이터 확인
   };
 
   const handleAddProject = (event) => {
@@ -51,6 +52,7 @@ const PortfolioCreation = () => {
           projectName: "",
           projectPhoto: null,
           projectLink: "",
+          projectDate: null,
           projectDescLine: "",
           projectDesc: "",
           category: "",
@@ -61,8 +63,27 @@ const PortfolioCreation = () => {
   };
 
   const navigate = useNavigate();
-  const handleClick = () => {
-    //서버에 project, survey, portfolio POST 요청
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    // Project POST
+    try {
+      const projectIds = await PostProject(formData.projects);
+      if (projectIds) {
+        console.log("Project POST 성공", projectIds);
+      } else {
+        console.log("Project POST 실패");
+      }
+    } catch (error) {
+      console.error("Project POST 중 오류 발생:", error);
+    }
+
+    // Survey POST
+    
+
+    // Portfolio POST
+
+
     navigate("/templates");
   };
 
