@@ -1,8 +1,9 @@
 import React from "react";
 
-const Oh = (fill = "#0075FF") => {
+const Oh = ({ fill = "#0075FF", className }) => {
   return (
     <svg
+      className={className}
       width="141"
       height="87"
       viewBox="0 0 141 87"

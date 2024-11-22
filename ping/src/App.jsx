@@ -6,15 +6,10 @@ import "./App.css";
 
 const GlobalStyle = createGlobalStyle`
 
-  @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-   -ms-overflow-style: none;
- }
-
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/Pretendard.css") format("truetype");
+}
 .react-datepicker {
   z-index: 5; /* 메뉴바보다 낮은 z-index 값 */
 }
