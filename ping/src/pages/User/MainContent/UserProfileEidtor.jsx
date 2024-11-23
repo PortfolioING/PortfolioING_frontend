@@ -32,10 +32,16 @@ export const getUserProfile = async (userId) => {
 // 사용자 프로필 정보 저장
 export const saveUserProfile = async (userId, userInfo) => {
   try {
-    return await instance.put(`api/auth/${userId}`, userInfo);
+    return await instance.put(`api/auth/:${userId}`, JSON.stringify(userInfo));
   } catch (error) {
-    console.error("저장 중 오류가 발생했습니다.", error);
-    throw error;
+    if (error.response.status === 401) {
+      alert("아이디 또는 비밀번호가 잘못되었습니다.");
+    } else if (error.response.status === 500) {
+      alert("회원가입을 하셔야해.");
+    } else {
+      alert("잠시 후 다시 시도해주세요.");
+    }
+    reject(error);
   }
 };
 

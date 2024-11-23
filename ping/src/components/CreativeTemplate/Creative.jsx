@@ -33,11 +33,11 @@ const Project = ({ color, ...props }) => {
   return (
     <ProjectContainer color={color} onClick={handleClick}>
       <div className="number">{props.number}</div>
-      <div className="title">{props.title}</div>
-      <div className="desc">{props.desc}</div>
-      <div className="categories">
-        {props.categories.map((category) => (
-          <p>#{category}</p>
+      <div className="title">{props.project_name}</div>
+      <div className="desc">{props.projectDesc}</div>
+      <div className="roles">
+        {props.roles.map((role) => (
+          <p>#{role}</p>
         ))}
       </div>
     </ProjectContainer>
@@ -46,44 +46,52 @@ const Project = ({ color, ...props }) => {
 
 const Creative = ({ color = "blue" }) => {
   const userIntro = {
-    title: "Portfolio title",
+    title: "나의 포토폴리오",
     introduce: "개쩌는 프론트개발자",
-    name: "Name",
-    img: "",
+    name: "이하민",
+    image: "",
     projects: [
       {
         id: 1,
         number: "01",
-        title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?몰라몰라몰라몰라몰라몰라몰라몰라",
-        categories: ["프론트", "집갈래"],
+        project_name: "Project Title",
+        image: "",
+        projectDesc: "프로젝트 간단설명",
+        projectFullDesc: "프로젝트 긴 설명",
+        projectLink: "www.ping.com",
+        date: ["2023/11/21", "2024/11/21"], // 날짜 데이터가 필요
+        roles: ["프론트", "백엔드", "기획", "UX/UI"], // 배열로
+        pns: [
+          {
+            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
+            solution: "문제를 해결한 방법", // 해결 방법
+          },
+          {
+            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
+            solution: "문제를 해결한 방법", // 해결 방법
+          },
+        ],
       },
       {
         id: 2,
         number: "02",
-        title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?",
-        categories: ["프론트", "집갈래", "자고싶다"],
-      },
-      {
-        id: 3,
-        number: "03",
-        title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?몰라몰라몰라몰라몰라몰라몰라몰라",
-        categories: ["프론트", "집갈래"],
-      },
-      {
-        id: 4,
-        number: "04",
-        title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?몰라몰라몰라몰라몰라몰라몰라몰라",
-        categories: ["프론트", "집갈래"],
-      },
-      {
-        number: "05",
-        title: "Project Title",
-        desc: "이거슨 프로젝트일까나..?몰라몰라몰라몰라몰라몰라몰라몰라",
-        categories: ["프론트", "집갈래"],
+        project_name: "Project Title",
+        image: "",
+        projectDesc: "프로젝트 간단설명",
+        projectFullDesc: "프로젝트 긴 설명",
+        projectLink: "www.ping.com",
+        date: ["2023/11/21", "2024/11/21"], // 날짜 데이터가 필요
+        roles: ["프론트", "백엔드", "기획", "UX/UI"], // 배열로
+        pns: [
+          {
+            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
+            solution: "문제를 해결한 방법", // 해결 방법
+          },
+          {
+            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
+            solution: "문제를 해결한 방법", // 해결 방법
+          },
+        ],
       },
     ],
   };
@@ -100,10 +108,10 @@ const Creative = ({ color = "blue" }) => {
       <LeftWrapper>
         <Header>
           <div className="introduce">{userIntro.introduce}</div>
-          <div className="title">
+          <div className="name">
             안녕하세요?
             <br />
-            {userIntro.title}입니다.
+            {userIntro.name}입니다.
           </div>
         </Header>
         <ProjectWrapper>
@@ -114,7 +122,7 @@ const Creative = ({ color = "blue" }) => {
       </LeftWrapper>
       <RightWrapper>
         <div className="user-img">
-          {userIntro.img == "" ? <Ping /> : <img src={userIntro.img} />}
+          {userIntro.image == "" ? <Ping /> : <img src={userIntro.image} />}
         </div>
       </RightWrapper>
     </Wrapper>
