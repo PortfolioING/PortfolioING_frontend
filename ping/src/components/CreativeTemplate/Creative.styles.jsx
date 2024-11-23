@@ -53,7 +53,7 @@ const Header = styled.div`
     font-size: 28px;
     margin-bottom: 10px;
   }
-  > .title {
+  > .name {
     font-size: 96px;
   }
   margin-bottom: 20px;
@@ -109,12 +109,12 @@ const ProjectContainer = styled.div`
     font-weight: 600;
   }
   > .desc,
-  .categories {
+  .roles {
     font-size: 14px;
     color: ${(props) =>
       props.color ? props.color.subColor_4 : "defaultColor"};
   }
-  > .categories {
+  > .roles {
     display: flex;
     width: 100%;
     justify-content: flex-start;
