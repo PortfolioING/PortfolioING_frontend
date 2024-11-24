@@ -1,7 +1,7 @@
 import instance from "./instance";
 
 const PostProject = async (projects) => {
-  const projectData = projects.map(project => {
+  const requestData = projects.map(project => {
     // projectDate에서 시작 및 종료 날짜를 안전하게 가져오기
     const startDate = project.projectDate && project.projectDate[0] instanceof Date 
       ? project.projectDate[0].toISOString()
@@ -13,7 +13,8 @@ const PostProject = async (projects) => {
 
     return {
       project_name: project.projectName,
-      image: project.projectPhoto, // 이미지 URL로 변환 필요
+      // image: project.projectPhoto, // 이미지 URL로 변환 필요
+      image: "Photo", //
       projectDesc: project.projectDescLine,
       projectFullDesc: project.projectDesc,
       projectLink: project.projectLink,
@@ -26,24 +27,12 @@ const PostProject = async (projects) => {
       })),
     };
   });
-
-  //   const projectData = projects.map(project => ({
-  //   projectName: project.projectName,
-  //   image: project.projectPhoto, // 이미지 URL받아오기 추가 필요
-  //   projectDesc: project.projectDescLine,
-  //   projectFullDesc: project.projectDesc,
-  //   projectLink: project.projectLink,
-  //   startDate: project.projectDate[0].toISOString() || "2024-10-08T00:00:00",
-  //   endDate: project.ProjectDate[1].toISOString() || "2024-10-08T00:00:00",
-  //   roles: project.category, // 필요에 따라 추가
-  //   pns: project.problems, // 필요에 따라 추가
-  // }));
   
-    console.log("post request body", projectData[0]);
+    console.log("Project POST request body", requestData);
     try {
         // 각 프로젝트에 대해 POST 요청을 수행
         const responses = await Promise.all(
-          projectData.map(data => 
+          requestData.map(data => 
             instance.post("api/projects", data)
           )
         );
@@ -61,7 +50,7 @@ const PostProject = async (projects) => {
             alert("잠시 후 다시 시도해주세요.");
           }
         }
-        throw error; // catch에서 reject를 사용하지 않고 throw로 수정
+        throw error;
       }
     };
 

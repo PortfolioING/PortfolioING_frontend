@@ -8,7 +8,7 @@ import PortfolioForm from "./PortfolioForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostProject from "../../apis/postProject";
-// import PostSurvey from "../../apis/postSurvey";
+import PostSurvey from "../../apis/postSurvey";
 // import PostPortfolio from "../../apis/postPortfolio";
 
 const PortfolioCreation = () => {
@@ -28,7 +28,7 @@ const PortfolioCreation = () => {
       ...prev,
       portfolioData: { ...prev.portfolioData, ...data },
     }));
-    console.log("포트폴리오 데이터:", formData.portfolioData); // 포트폴리오 데이터 확인
+    console.log("Survey 데이터:", formData.portfolioData); // 포트폴리오 데이터 확인
   };
 
   // 프로젝트 데이터 update
@@ -39,7 +39,7 @@ const PortfolioCreation = () => {
       );
       return { ...prev, projects: updatedProjects };
     });
-    console.log("프로젝트 데이터:", formData.projects); // 프로젝트 데이터 확인
+    console.log("Project 데이터:", formData.projects); // 프로젝트 데이터 확인
   };
 
   const handleAddProject = (event) => {
@@ -66,25 +66,41 @@ const PortfolioCreation = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    let projectIds = [18, 19];
+    let surveyId;
+
     // Project POST
-    try {
-      const projectIds = await PostProject(formData.projects);
-      if (projectIds) {
-        console.log("Project POST 성공", projectIds);
-      } else {
-        console.log("Project POST 실패");
-      }
-    } catch (error) {
-      console.error("Project POST 중 오류 발생:", error);
-    }
+    // try {
+    //   projectIds = await PostProject(formData.projects);
+    //   if (projectIds) {
+    //     console.log("Project POST 성공", projectIds);
+    //   } else {
+    //     console.log("Project POST 실패");
+    //     return;
+    //   }
+    // } catch (error) {
+    //   console.error("Project POST 중 오류 발생:", error);
+    //   return;
+    // }
 
     // Survey POST
-    
+    try {
+      const surveyResponse = await PostSurvey(formData.portfolioData, projectIds);
+      if (surveyResponse) {
+        console.log("Survey POST 성공", surveyResponse);
+        surveyId = surveyResponse.surveyId;
+      } else {
+        console.log("Survey POST 실패");
+      }
+    } catch (error) {
+      console.error("Survey POST 중 오류 발생:", error);
+    }
 
     // Portfolio POST
 
 
-    navigate("/templates");
+    // navigate("/templates");
   };
 
   return (
