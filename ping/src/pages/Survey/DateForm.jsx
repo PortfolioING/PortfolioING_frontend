@@ -6,7 +6,7 @@ import { DateWrapper } from "./ProjectSurvey.styles";
 import "../../styles/DatePicker.css";
 const DateForm = ({ onChange }) => {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
+  const [endDate, setEndDate] = useState(new Date());
 
   const handleDateChange = (dates) => {
     const [start, end] = dates;
