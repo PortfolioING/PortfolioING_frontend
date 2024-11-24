@@ -8,6 +8,8 @@ import Template2_1 from "../../asset/template2-1.png";
 import Template2_2 from "../../asset/template2-2.png";
 import Template3_1 from "../../asset/template3-1.png";
 import Template3_2 from "../../asset/template3-2.png";
+import { useNavigate } from "react-router-dom";
+import PutTemplate from "../../apis/putTemplate";
 
 const TemplatePopup = ({ handlePopupClose, template }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 이미지 인덱스 관리
@@ -45,6 +47,19 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
     );
   };
 
+  const handleUpdateTemplate = async (e) => {
+    e.preventDefault();
+
+    const templateId = template.id;
+
+    try {
+      const response = await PutTemplate(templateId);
+      console.log("Portfolio update 성공", response);
+      // navigate(""); // update 후 화면 전환
+    } catch (error) {
+      console.error("Portfolio update 중 오류 발생:", error);
+    }
+  }
   return (
     <TemplateWrapper>
       <div className="show-template">
@@ -72,7 +87,12 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
           onClick={handlePopupClose}
           children="돌아가기"
         />
-        <Button size="sm" mainColor="LimeBlack" children="사용하기" />
+        <Button
+          size="sm"
+          mainColor="LimeBlack"
+          onClick={handleUpdateTemplate}
+          children="사용하기"
+        />
       </div>
     </TemplateWrapper>
   );
