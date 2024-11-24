@@ -50,13 +50,13 @@ const PortfolioCreation = () => {
         {
           id: prev.projects.length + 1,
           projectName: "",
-          projectPhoto: null,
+          projectPhoto: "",
           projectLink: "",
-          projectDate: null,
+          projectDate: ["",""],
           projectDescLine: "",
           projectDesc: "",
-          category: "",
-          problems: [],
+          category: [""],
+          problems: [""],
         },
       ],
     }));

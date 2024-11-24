@@ -13,13 +13,13 @@ const ProjectSurvey = ({ projectNum, onChange }) => {
   // 상태 변수 추가
   const [projectName, setProjectName] = useState("");
   const [projectPhoto, setProjectPhoto] = useState("");
-  const [projectLink, setProjectLink] = useState("");
-  const [projectDate, setProjectDate] = useState("");
   const [projectDescLine, setProjectDescLine] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
-  const [category, setCategory] = useState("");
+  const [projectLink, setProjectLink] = useState("");
+  const [projectDate, setProjectDate] = useState(null);
+  const [category, setCategory] = useState([""]);
   const [problems, setProblems] = useState([
-    { id: 1, problem: "", solution: "" },
+    { id: 1, problem: "", solution: "" }
   ]);
 
   const handleAddProblem = (event) => {
