@@ -67,22 +67,22 @@ const PortfolioCreation = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    let projectIds = [18, 19];
+    let projectIds;
     let surveyId;
 
     // Project POST
-    // try {
-    //   projectIds = await PostProject(formData.projects);
-    //   if (projectIds) {
-    //     console.log("Project POST 성공", projectIds);
-    //   } else {
-    //     console.log("Project POST 실패");
-    //     return;
-    //   }
-    // } catch (error) {
-    //   console.error("Project POST 중 오류 발생:", error);
-    //   return;
-    // }
+    try {
+      projectIds = await PostProject(formData.projects);
+      if (projectIds) {
+        console.log("Project POST 성공", projectIds);
+      } else {
+        console.log("Project POST 실패");
+        return;
+      }
+    } catch (error) {
+      console.error("Project POST 중 오류 발생:", error);
+      return;
+    }
 
     // Survey POST
     try {
