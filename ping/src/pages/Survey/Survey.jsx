@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostProject from "../../apis/postProject";
 import PostSurvey from "../../apis/postSurvey";
-// import PostPortfolio from "../../apis/postPortfolio";
+import PostPortfolio from "../../apis/postPortfolio";
 
 const PortfolioCreation = () => {
   const [formData, setFormData] = useState({
@@ -67,8 +67,8 @@ const PortfolioCreation = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    let projectIds;
-    let surveyId;
+    let projectIds = [18, 19];
+    let surveyId = 1;
 
     // Project POST
     try {
@@ -98,7 +98,17 @@ const PortfolioCreation = () => {
     }
 
     // Portfolio POST
-
+    const loginId = sessionStorage.getItem("userId");
+    try {
+      const portfolioResponse = await PostPortfolio(loginId, surveyId, formData);
+      if (portfolioResponse) {
+          console.log("Portfolio POST 성공", portfolioResponse);
+      } else {
+          console.log("Portfolio POST 실패");
+      }
+  } catch (error) {
+      console.error("Portfolio POST 중 오류 발생:", error);
+  }
 
     // navigate("/templates");
   };
