@@ -27,7 +27,7 @@ function Menu() {
   };
 
   const loginIn = sessionStorage.getItem("isLogin"); // 로그인 정보를 가져옴
-  console.log(loginIn);
+  // console.log(loginIn);
   return (
     <>
       <Placeholder />

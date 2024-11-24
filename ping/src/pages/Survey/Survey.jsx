@@ -52,7 +52,7 @@ const PortfolioCreation = () => {
           projectName: "",
           projectPhoto: "",
           projectLink: "",
-          projectDate: ["",""],
+          projectDate: ["", ""],
           projectDescLine: "",
           projectDesc: "",
           category: [""],
@@ -67,50 +67,55 @@ const PortfolioCreation = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    let projectIds = [18, 19];
-    let surveyId = 1;
+    let projectIds;
+    let surveyId;
 
-    // Project POST
-    try {
-      projectIds = await PostProject(formData.projects);
-      if (projectIds) {
-        console.log("Project POST 성공", projectIds);
-      } else {
-        console.log("Project POST 실패");
-        return;
-      }
-    } catch (error) {
-      console.error("Project POST 중 오류 발생:", error);
-      return;
-    }
+    // // Project POST
+    // try {
+    //   projectIds = await PostProject(formData.projects);
+    //   if (projectIds) {
+    //     console.log("Project POST 성공", projectIds);
+    //   } else {
+    //     console.log("Project POST 실패");
+    //     return;
+    //   }
+    // } catch (error) {
+    //   console.error("Project POST 중 오류 발생:", error);
+    //   return;
+    // }
 
-    // Survey POST
-    try {
-      const surveyResponse = await PostSurvey(formData.portfolioData, projectIds);
-      if (surveyResponse) {
-        console.log("Survey POST 성공", surveyResponse);
-        surveyId = surveyResponse.surveyId;
-      } else {
-        console.log("Survey POST 실패");
-      }
-    } catch (error) {
-      console.error("Survey POST 중 오류 발생:", error);
-    }
+    // // Survey POST
+    // try {
+    //   const surveyResponse = await PostSurvey(formData.portfolioData, projectIds);
+    //   if (surveyResponse) {
+    //     console.log("Survey POST 성공", surveyResponse);
+    //     surveyId = surveyResponse.surveyId;
+    //   } else {
+    //     console.log("Survey POST 실패");
+    //     return;
+    //   }
+    // } catch (error) {
+    //   console.error("Survey POST 중 오류 발생:", error);
+    //   return;
+    // }
 
-    // Portfolio POST
-    const loginId = sessionStorage.getItem("userId");
-    try {
-      const portfolioResponse = await PostPortfolio(loginId, surveyId, formData);
-      if (portfolioResponse) {
-          console.log("Portfolio POST 성공", portfolioResponse);
-      } else {
-          console.log("Portfolio POST 실패");
-      }
-  } catch (error) {
-      console.error("Portfolio POST 중 오류 발생:", error);
-  }
+    // // Portfolio POST
+    // const loginId = sessionStorage.getItem("userId");
+    // try {
+    //   const portfolioResponse = await PostPortfolio(loginId, surveyId, formData);
+    //   if (portfolioResponse) {
+    //     console.log("Portfolio POST 성공", portfolioResponse);
+    //     sessionStorage.setItem("portfolioId", portfolioResponse.portfolioId);
+    //     navigate("/templates"); 
+    //   } else {
+    //     console.log("Portfolio POST 실패");
+    //   }
+    // } catch (error) {
+    //   console.error("Portfolio POST 중 오류 발생:", error);
+    // }
 
-    // navigate("/templates");
+    sessionStorage.setItem("portfolioId", 5);
+    navigate("/templates"); 
   };
 
   return (
@@ -124,7 +129,7 @@ const PortfolioCreation = () => {
           projectNum={project.id}
           projectData={project}
           onChange={(data) => handleProjectChange(project.id, data)}
-          // onChange={handleProjectChange}
+        // onChange={handleProjectChange}
         />
       ))}
       <Button
