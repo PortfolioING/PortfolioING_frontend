@@ -14,8 +14,8 @@ const PortfolioForm = ({ onChange }) => {
   const handlePortfolioTitleChange = (e) => {
     onChange({ portfolioTitle: e.target.value });
   };
-  const handlePhotoChange = (file) => {
-    onChange({ photo: file });
+  const handlePhotoChange = (imageUrl) => {
+    onChange({ photo: imageUrl });
   };
 
   return (
