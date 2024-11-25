@@ -114,8 +114,8 @@ const PortfolioCreation = () => {
       console.error("Portfolio POST 중 오류 발생:", error);
     }
 
-    sessionStorage.setItem("portfolioId", 5);
-    navigate("/templates"); 
+    // sessionStorage.setItem("portfolioId", 5);
+    // navigate("/templates"); 
   };
 
   return (
