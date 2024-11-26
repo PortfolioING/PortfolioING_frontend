@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import PutTemplate from "../../apis/putTemplate";
 
 const TemplatePopup = ({ handlePopupClose, template }) => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 이미지 인덱스 관리
 
   const templateSrc = [
@@ -29,18 +30,15 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
     },
   ];
 
-  // 현재 템플릿의 이미지 배열 찾기
   const currentTemplate = templateSrc.find((item) => item.id === template.id);
   const images = currentTemplate ? currentTemplate.images : [];
 
-  // 이미지 오른쪽으로 이동
   const handleRight = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  // 이미지 왼쪽으로 이동
   const handleLeft = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -55,31 +53,25 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
     try {
       const response = await PutTemplate(templateId);
       console.log("Portfolio update 성공", response);
-      // navigate(""); // update 후 화면 전환
+      navigate(`/template/${templateId}`);
+      // navigate("");
     } catch (error) {
       console.error("Portfolio update 중 오류 발생:", error);
     }
-  }
+  };
   return (
     <TemplateWrapper>
       <div className="show-template">
-        {/* 왼쪽 버튼 */}
         <div className="btn" onClick={handleLeft}>
           {"<"}
         </div>
-
-        {/* 현재 이미지 표시 */}
         <div className="template">
           <img src={images[currentIndex]} alt="template" />
         </div>
-
-        {/* 오른쪽 버튼 */}
         <div className="btn" onClick={handleRight}>
           {">"}
         </div>
       </div>
-
-      {/* 버튼 섹션 */}
       <div className="btn-wrapper">
         <Button
           size="sm"
