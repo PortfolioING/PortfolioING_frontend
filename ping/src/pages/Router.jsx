@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
+  useParams,
 } from "react-router-dom";
 import Main from "./Main/Main";
 import Login from "./Login/Login";
@@ -29,14 +30,6 @@ const Router = () => {
       element: <User />,
     },
     {
-      path: "/user",
-      element: <Navigate to="/user/1" />,
-    },
-    {
-      path: "/porfolio",
-      element: <Main />,
-    },
-    {
       path: "/price",
       element: <Price />,
     },
@@ -53,24 +46,30 @@ const Router = () => {
       element: <Templates name="ping" />,
     },
     {
-      path: "/template1",
-      element: <Simple />,
+      path: "/template/:templateId", // 템플릿 상세 경로
+      element: <TemplateRenderer />, // 조건에 따라 다른 컴포넌트를 렌더링
     },
+
     {
-      path: "/template1-project",
-      element: <SimpleProject />,
-    },
-    {
-      path: "/template2",
-      element: <Creative />,
-    },
-    {
-      path: "/template2-project",
-      element: <CreativeProject />,
+      path: "/template/:templateId/project/:projectId", // 프로젝트 상세 경로
+      element: <SimpleProject />, // 프로젝트 상세 페이지
     },
   ]);
 
   return <RouterProvider router={router} />;
+};
+
+const TemplateRenderer = () => {
+  const { templateId } = useParams();
+
+  // 템플릿 ID에 따라 다른 컴포넌트 렌더링
+  if (templateId === "1") {
+    return <Simple />;
+  } else if (templateId === "2") {
+    return <Creative />;
+  } else {
+    return <div>Template not found</div>;
+  }
 };
 
 export default Router;
