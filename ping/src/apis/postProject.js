@@ -1,15 +1,17 @@
 import instance from "./instance";
 
 const PostProject = async (projects) => {
-  const requestData = projects.map(project => {
+  const requestData = projects.map((project) => {
     // projectDate에서 시작 및 종료 날짜를 안전하게 가져오기
-    const startDate = project.projectDate && project.projectDate[0] instanceof Date
-      ? project.projectDate[0].toISOString()
-      : "2024-10-08T00:00:00";
+    const startDate =
+      project.projectDate && project.projectDate[0] instanceof Date
+        ? project.projectDate[0].toISOString()
+        : "2024-10-08T00:00:00";
 
-    const endDate = project.projectDate && project.projectDate[1] instanceof Date
-      ? project.projectDate[1].toISOString()
-      : "2024-10-10T00:00:00";
+    const endDate =
+      project.projectDate && project.projectDate[1] instanceof Date
+        ? project.projectDate[1].toISOString()
+        : "2024-10-10T00:00:00";
 
     return {
       projectName: project.projectName,
@@ -21,24 +23,18 @@ const PostProject = async (projects) => {
       startDate: startDate,
       endDate: endDate,
       roles: project.category,
-      pns: project.problems.map(problem => ({
+      pns: project.problems.map((problem) => ({
         problem: problem.problem,
         solution: problem.solution,
       })),
     };
   });
 
-  console.log("Project POST request body", requestData);
   try {
-    // 각 프로젝트에 대해 POST 요청을 수행
     const responses = await Promise.all(
-      requestData.map(data =>
-        instance.post("api/projects", data)
-      )
+      requestData.map((data) => instance.post("api/projects", data))
     );
-
-    // 각 요청의 응답에서 project ID를 추출
-    const projectIds = responses.map(response => response.data.projectId); // ID는 서버에서 반환하는 형식에 따라 조정 필요
+    const projectIds = responses.map((response) => response.data.projectId);
     return projectIds;
   } catch (error) {
     if (error.response) {

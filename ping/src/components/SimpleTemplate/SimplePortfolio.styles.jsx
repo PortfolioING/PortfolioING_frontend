@@ -63,6 +63,7 @@ export const ProjectCard = styled.div`
 
   .project-number {
     font-size: 20px;
+    font-weight: 550;
     color: ${(props) => props.color.mainColor || "default"};
   }
 

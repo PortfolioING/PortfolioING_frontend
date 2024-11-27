@@ -9,6 +9,7 @@ import {
 } from "./SimpleProject.styles";
 
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProjectRight = ({ project, color }) => (
   <ProjectRightSection color={color}>
@@ -54,7 +55,7 @@ const ProjectPNS = ({ pns, color }) => {
       setCurrentIndex(currentIndex + 1);
     }
   };
-  console.log(color);
+
   return (
     <PNSWrapper color={color}>
       <div className="problem-solution">
@@ -86,6 +87,8 @@ const Color = {
 };
 
 const SimpleProject = ({ color = "Lime" }) => {
+  const { projectId } = useParams();
+  console.log(projectId);
   const project = {
     id: 1,
     number: "01",

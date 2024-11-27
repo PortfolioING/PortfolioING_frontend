@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostProject from "../../apis/postProject";
 import PostSurvey from "../../apis/postSurvey";
+
 import PostPortfolio from "../../apis/postPortfolio";
 
 const PortfolioCreation = () => {
@@ -22,16 +23,12 @@ const PortfolioCreation = () => {
     projects: [],
   });
 
-  // 포트폴리오 데이터 update
   const handlePortfolioChange = (data) => {
     setFormData((prev) => ({
       ...prev,
       portfolioData: { ...prev.portfolioData, ...data },
     }));
-    console.log("Survey 데이터:", formData.portfolioData); // 포트폴리오 데이터 확인
   };
-
-  // 프로젝트 데이터 update
   const handleProjectChange = (projectId, data) => {
     setFormData((prev) => {
       const updatedProjects = prev.projects.map((project) =>
@@ -39,7 +36,6 @@ const PortfolioCreation = () => {
       );
       return { ...prev, projects: updatedProjects };
     });
-    console.log("Project 데이터:", formData.projects); // 프로젝트 데이터 확인
   };
 
   const handleAddProject = (event) => {
@@ -84,9 +80,11 @@ const PortfolioCreation = () => {
       return;
     }
 
-    // Survey POST
     try {
-      const surveyResponse = await PostSurvey(formData.portfolioData, projectIds);
+      const surveyResponse = await PostSurvey(
+        formData.portfolioData,
+        projectIds
+      );
       if (surveyResponse) {
         console.log("Survey POST 성공", surveyResponse);
         surveyId = surveyResponse.surveyId;
@@ -102,20 +100,24 @@ const PortfolioCreation = () => {
     // Portfolio POST
     const loginId = sessionStorage.getItem("userId");
     try {
-      const portfolioResponse = await PostPortfolio(loginId, surveyId, formData);
+      const portfolioResponse = await PostPortfolio(
+        loginId,
+        surveyId,
+        formData
+      );
+      console.log(portfolioResponse);
       if (portfolioResponse) {
         console.log("Portfolio POST 성공", portfolioResponse);
+
         sessionStorage.setItem("portfolioId", portfolioResponse.portfolioId);
-        navigate("/templates"); 
+
+        navigate("/templates");
       } else {
         console.log("Portfolio POST 실패");
       }
     } catch (error) {
       console.error("Portfolio POST 중 오류 발생:", error);
     }
-
-    // sessionStorage.setItem("portfolioId", 5);
-    // navigate("/templates"); 
   };
 
   return (
@@ -129,7 +131,7 @@ const PortfolioCreation = () => {
           projectNum={project.id}
           projectData={project}
           onChange={(data) => handleProjectChange(project.id, data)}
-        // onChange={handleProjectChange}
+          // onChange={handleProjectChange}
         />
       ))}
       <Button
