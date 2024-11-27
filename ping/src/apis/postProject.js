@@ -14,7 +14,7 @@ const PostProject = async (projects) => {
         : "2024-10-10T00:00:00";
 
     return {
-      project_name: project.projectName,
+      projectName: project.projectName,
       // image: project.projectPhoto, // 이미지 URL로 변환 필요
       image: "Photo", //
       projectDesc: project.projectDescLine,

@@ -2,55 +2,65 @@ import styled from "styled-components";
 
 const PortfolioWrapper = styled.div`
   width: 100%;
+  height: 150px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  box-sizing: border-box;
 `;
 const ImgWrapper = styled.div`
+  height: inherit;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   > img {
-    width: 245px;
-    height: 140px;
+    width: 300px;
+    height: inherit;
     border-radius: 20px;
   }
-  margin-right: 20px;
 `;
 
 const PortfolioDesc = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 5px;
+  height: 140px;
+  box-sizing: border-box;
   > .title {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 500;
   }
   > .category-wrapper {
-    width: 50px;
     display: grid;
+    justify-content: center;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 5px;
+    justify-content: center;
   }
   > .btn-wrapper {
-    > button {
-      margin-right: 5px;
-    }
+    float: left;
   }
   > .last {
     font-size: 11px;
-    font-weight: 500;
     color: #cbcbcb;
+    float: left;
   }
 `;
+
 const Category = styled.div`
-  width: 55px;
-  height: 17px;
   display: flex;
+  width: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 3px;
+  text-align: center;
   box-sizing: border-box;
   background-color: #f6f5f5;
   color: white;
   border-radius: 5px;
-
+  padding: 3px 5px;
   font-size: 10px;
   font-weight: 400;
 

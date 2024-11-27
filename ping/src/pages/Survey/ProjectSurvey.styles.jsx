@@ -26,21 +26,18 @@ const CategoryFormWrapper = styled.div`
     gap: 5px;
   }
   .desc {
-    height: 25px;
-    width: 170px;
+    display: flex;
+    width: fit-content;
     border-radius: 0px 20px 20px 20px;
     border: 1px solid #c1c1c1;
-    display: flex;
-    align-items: center;
     padding: 5px;
     color: #848484;
     font-size: 10px;
     box-sizing: border-box;
     .bold {
       color: red;
-      margin-right: 10px;
       font-weight: 600;
-      margin-left: 10px;
+      margin: 0 10px;
     }
   }
 `;

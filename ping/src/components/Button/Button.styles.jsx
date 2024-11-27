@@ -48,7 +48,7 @@ const colorCombination = {
 };
 const Button = styled.button`
   white-space: nowrap;
-  cursor: ${(props) => (props.isDisabled ? "no-drop" || "pointer" : "default")};
+  cursor: ${(props) => (props.isDisabled ? "no-drop" : "pointer")};
   border: none;
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
 
