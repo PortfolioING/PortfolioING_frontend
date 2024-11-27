@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addMonths } from "date-fns";
+import { addMonths, subYears } from "date-fns"; // subYears를 추가
 import { DateWrapper } from "./ProjectSurvey.styles";
 import "../../styles/DatePicker.css";
 const DateForm = ({ onChange }) => {
@@ -31,8 +31,8 @@ const DateForm = ({ onChange }) => {
       <DatePicker
         selected={startDate}
         onChange={handleDateChange}
-        minDate={new Date()}
-        maxDate={addMonths(new Date(), 5)}
+        minDate={subYears(new Date(), 3)} // 최대 3년 전으로 설정
+        maxDate={new Date()} // 오늘 날짜까지 선택 가능
         startDate={startDate}
         endDate={endDate}
         selectsRange
