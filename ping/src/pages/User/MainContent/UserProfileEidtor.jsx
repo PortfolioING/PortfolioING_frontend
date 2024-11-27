@@ -106,6 +106,7 @@ const UserProfileEditor = () => {
           width="400px"
           height="50px"
           value={userInfo.name}
+          placeholder={userInfo.name || "Name"}
           onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
         />
         <FormField
@@ -113,6 +114,7 @@ const UserProfileEditor = () => {
           width="400px"
           height="50px"
           value={userInfo.nickname}
+          placeholder={userInfo.nickname || "NickName"}
           onChange={(e) =>
             setUserInfo({ ...userInfo, nickname: e.target.value })
           }
@@ -123,6 +125,7 @@ const UserProfileEditor = () => {
           height="50px"
           type="password"
           value={userInfo.password}
+          placeholder="********" // 보안상 비밀번호는 보여주지 않고 기본 텍스트로 대체
           onChange={(e) =>
             setUserInfo({ ...userInfo, password: e.target.value })
           }
