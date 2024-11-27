@@ -28,7 +28,7 @@ const Portfolio = (props) => {
         </div>
         <div className="btn-wrapper">
           <Button children="보기" mainColor="BlackWhite" size="sm" />
-          <Button children="수정" mainColor="WhiteBlack" size="sm" />
+          {/* <Button children="수정" mainColor="WhiteBlack" size="sm" /> */}
         </div>
         <div className="last">마지막 작업: {last}</div>
       </PortfolioDesc>
