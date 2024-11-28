@@ -8,7 +8,7 @@ export const GuideWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end; /* 오른쪽 정렬 */
   gap: 10px; /* 말풍선과 핑 간격 */
-
+  z-index: 1;
   > .ping {
     position: relative;
     right: 0;

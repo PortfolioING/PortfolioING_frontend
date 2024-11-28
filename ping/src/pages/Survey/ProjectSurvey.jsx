@@ -38,6 +38,7 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
   };
 
   const handleProjectChange = (field, value) => {
+    // 상태 업데이트
     switch (field) {
       case "projectName":
         setProjectName(value);
@@ -63,19 +64,21 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
       default:
         break;
     }
+
+    // 최신 상태를 상위로 전달 (즉시 반영되도록 수정)
     onChange({
-      projectName,
-      projectPhoto,
-      projectLink,
-      projectDate,
-      projectDescLine,
-      projectDesc,
-      category,
-      problems,
+      projectName: field === "projectName" ? value : projectName,
+      projectPhoto: field === "projectPhoto" ? value : projectPhoto,
+      projectLink: field === "projectLink" ? value : projectLink,
+      projectDate: field === "projectDate" ? value : projectDate,
+      projectDescLine: field === "projectDescLine" ? value : projectDescLine,
+      projectDesc: field === "projectDesc" ? value : projectDesc,
+      category: field === "category" ? value : category,
+      problems, // 문제점 배열은 그대로 유지
     });
   };
+
   const handleInputClick = (text) => {
-    console.log("in");
     setGuideText(text);
   };
 

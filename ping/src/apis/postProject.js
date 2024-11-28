@@ -1,6 +1,8 @@
 import instance from "./instance";
 
 const PostProject = async (projects) => {
+  console.log("post project 들어옴");
+  console.log(projects.projectName);
   const requestData = projects.map((project) => {
     // projectDate에서 시작 및 종료 날짜를 안전하게 가져오기
     const startDate =

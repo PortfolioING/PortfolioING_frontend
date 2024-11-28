@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Wrapper,
   LeftWrapper,
@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 import Ping from "../../asset/ping";
 import Face from "../../asset/face.svg";
+import GetPortfolio from "../../apis/GetPortfolio";
 
 const Color = {
   blue: {
@@ -23,20 +24,22 @@ const Color = {
     subColor_4: "#848484",
   },
 };
-const Project = ({ color, ...props }) => {
+const Project = ({ project, color, ...props }) => {
   const navigate = useNavigate();
-
   const handleClick = () => {
-    //navigate("/templete2-project/" + props.id); => 서버에세 해당 프로젝트 받아와야함
-    navigate("/template2-project");
+    navigate(`/template/2/project/${project.projectId}`);
   };
+  const projectName = project.projectName || "프로젝트 이름 없음";
+  const projectDesc = project.projectDesc || "설명이 없습니다.";
+  const roles = project.roles || []; // 기본값을 빈 배열로 설정
+
   return (
     <ProjectContainer color={color} onClick={handleClick}>
-      <div className="number">{props.number}</div>
-      <div className="title">{props.project_name}</div>
-      <div className="desc">{props.projectDesc}</div>
+      <div className="number">{project.number}</div>
+      <div className="title">{projectName}</div>
+      <div className="desc">{projectDesc}</div>
       <div className="roles">
-        {props.roles.map((role) => (
+        {roles.map((role) => (
           <p>#{role}</p>
         ))}
       </div>
@@ -45,57 +48,39 @@ const Project = ({ color, ...props }) => {
 };
 
 const Creative = ({ color = "blue" }) => {
-  const userIntro = {
-    title: "나의 포토폴리오",
-    introduce: "개쩌는 프론트개발자",
-    name: "이하민",
-    image: "",
-    projects: [
-      {
-        id: 1,
-        number: "01",
-        project_name: "Project Title",
-        image: "",
-        projectDesc: "프로젝트 간단설명",
-        projectFullDesc: "프로젝트 긴 설명",
-        projectLink: "www.ping.com",
-        date: ["2023/11/21", "2024/11/21"], // 날짜 데이터가 필요
-        roles: ["프론트", "백엔드", "기획", "UX/UI"], // 배열로
-        pns: [
-          {
-            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-            solution: "문제를 해결한 방법", // 해결 방법
-          },
-          {
-            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-            solution: "문제를 해결한 방법", // 해결 방법
-          },
-        ],
-      },
-      {
-        id: 2,
-        number: "02",
-        project_name: "Project Title",
-        image: "",
-        projectDesc: "프로젝트 간단설명",
-        projectFullDesc: "프로젝트 긴 설명",
-        projectLink: "www.ping.com",
-        date: ["2023/11/21", "2024/11/21"], // 날짜 데이터가 필요
-        roles: ["프론트", "백엔드", "기획", "UX/UI"], // 배열로
-        pns: [
-          {
-            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-            solution: "문제를 해결한 방법", // 해결 방법
-          },
-          {
-            problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-            solution: "문제를 해결한 방법", // 해결 방법
-          },
-        ],
-      },
-    ],
-  };
-  const selectedColor = Color[color] || Color.blue;
+  const [portfolioInfo, setPortfolioInfo] = useState(null); // 상태 관리
+  const selectedColor = Color[color];
+
+  useEffect(() => {
+    const fetchPortfolio = async () => {
+      const portfolioId = sessionStorage.getItem("portfolioId"); // 세션에서 ID 가져오기
+      if (!portfolioId) {
+        console.error("포트폴리오 ID가 없습니다.");
+        return;
+      }
+
+      try {
+        const result = await GetPortfolio(portfolioId); // 비동기 호출
+        setPortfolioInfo(result); // 상태에 저장
+      } catch (error) {
+        console.error("설문 데이터를 가져오는 중 오류 발생:", error);
+      }
+    };
+
+    fetchPortfolio();
+  }, []);
+
+  if (!portfolioInfo) {
+    return <div>데이터를 불러오는 중...</div>;
+  }
+  console.log(portfolioInfo);
+  const { title } = portfolioInfo;
+  const {
+    introduce,
+    name,
+    image,
+    projects = [],
+  } = portfolioInfo.surveyDto || {};
 
   return (
     <Wrapper color={selectedColor}>
@@ -107,23 +92,25 @@ const Creative = ({ color = "blue" }) => {
       />
       <LeftWrapper>
         <Header>
-          <div className="introduce">{userIntro.introduce}</div>
+          <div className="introduce">{introduce}</div>
           <div className="name">
             안녕하세요?
             <br />
-            {userIntro.name}입니다.
+            {name}입니다.
           </div>
         </Header>
         <ProjectWrapper>
-          {userIntro.projects.map((project) => (
-            <Project key={project.number} color={selectedColor} {...project} />
+          {projects.map((project, index) => (
+            <Project
+              key={project.number}
+              color={selectedColor}
+              project={{ ...project, number: index + 1 }}
+            />
           ))}
         </ProjectWrapper>
       </LeftWrapper>
       <RightWrapper>
-        <div className="user-img">
-          {userIntro.image == "" ? <Ping /> : <img src={userIntro.image} />}
-        </div>
+        <div className="user-img">{image == "" ? "" : <img src={image} />}</div>
       </RightWrapper>
     </Wrapper>
   );

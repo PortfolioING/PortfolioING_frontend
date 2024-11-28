@@ -5,7 +5,7 @@ import Button from "../../components/Button/Button";
 import { Wrapper, PortfolioTitle } from "./Survey.styles";
 import ProjectSurvey from "./ProjectSurvey";
 import PortfolioForm from "./PortfolioForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostProject from "../../apis/postProject";
 import PostSurvey from "../../apis/postSurvey";
@@ -23,6 +23,9 @@ const PortfolioCreation = () => {
     },
     projects: [],
   });
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   const handlePortfolioChange = (data) => {
     setFormData((prev) => ({
@@ -104,9 +107,9 @@ const PortfolioCreation = () => {
       const portfolioResponse = await PostPortfolio(
         loginId,
         surveyId,
-        formData
+        formData.portfolioData
       );
-      console.log(portfolioResponse);
+      // console.log(portfolioResponse);
       if (portfolioResponse) {
         console.log("Portfolio POST 성공", portfolioResponse);
 

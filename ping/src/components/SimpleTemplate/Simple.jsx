@@ -58,15 +58,18 @@ const Portfolio = ({ color = "Lime" }) => {
 
   useEffect(() => {
     const fetchPortfolio = async () => {
-      const portfolioId = sessionStorage.getItem("portfolioId"); // 세션에서 ID 가져오기
+      const portfolioId = sessionStorage.getItem("portfolioId");
       if (!portfolioId) {
         console.error("포트폴리오 ID가 없습니다.");
         return;
       }
 
       try {
-        const result = await GetPortfolio(portfolioId); // 비동기 호출
+        const result = await GetPortfolio(portfolioId);
         setPortfolioInfo(result); // 상태에 저장
+        console.log(result);
+
+        console.log("포폴 가져옴");
       } catch (error) {
         console.error("설문 데이터를 가져오는 중 오류 발생:", error);
       }
@@ -78,15 +81,16 @@ const Portfolio = ({ color = "Lime" }) => {
   if (!portfolioInfo) {
     return <div>데이터를 불러오는 중...</div>;
   }
-
+  console.log(portfolioInfo);
   const { title } = portfolioInfo;
+
   const {
     introduce,
     name,
     image,
     projects = [],
   } = portfolioInfo.surveyDto || {};
-  console.log(portfolioInfo.surveyDto.projects);
+
   return (
     <Wrapper>
       <Content color={selectedColor}>
