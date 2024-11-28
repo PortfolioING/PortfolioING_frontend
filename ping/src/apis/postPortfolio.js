@@ -4,7 +4,7 @@ const PostPortfolio = async (userId, surveyId, portfolioData) => {
   const requestData = {
     user_id: userId,
     survey_id: surveyId,
-    title: "portfolioTitle", // 추후 프론트 수정에 따라 추가 설정 필요
+    title: portfolioData.portfolioTitle,
     description: "introduction",
     image: "photo",
   };

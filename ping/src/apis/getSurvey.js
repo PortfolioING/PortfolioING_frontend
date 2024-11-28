@@ -1,8 +1,8 @@
 import instance from "./instance";
-const GetPortfolio = async (portfolioId) => {
+const GetSurvey = async (surveyId) => {
   try {
-    //const response = await instance.get(`api/portfolio/3`);
-    const response = await instance.get(`api/portfolio/${portfolioId}`);
+    const response = await instance.get(`api/survey/${surveyId}`);
+    console.log(response);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -17,4 +17,4 @@ const GetPortfolio = async (portfolioId) => {
     throw error;
   }
 };
-export default GetPortfolio;
+export default GetSurvey;

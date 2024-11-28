@@ -1,9 +1,9 @@
 // FormField.js
 import styled from "styled-components";
 import Label from "./FormLabel";
-import TextArea from "./FormTextArea";
+//import TextArea from "./FormTextArea";
 import Input from "./FormInput";
-const FormFieldWrapper = styled.div`
+const FormFieldWrapper = styled.form`
   margin-bottom: 25px;
 `;
 
