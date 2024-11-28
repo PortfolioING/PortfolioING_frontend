@@ -13,6 +13,9 @@ function Menu() {
     sessionStorage.clear("userId");
     navigate("/");
   };
+  const navigateAboutPing = () => {
+    navigate("/about-ping");
+  };
   const navigatePrice = () => {
     navigate("/price");
   };
@@ -34,7 +37,7 @@ function Menu() {
       <Bar>
         <div className="left_menu">
           <Ping width={40} height={40} />
-          <p>about PING</p>
+          <p onClick={navigateAboutPing}>about PING</p>
           <p onClick={navigatePrice}>요금</p>
         </div>
         <div className="wrap_menu">
