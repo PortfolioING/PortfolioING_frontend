@@ -25,7 +25,7 @@ const Img = ({ previewSrc, onClick, defaultImg }) => {
     </ImgWrapper>
   );
 };
-const FileUpdate = ({ onChange, defaultImg }) => {
+const FileUpdate = ({ onChange, defaultImg, onFocus }) => {
   // console.log(defaultImg);
   const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
   const uniqueId = useId();
@@ -38,7 +38,7 @@ const FileUpdate = ({ onChange, defaultImg }) => {
         setPreviewSrc(e.target.result);
         onChange(file); // 파일 정보를 부모 컴포넌트에 전달
         console.log("선택한 파일:", file); // 파일 정보 출력
-    };
+      };
       reader.readAsDataURL(file);
     } else {
       setPreviewSrc("");
@@ -57,6 +57,7 @@ const FileUpdate = ({ onChange, defaultImg }) => {
         type="file"
         onChange={handleFileChange}
         style={{ display: "none" }}
+        onClick={onFocus}
       />
       <Label htmlFor={uniqueId}>
         {previewSrc ? (

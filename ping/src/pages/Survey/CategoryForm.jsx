@@ -14,7 +14,7 @@ const CATEGORY_OPTIONS = [
   "UX/UI",
 ];
 
-const CategoryForm = ({ onChange }) => {
+const CategoryForm = ({ onChange, onClick }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const toggleCategory = (category) => {
@@ -32,7 +32,7 @@ const CategoryForm = ({ onChange }) => {
         <p className="bold">복수 응답</p>
         <p>여러개를 골라주세요!</p>
       </div>
-      <div className="category-wrapper">
+      <div className="category-wrapper" onClick={onClick}>
         {CATEGORY_OPTIONS.map((label) => (
           <Category
             key={label}

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addMonths } from "date-fns";
 import { DateWrapper } from "./ProjectSurvey.styles";
 import "../../styles/DatePicker.css";
-const DateForm = ({ onChange }) => {
+import { addYears } from "date-fns";
+const DateForm = ({ onChange, onFocus }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -29,10 +29,13 @@ const DateForm = ({ onChange }) => {
         </p>
       </DateWrapper>
       <DatePicker
+        onSelect={onFocus}
+        //onFocus={onFocus}
+        // onClick={onFocus}
         selected={startDate}
         onChange={handleDateChange}
-        minDate={new Date()}
-        maxDate={addMonths(new Date(), 5)}
+        minDate={addYears(new Date(), -3)} // 오늘로부터 3년 전
+        maxDate={new Date()} // 오늘
         startDate={startDate}
         endDate={endDate}
         selectsRange
