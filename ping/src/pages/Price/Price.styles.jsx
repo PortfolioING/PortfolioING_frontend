@@ -10,6 +10,7 @@ const PriceContainer = styled.div`
 const StyledPriceCard = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 10px 20px;
   justify-content: space-around;
   align-items: center;
   background-color: white;
@@ -57,4 +58,33 @@ const StyledPriceCard = styled.div`
     }
   }
 `;
-export { PriceContainer, StyledPriceCard };
+const DescWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const Desc = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+  > .img {
+    width: 15px;
+    height: 15px; /* 부모 컨테이너의 크기를 고정 */
+    display: flex; /* 자식 요소를 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    > img {
+      display: ${(props) => (props.isAble ? "block" : "none")};
+    }
+  }
+  > .text {
+    font-size: 17px;
+    float: left;
+    text-align: left;
+    color: ${(props) => (props.isAble ? "black" : "#C8C8C8")};
+  }
+`;
+export { PriceContainer, StyledPriceCard, DescWrapper, Desc };

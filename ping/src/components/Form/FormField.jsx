@@ -7,7 +7,7 @@ const FormFieldWrapper = styled.div`
   margin-bottom: 25px;
 `;
 
-const FormField = ({ label, onChange, id, size = "lg", ...props }) => {
+const FormField = ({ label, onChange, onFocus, id, size = "lg", ...props }) => {
   return (
     <FormFieldWrapper>
       <Label htmlFor={id}>{label}</Label>
@@ -18,6 +18,7 @@ const FormField = ({ label, onChange, id, size = "lg", ...props }) => {
         placeholder={props.placeholder}
         size={size}
         type={props.type}
+        onFocus={onFocus}
       />
     </FormFieldWrapper>
   );

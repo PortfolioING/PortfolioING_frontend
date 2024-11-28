@@ -25,7 +25,7 @@ const Img = ({ previewSrc, onClick, defaultImg }) => {
     </ImgWrapper>
   );
 };
-const FileUpdate = ({ onChange, defaultImg }) => {
+const FileUpdate = ({ onChange, defaultImg, onFocus }) => {
   // console.log(defaultImg);
   const [previewSrc, setPreviewSrc] = useState(defaultImg || "");
   const uniqueId = useId();
@@ -35,10 +35,12 @@ const FileUpdate = ({ onChange, defaultImg }) => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
+
         const imageUrl = e.target.result; // Base64 인코딩된 이미지 URL
         setPreviewSrc(imageUrl); // 미리보기 이미지 업데이트
         onChange(imageUrl); // 부모 컴포넌트에 이미지 URL 전달
         console.log("선택한 이미지 URL:", imageUrl); // 이미지 URL 출력
+
       };
       reader.readAsDataURL(file);
     } else {
@@ -58,6 +60,7 @@ const FileUpdate = ({ onChange, defaultImg }) => {
         type="file"
         onChange={handleFileChange}
         style={{ display: "none" }}
+        onClick={onFocus}
       />
       <Label htmlFor={uniqueId}>
         {previewSrc ? (
