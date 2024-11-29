@@ -19,7 +19,17 @@ const fetchPortfolios = async () => {
       params: { user_id: userId }, // 서버가 요구하는 user_id를 사용
     });
     console.log("Fetched Portfolios:", response.data);
-    return response.data;
+
+    // 필요한 데이터 추출
+    const portfolios = response.data.portfolios.map((portfolio) => ({
+      title: portfolio.title,
+      categories: portfolio.description || [], // categories 필드는 description으로 대체할 수 있음 (필요에 따라 수정)
+      roles: portfolio.surveyDto.projects[0].roles || [], // roles 배열을 가져옴
+      updatedAt: portfolio.updatedAt,
+      img: "string", // 임시 문자열 할당
+    }));
+
+    return portfolios;
   } catch (error) {
     console.error("포트폴리오를 불러오는 중 오류가 발생했습니다.", error);
     throw error;
@@ -89,7 +99,8 @@ const WorkSpace = () => {
               title={portfolio.title}
               img={portfolio.img}
               categories={portfolio.categories}
-              last={portfolio.last}
+              roles={portfolio.roles}
+              last={portfolio.updatedAt}
             />
           </PortfolioWrapper>
         ))
