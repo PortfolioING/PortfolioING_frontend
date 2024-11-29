@@ -5,7 +5,7 @@ import { Wrapper, PortfolioTitle, PortfolioFormWrapper } from "./Survey.styles";
 import DateForm from "./DateForm";
 import CategoryForm from "./CategoryForm";
 import FileUpdate from "../../components/FileUpdate/FileUpdate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProblemBtn, ProblemWrapper } from "./ProjectSurvey.styles";
 import Plus from "../../asset/plus.svg";
 import FormTextArea from "../../components/Form/FormTextArea";
@@ -21,6 +21,9 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
   const [problems, setProblems] = useState([
     { id: 1, problem: "", solution: "" },
   ]);
+  // useEffect(() => {
+  //   console.log(category);
+  // }, [category]);
 
   const handleAddProblem = (event) => {
     setProblems((prev) => [

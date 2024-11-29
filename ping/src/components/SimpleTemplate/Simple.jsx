@@ -18,7 +18,7 @@ const Color = {
 
 const ProjectCardComponent = ({ project, color }) => {
   const navigate = useNavigate();
-  console.log(project);
+  //console.log(project);
   const handleClick = () => {
     navigate(`/template/1/project/${project.projectId}`);
   };

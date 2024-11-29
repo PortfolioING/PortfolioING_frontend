@@ -1,6 +1,5 @@
 import {
   createBrowserRouter,
-  Navigate,
   RouterProvider,
   useParams,
 } from "react-router-dom";
@@ -15,6 +14,7 @@ import SimpleProject from "../components/SimpleTemplate/SimpleProject";
 import AboutPing from "./AboutPing/AboutPing";
 import Creative from "../components/CreativeTemplate/Creative";
 import CreativeProject from "../components/CreativeTemplate/CreativeProject";
+
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -47,12 +47,11 @@ const Router = () => {
     },
     {
       path: "/template/:templateId", // 템플릿 상세 경로
-      element: <TemplateRenderer />, // 조건에 따라 다른 컴포넌트를 렌더링
+      element: <TemplateRenderer />,
     },
-
     {
       path: "/template/:templateId/project/:projectId", // 프로젝트 상세 경로
-      element: <SimpleProject />, // 프로젝트 상세 페이지
+      element: <ProjectRenderer />,
     },
   ]);
 
@@ -69,6 +68,19 @@ const TemplateRenderer = () => {
     return <Creative />;
   } else {
     return <div>Template not found</div>;
+  }
+};
+
+const ProjectRenderer = () => {
+  const { templateId, projectId } = useParams();
+
+  // 템플릿 ID에 따라 프로젝트 컴포넌트 렌더링
+  if (templateId === "1") {
+    return <SimpleProject projectId={projectId} />;
+  } else if (templateId === "2") {
+    return <CreativeProject projectId={projectId} />;
+  } else {
+    return <div>Project not found</div>;
   }
 };
 
