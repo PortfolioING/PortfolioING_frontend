@@ -1,7 +1,32 @@
+import React, { useState, useEffect } from "react";
+import instance from "../../../apis/instance/index.js";
 import Portfolio from "../../../components/Portfolio/Portfolio";
 import Search from "../../../asset/search.svg";
 import { Wrapper, Title } from "../MainContent.styles";
 import styled from "styled-components";
+
+// API 호출 함수
+const fetchPortfolios = async () => {
+  const userId = sessionStorage.getItem("userId");
+
+  if (!userId) {
+    console.error("User ID is missing");
+    return;
+  }
+
+  try {
+    const response = await instance.get("/api/portfolio", {
+      params: { user_id: userId }, // 서버가 요구하는 user_id를 사용
+    });
+    console.log("Fetched Portfolios:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("포트폴리오를 불러오는 중 오류가 발생했습니다.", error);
+    throw error;
+  }
+};
+
+// 스타일 정의
 const PortfolioWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,16 +42,34 @@ const PortfolioWrapper = styled.div`
     margin-top: 100px;
   }
 `;
+
 const WorkSpace = () => {
-  const portfolios = [
-    {
-      title: "동아리용 포폴",
-      img: "http://via.placeholder.com/240x240",
-      categories:
-        "프론트엔드, 백엔드, 디자인, UI/UX, 안드로이드, IOS, 기획, AI, 보안 ",
-      last: "2024/11/05",
-    },
-  ];
+  const [portfolios, setPortfolios] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadPortfolios = async () => {
+      const userId = sessionStorage.getItem("userId"); // sessionStorage에서 userId 가져오기
+      console.log("Fetched userId from sessionStorage:", userId);
+
+      try {
+        setLoading(true);
+        const data = await fetchPortfolios(userId);
+        setPortfolios(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPortfolios();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <Wrapper>
       <Title>
@@ -34,22 +77,29 @@ const WorkSpace = () => {
           <p>나의 포트폴리오</p>
         </div>
         <div className="search-wrapper">
-          <input type="text" placeholder="포토폴리오 검색" />
+          <input type="text" placeholder="포트폴리오 검색" />
           <img src={Search} alt="search icon" />
         </div>
       </Title>
 
-      {portfolios.map((portfolio) => (
+      {portfolios.length > 0 ? (
+        portfolios.map((portfolio, index) => (
+          <PortfolioWrapper key={index}>
+            <Portfolio
+              title={portfolio.title}
+              img={portfolio.img}
+              categories={portfolio.categories}
+              last={portfolio.last}
+            />
+          </PortfolioWrapper>
+        ))
+      ) : (
         <PortfolioWrapper>
-          <Portfolio
-            title={portfolio.title}
-            img={portfolio.img}
-            categories={portfolio.categories}
-            last={portfolio.last}
-          />
+          <div className="no-portfolio">포트폴리오가 없습니다.</div>
         </PortfolioWrapper>
-      ))}
+      )}
     </Wrapper>
   );
 };
+
 export default WorkSpace;
