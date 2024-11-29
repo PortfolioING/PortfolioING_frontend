@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Wrapper, Content, MainContainer } from "./Simple.styles";
 import {
   ProjectHeader,
@@ -8,8 +8,8 @@ import {
   PNSWrapper,
 } from "./SimpleProject.styles";
 
-import { useState } from "react";
 import { useParams } from "react-router-dom";
+import GetProject from "../../apis/getProject";
 
 const ProjectRight = ({ project, color }) => (
   <ProjectRightSection color={color}>
@@ -18,7 +18,7 @@ const ProjectRight = ({ project, color }) => (
       <div className="description-item">
         <div className="item-title">Date</div>
         <div>
-          {project.date[0]} ~ {project.date[1]}
+          {project.startDate} ~ {project.endDate}
         </div>
       </div>
     </DescriptionWrapper>
@@ -28,7 +28,7 @@ const ProjectRight = ({ project, color }) => (
 const ProjectLeft = ({ project, color }) => (
   <ProjectLeftSection color={color}>
     <ProjectHeader>
-      <div className="project-title">{project.project_name}</div>
+      <div className="project-title">{project.projectName}</div>
       <div className="project-link">{project.projectLink}</div>
     </ProjectHeader>
     <div className="project-summary">{project.projectDesc}</div>
@@ -37,21 +37,22 @@ const ProjectLeft = ({ project, color }) => (
     <div className="roles">
       <div className="title">Part</div>
       <div className="roles-wrapper">
-        {project.roles.map((role) => (
-          <div>{role}</div>
+        {project.roles.map((role, index) => (
+          <div key={index}>{role}</div>
         ))}
       </div>
     </div>
   </ProjectLeftSection>
 );
+
 const ProjectPNS = ({ pns, color }) => {
+  console.log(pns);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    // 다음 버튼 클릭 시
-    if (currentIndex == pns.length - 1) {
+    if (currentIndex === pns.length - 1) {
       setCurrentIndex(0);
-    } else if (currentIndex < pns.length - 1) {
+    } else {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -68,11 +69,7 @@ const ProjectPNS = ({ pns, color }) => {
           <div>{pns[currentIndex].solution}</div>
         </section>
       </div>
-      <div
-        className="btn"
-        onClick={handleNext}
-        disabled={currentIndex === pns.length - 1}
-      >
+      <div className="btn" onClick={handleNext}>
         {">"}
       </div>
     </PNSWrapper>
@@ -88,51 +85,32 @@ const Color = {
 
 const SimpleProject = ({ color = "Lime" }) => {
   const { projectId } = useParams();
-  console.log(projectId);
-  const project = {
-    id: 1,
-    number: "01",
-    project_name: "Project Title",
-    image: "",
-    projectDesc: "프로젝트 간단설명",
-    projectFullDesc: "프로젝트 긴 설명",
-    projectLink: "www.ping.com",
-    date: ["2023/11/21", "2024/11/21"], // 날짜 데이터
-    roles: ["프론트", "백엔드", "기획", "UX/UI"], // 역할 배열
-    pns: [
-      {
-        problem: "프로젝트에서 해결해야 했던 문제점1", // 문제점
-        solution:
-          "문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법", // 해결 방법
-      },
-      {
-        problem: "프로젝트에서 해결해야 했던 문제점2", // 문제점
-        solution:
-          "문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법", // 해결 방법
-      },
-      {
-        problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-        solution:
-          "문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법", // 해결 방법
-      },
-      {
-        problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-        solution:
-          "문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법", // 해결 방법
-      },
-      {
-        problem: "프로젝트에서 해결해야 했던 문제점", // 문제점
-        solution:
-          "문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법, 문제를 해결한 방법", // 해결 방법
-      },
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-      {
-        problem: "다른 문제점", // 문제점
-        solution: "다른 해결 방법", // 해결 방법
-      },
-    ],
-  };
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const data = await GetProject(projectId);
+        setProject(data);
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProject();
+  }, [projectId]);
+
   const selectedColor = Color[color];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!project) {
+    return <div>Project not found</div>;
+  }
 
   return (
     <Wrapper>

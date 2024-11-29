@@ -130,7 +130,7 @@ export const DescriptionWrapper = styled.div`
     align-items: center;
     color: white;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 
     .item-title {
