@@ -21,9 +21,9 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
   const [problems, setProblems] = useState([
     { id: 1, problem: "", solution: "" },
   ]);
-  // useEffect(() => {
-  //   console.log(category);
-  // }, [category]);
+  useEffect(() => {
+    console.log(problems);
+  }, problems);
 
   const handleAddProblem = (event) => {
     setProblems((prev) => [
@@ -180,8 +180,8 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
                   "본인이 겪은 문제와 이를 해결하기 위해 시도한 것들에 대한 비교, 그리고 마침내 해결하는 과정까지 어떻게 도달했는지 작성하면 좋아요!"
                 )
               }
+              problemId={problem.id}
               key={problem.id}
-              problemNum={problems.length}
               onChange={handleProblemChange}
             />
           ))}
@@ -194,19 +194,19 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
     </Wrapper>
   );
 };
-const ProjectProblem = ({ problemNum, onChange, onClick }) => {
+const ProjectProblem = ({ onChange, onClick, problemId }) => {
   const handleInputChange = (type, value) => {
-    onChange(problemNum, type, value); // 부모로 변경 사항 전파
+    onChange(problemId, type, value); // 부모로 변경 사항 전파
   };
 
   return (
     <ProblemWrapper>
-      <p>문제점 {problemNum}</p>
+      <p>문제점 {problemId}</p>
       <FormInput
         onClick={onClick}
         onChange={(e) => handleInputChange("problem", e.target.value)}
       />
-      <p>해결과정 {problemNum}</p>
+      <p>해결과정 {problemId}</p>
       <FormInput
         onClick={onClick}
         onChange={(e) => handleInputChange("solution", e.target.value)}

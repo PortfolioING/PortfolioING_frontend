@@ -9,6 +9,7 @@ import {
 import ProjectImg from "../../asset/project";
 
 const ProblemSolution = ({ problem, solution, color }) => {
+  console.log(problem);
   return (
     <PSWrapper color={color}>
       <div className="section">

@@ -25,28 +25,34 @@ const ProjectRight = ({ project, color }) => (
   </ProjectRightSection>
 );
 
-const ProjectLeft = ({ project, color }) => (
-  <ProjectLeftSection color={color}>
-    <ProjectHeader>
-      <div className="project-title">{project.projectName}</div>
-      <div className="project-link">{project.projectLink}</div>
-    </ProjectHeader>
-    <div className="project-summary">{project.projectDesc}</div>
-    <div className="project-detail">{project.projectFullDesc}</div>
-    <ProjectPNS pns={project.pns} color={color} />
-    <div className="roles">
-      <div className="title">Part</div>
-      <div className="roles-wrapper">
-        {project.roles.map((role, index) => (
-          <div key={index}>{role}</div>
-        ))}
+const ProjectLeft = ({ project, color }) => {
+  return (
+    <ProjectLeftSection color={color}>
+      <ProjectHeader>
+        <div className="project-title">{project.projectName}</div>
+        <div className="project-link">{project.projectLink}</div>
+      </ProjectHeader>
+      <div className="project-summary">{project.projectDesc}</div>
+      <div className="project-detail">{project.projectFullDesc}</div>
+      {project.pns.length > 0 ? (
+        <ProjectPNS pns={project.pns} color={color} />
+      ) : (
+        ""
+      )}
+      <div className="roles">
+        <div className="title">Part</div>
+        <div className="roles-wrapper">
+          {project.roles.map((role, index) => (
+            <div key={index}>{role}</div>
+          ))}
+        </div>
       </div>
-    </div>
-  </ProjectLeftSection>
-);
+    </ProjectLeftSection>
+  );
+};
 
 const ProjectPNS = ({ pns, color }) => {
-  console.log(pns);
+  //console.log(pns);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -103,7 +109,7 @@ const SimpleProject = ({ color = "Lime" }) => {
   }, [projectId]);
 
   const selectedColor = Color[color];
-
+  console.log(project);
   if (loading) {
     return <div>Loading...</div>;
   }
