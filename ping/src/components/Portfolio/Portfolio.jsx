@@ -6,21 +6,30 @@ import {
   Category,
 } from "./Portfolio.styles";
 import Button from "../Button/Button";
+import Template1 from "../../asset/template1-1.png";
+import Template2 from "../../asset/template2-1.png";
 
-const Portfolio = (props) => {
-  const { categories, img, title, last } = props;
+const Portfolio = ({ templateId, roles = [], img, title, last }) => {
+  title = title == "" ? "Title이 존재하지 않습니다" : title;
+  last = last ? last.split("T")[0] : "Unknown";
+  console.log(roles);
+  roles = roles.length > 1 ? roles : ["역할 x"];
 
-  const categoriesArray = categories.split(",").map((item) => item.trim());
-  console.log(categoriesArray[0]);
   return (
     <PortfolioWrapper>
       <ImgWrapper>
-        <img src={img} alt="portfolio img" />
+        {templateId === "1" ? (
+          <img src={Template1} alt="Template 1" />
+        ) : templateId === "2" ? (
+          <img src={Template2} alt="Template 2" />
+        ) : (
+          <div></div>
+        )}
       </ImgWrapper>
       <PortfolioDesc>
         <div className="title">{title}</div>
         <div className="category-wrapper">
-          {categoriesArray.map((category, index) => (
+          {roles.map((category, index) => (
             <Category key={index} category={category}>
               {category}
             </Category>
@@ -28,7 +37,6 @@ const Portfolio = (props) => {
         </div>
         <div className="btn-wrapper">
           <Button children="보기" mainColor="BlackWhite" size="sm" />
-          {/* <Button children="수정" mainColor="WhiteBlack" size="sm" /> */}
         </div>
         <div className="last">마지막 작업: {last}</div>
       </PortfolioDesc>

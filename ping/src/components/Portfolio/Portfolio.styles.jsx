@@ -14,6 +14,12 @@ const ImgWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  > div {
+    width: 300px;
+    height: inherit;
+    border-radius: 20px;
+    background-color: black;
+  }
   > img {
     width: 300px;
     height: inherit;
@@ -24,7 +30,7 @@ const ImgWrapper = styled.div`
 const PortfolioDesc = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5px;
   height: 140px;
   box-sizing: border-box;
@@ -33,12 +39,9 @@ const PortfolioDesc = styled.div`
     font-weight: 500;
   }
   > .category-wrapper {
-    display: grid;
-    justify-content: center;
-
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: flex-start;
     gap: 5px;
-    justify-content: center;
   }
   > .btn-wrapper {
     float: left;
@@ -72,7 +75,7 @@ const Category = styled.div`
         return "#0C4CBB";
       case "디자인":
         return "#00DA95";
-      case "UI/UX":
+      case "UX/UI":
         return "#FC7831";
       case "보안":
         return "#43874B";
@@ -87,7 +90,7 @@ const Category = styled.div`
       case "AI":
         return "#D71F1F";
       default:
-        return "#000"; // 기본 색상 (필요에 따라 변경 가능)
+        return "#c3db0a"; // 기본 색상 (필요에 따라 변경 가능)
     }
   }};
   border: 1px solid
@@ -99,7 +102,7 @@ const Category = styled.div`
           return "#0C4CBB";
         case "디자인":
           return "#00DA95";
-        case "UI/UX":
+        case "UX/UI":
           return "#FC7831";
         case "보안":
           return "#43874B";
@@ -114,7 +117,7 @@ const Category = styled.div`
         case "AI":
           return "#D71F1F";
         default:
-          return "#000"; // 기본 색상 (필요에 따라 변경 가능)
+          return "#c3db0a"; // 기본 색상 (필요에 따라 변경 가능)
       }
     }};
 `;

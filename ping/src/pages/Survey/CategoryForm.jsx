@@ -7,7 +7,7 @@ const CATEGORY_OPTIONS = [
   "백엔드",
   "PM",
   "보안",
-  "DESIGN",
+  "디자인",
   "안드로이드",
   "IOS",
   "AI",
