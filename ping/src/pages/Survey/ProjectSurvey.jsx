@@ -38,6 +38,14 @@ const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
         problem.id === id ? { ...problem, [type]: value } : problem
       )
     );
+
+    // pns 변경 시 formData 업데이트
+    onChange({
+      problems: problems.map((problem) =>
+        problem.id === id ? { ...problem, [type]: value } : problem
+      ),
+    });
+    // console.log(problems)
   };
 
   const handleProjectChange = (field, value) => {
