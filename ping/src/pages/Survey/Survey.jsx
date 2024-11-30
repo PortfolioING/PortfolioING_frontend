@@ -92,6 +92,7 @@ const PortfolioCreation = () => {
       if (surveyResponse) {
         console.log("Survey POST 성공", surveyResponse);
         surveyId = surveyResponse.surveyId;
+        console.log(projectIds);
       } else {
         console.log("Survey POST 실패");
         return;
