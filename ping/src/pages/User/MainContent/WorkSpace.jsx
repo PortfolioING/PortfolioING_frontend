@@ -23,8 +23,8 @@ const fetchPortfolios = async () => {
     // 필요한 데이터 추출
     const portfolios = response.data.portfolios.map((portfolio) => ({
       title: portfolio.title,
-      categories: portfolio.description || [], // categories 필드는 description으로 대체할 수 있음 (필요에 따라 수정)
       roles: portfolio.surveyDto.projects[0].roles || [], // roles 배열을 가져옴
+      templateId: portfolio.templateId,
       updatedAt: portfolio.updatedAt,
       img: "string", // 임시 문자열 할당
     }));
@@ -93,17 +93,20 @@ const WorkSpace = () => {
       </Title>
 
       {portfolios.length > 0 ? (
-        portfolios.map((portfolio, index) => (
-          <PortfolioWrapper key={index}>
-            <Portfolio
-              title={portfolio.title}
-              img={portfolio.img}
-              categories={portfolio.categories}
-              roles={portfolio.roles}
-              last={portfolio.updatedAt}
-            />
-          </PortfolioWrapper>
-        ))
+        portfolios.map((portfolio, index) => {
+          console.log("Template ID:", portfolio.templateId); // templateId 출력
+          return (
+            <PortfolioWrapper key={index}>
+              <Portfolio
+                title={portfolio.title}
+                img={portfolio.img}
+                templateId={portfolio.templateId}
+                roles={portfolio.roles}
+                last={portfolio.updatedAt}
+              />
+            </PortfolioWrapper>
+          );
+        })
       ) : (
         <PortfolioWrapper>
           <div className="no-portfolio">포트폴리오가 없습니다.</div>
