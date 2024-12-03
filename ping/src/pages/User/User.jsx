@@ -41,13 +41,10 @@ const LeftSideBar = ({ handleClick, activeId }) => {
 export default function User() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-
   const [userClick, setUSerClick] = useState(id || "1");
-
   const handleClick = (e) => {
     const selectedId = e.target.id;
     setUSerClick(selectedId);
-    navigate(`/user/${selectedId}`); // URL을 업데이트
   };
 
   return (
