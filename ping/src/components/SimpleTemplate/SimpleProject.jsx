@@ -10,6 +10,7 @@ import {
 
 import { useParams } from "react-router-dom";
 import GetProject from "../../apis/getProject";
+import PortfolioButton from "../porfolioButton/PortfolioButton";
 
 const ProjectRight = ({ project, color }) => (
   <ProjectRightSection color={color}>
@@ -119,15 +120,18 @@ const SimpleProject = ({ color = "Lime" }) => {
   }
 
   return (
-    <Wrapper>
-      <Content color={selectedColor}>
-        <div className="content-label">Contents</div>
-        <MainContainer color={selectedColor}>
-          <ProjectLeft project={project} color={selectedColor} />
-          <ProjectRight project={project} color={selectedColor} />
-        </MainContainer>
-      </Content>
-    </Wrapper>
+    <>
+      <PortfolioButton />
+      <Wrapper>
+        <Content color={selectedColor}>
+          <div className="content-label">Contents</div>
+          <MainContainer color={selectedColor}>
+            <ProjectLeft project={project} color={selectedColor} />
+            <ProjectRight project={project} color={selectedColor} />
+          </MainContainer>
+        </Content>
+      </Wrapper>
+    </>
   );
 };
 

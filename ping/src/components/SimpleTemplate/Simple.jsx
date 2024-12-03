@@ -8,6 +8,7 @@ import {
 import SimpleBtn from "../../asset/SimpleBtn";
 import { useNavigate } from "react-router-dom";
 import GetPortfolio from "../../apis/GetPortfolio";
+import PortfolioButton from "../porfolioButton/PortfolioButton";
 
 const Color = {
   Lime: {
@@ -92,44 +93,47 @@ const Portfolio = ({ color = "Lime" }) => {
   } = portfolioInfo.surveyDto || {};
 
   return (
-    <Wrapper>
-      <Content color={selectedColor}>
-        <div className="portfolio-label">Portfolio</div>
-        <MainContainer>
-          <PortfolioContent color={selectedColor}>
-            <div className="portfolio-title">
-              {title || "포트폴리오 제목 없음"}
-            </div>
-            <section className="introduce-section">
-              <p className="section-title">Introduce Me</p>
-              <div className="introduce-content">
-                {introduce || "소개 정보가 없습니다."}
+    <>
+      <PortfolioButton />
+      <Wrapper>
+        <Content color={selectedColor}>
+          <div className="portfolio-label">Portfolio</div>
+          <MainContainer>
+            <PortfolioContent color={selectedColor}>
+              <div className="portfolio-title">
+                {title || "포트폴리오 제목 없음"}
               </div>
-            </section>
-            <section className="project-section">
-              <p className="section-title">contents</p>
-              <div className="project-list">
-                {projects.length > 0 ? (
-                  projects.map((project, index) => (
-                    <ProjectCardComponent
-                      key={project.projectId}
-                      project={{ ...project, number: index + 1 }}
-                      color={selectedColor}
-                    />
-                  ))
-                ) : (
-                  <p>등록된 프로젝트가 없습니다.</p>
-                )}
-              </div>
-            </section>
-          </PortfolioContent>
-          <ImgWrapper color={selectedColor}>
-            <div className="profile-image">{image}</div>
-            <div className="profile-name">{name}</div>
-          </ImgWrapper>
-        </MainContainer>
-      </Content>
-    </Wrapper>
+              <section className="introduce-section">
+                <p className="section-title">Introduce Me</p>
+                <div className="introduce-content">
+                  {introduce || "소개 정보가 없습니다."}
+                </div>
+              </section>
+              <section className="project-section">
+                <p className="section-title">contents</p>
+                <div className="project-list">
+                  {projects.length > 0 ? (
+                    projects.map((project, index) => (
+                      <ProjectCardComponent
+                        key={project.projectId}
+                        project={{ ...project, number: index + 1 }}
+                        color={selectedColor}
+                      />
+                    ))
+                  ) : (
+                    <p>등록된 프로젝트가 없습니다.</p>
+                  )}
+                </div>
+              </section>
+            </PortfolioContent>
+            <ImgWrapper color={selectedColor}>
+              <div className="profile-image">{image}</div>
+              <div className="profile-name">{name}</div>
+            </ImgWrapper>
+          </MainContainer>
+        </Content>
+      </Wrapper>
+    </>
   );
 };
 
