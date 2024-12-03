@@ -10,10 +10,9 @@ import {
   ProjectContainer,
 } from "./Creative.styles";
 import { useNavigate } from "react-router-dom";
-
-import Ping from "../../asset/ping";
 import Face from "../../asset/face.svg";
 import GetPortfolio from "../../apis/GetPortfolio";
+import PortfolioButton from "../porfolioButton/PortfolioButton";
 
 const Color = {
   blue: {
@@ -83,36 +82,41 @@ const Creative = ({ color = "blue" }) => {
   } = portfolioInfo.surveyDto || {};
 
   return (
-    <Wrapper color={selectedColor}>
-      <img className="face" src={Face} />
-      <CustomOh fill={selectedColor.mainColor} />
-      <CustomHello
-        subColor1={selectedColor.subColor}
-        subColor2={selectedColor.subColor_3}
-      />
-      <LeftWrapper>
-        <Header>
-          <div className="introduce">{introduce}</div>
-          <div className="name">
-            안녕하세요?
-            <br />
-            {name}입니다.
+    <>
+      <PortfolioButton />
+      <Wrapper color={selectedColor}>
+        <img className="face" src={Face} />
+        <CustomOh fill={selectedColor.mainColor} />
+        <CustomHello
+          subColor1={selectedColor.subColor}
+          subColor2={selectedColor.subColor_3}
+        />
+        <LeftWrapper>
+          <Header>
+            <div className="introduce">{introduce}</div>
+            <div className="name">
+              안녕하세요?
+              <br />
+              {name}입니다.
+            </div>
+          </Header>
+          <ProjectWrapper>
+            {projects.map((project, index) => (
+              <Project
+                key={project.number}
+                color={selectedColor}
+                project={{ ...project, number: index + 1 }}
+              />
+            ))}
+          </ProjectWrapper>
+        </LeftWrapper>
+        <RightWrapper>
+          <div className="user-img">
+            {image == "" ? "" : <img src={image} />}
           </div>
-        </Header>
-        <ProjectWrapper>
-          {projects.map((project, index) => (
-            <Project
-              key={project.number}
-              color={selectedColor}
-              project={{ ...project, number: index + 1 }}
-            />
-          ))}
-        </ProjectWrapper>
-      </LeftWrapper>
-      <RightWrapper>
-        <div className="user-img">{image == "" ? "" : <img src={image} />}</div>
-      </RightWrapper>
-    </Wrapper>
+        </RightWrapper>
+      </Wrapper>
+    </>
   );
 };
 
