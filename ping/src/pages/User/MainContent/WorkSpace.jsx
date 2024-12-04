@@ -22,6 +22,7 @@ const fetchPortfolios = async () => {
 
     // 필요한 데이터 추출
     const portfolios = response.data.portfolios.map((portfolio) => ({
+      id: portfolio.portfolioId,
       title: portfolio.title,
       roles: portfolio.surveyDto.projects[0].roles || [], // roles 배열을 가져옴
       templateId: portfolio.templateId,
@@ -61,8 +62,6 @@ const WorkSpace = () => {
   useEffect(() => {
     const loadPortfolios = async () => {
       const userId = sessionStorage.getItem("userId"); // sessionStorage에서 userId 가져오기
-      console.log("Fetched userId from sessionStorage:", userId);
-
       try {
         setLoading(true);
         const data = await fetchPortfolios(userId);
@@ -73,7 +72,6 @@ const WorkSpace = () => {
         setLoading(false);
       }
     };
-
     loadPortfolios();
   }, []);
 
@@ -94,10 +92,11 @@ const WorkSpace = () => {
 
       {portfolios.length > 0 ? (
         portfolios.map((portfolio, index) => {
-          console.log("Template ID:", portfolio.templateId); // templateId 출력
+          console.log(portfolio.id);
           return (
             <PortfolioWrapper key={index}>
               <Portfolio
+                id={portfolio.id}
                 title={portfolio.title}
                 img={portfolio.img}
                 templateId={portfolio.templateId}

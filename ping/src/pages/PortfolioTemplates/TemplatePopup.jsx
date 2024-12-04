@@ -54,7 +54,6 @@ const TemplatePopup = ({ handlePopupClose, template }) => {
       const response = await PutTemplate(templateId);
       console.log("Portfolio update 성공", response);
       navigate(`/template/${templateId}`);
-      // navigate("");
     } catch (error) {
       console.error("Portfolio update 중 오류 발생:", error);
     }
