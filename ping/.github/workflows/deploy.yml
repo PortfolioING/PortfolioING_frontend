@@ -1,0 +1,36 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시할 때마다 실행
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # 사용하는 Node.js 버전
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-frontend-app .
+
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            --name my-frontend-container \
+            -p 80:80 \
+            my-frontend-app
