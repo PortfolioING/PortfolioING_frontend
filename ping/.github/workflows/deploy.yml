@@ -26,11 +26,26 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t my-frontend-app .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ping-frontend-actions .
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ping-frontend-actions
+
+      - name: Pull Docker image from Docker Hub
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/ping-frontend-actions
 
       - name: Run Docker container
         run: |
           docker run -d \
-            --name my-frontend-container \
+            --rm \
+            --name ping-frontend-actions \
             -p 80:80 \
-            my-frontend-app
+            ${{ secrets.DOCKERHUB_USERNAME }}/ping-frontend-actions
