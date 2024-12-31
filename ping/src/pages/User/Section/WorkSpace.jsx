@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import instance from "../../../apis/instance/index.js";
-import Portfolio from "../../../components/Portfolio/Portfolio";
+import Portfolio from "../../../components/Portfolio/Portfolio.jsx";
 import Search from "../../../asset/search.svg";
-import { Wrapper, Title } from "../MainContent.styles";
+import { Wrapper, Title } from "../User.styles.jsx";
 import styled from "styled-components";
 
 // API 호출 함수

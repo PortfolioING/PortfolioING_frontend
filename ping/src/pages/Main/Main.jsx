@@ -1,12 +1,21 @@
 import MenuBar from "../../components/MenuBar/MenuBar";
 import { FullLogo } from "./Main.styles";
-function Slogan() {
-  return <div className="slogan">나를 담는 가장 쉬운 방법</div>;
+
+function Main() {
+  return (
+    <>
+      <MenuBar />
+      <Content />
+    </>
+  );
 }
-function PortfolioSlide() {
+function Content() {
+  return <Logo />;
+}
+function Logo() {
   return (
     <FullLogo>
-      <Slogan />
+      <div className="slogan">나를 담는 가장 쉬운 방법</div>;
       <div className="fullName">
         <p>Portfolio-</p>
         <p>ING</p>
@@ -14,12 +23,8 @@ function PortfolioSlide() {
     </FullLogo>
   );
 }
-function MainPage() {
-  return (
-    <div>
-      <MenuBar />
-      <PortfolioSlide />
-    </div>
-  );
+function OtherPortfolio() {
+  return <div></div>;
 }
-export default MainPage;
+
+export default Main;

@@ -1,11 +1,11 @@
 import { CardWrapper } from "./Card.styles";
-import Kakao from "../../asset/kakao.png";
-import Naver from "../../asset/naver.png";
-import Toss from "../../asset/toss.png";
+import Kakao from "../../../../asset/kakao.png";
+import Naver from "../../../../asset/naver.png";
+import Toss from "../../../../asset/toss.png";
 
-const Card = ({ name, selectedCard, onSelect }) => {
+const Card = ({ name, onSelect, handleCardSelected }) => {
   const handleClick = () => {
-    onSelect(name); // 선택된 카드 업데이트
+    handleCardSelected(name); // 선택된 카드 업데이트
   };
   let color;
   let src;
@@ -25,7 +25,7 @@ const Card = ({ name, selectedCard, onSelect }) => {
   }
   return (
     <CardWrapper color={color} onClick={handleClick}>
-      {selectedCard === name && <div className="click">✓</div>}
+      {onSelect && <div className="click">✓</div>}
       <img src={src} alt="로고" />
       <p>{text}</p>
     </CardWrapper>

@@ -1,59 +1,35 @@
-import MenuBar from "../../components/MenuBar/MenuBar";
-import { Wrapper, LeftWrapper, Title, Nav } from "./User.styles";
-import MainContent from "./MainContent";
-
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const LeftSideBar = ({ handleClick, activeId }) => {
-  return (
-    <LeftWrapper>
-      <Title>My Page</Title>
-      <Nav>
-        <ul>
-          <li
-            id="1"
-            className={activeId === "1" ? "active" : ""}
-            onClick={handleClick}
-          >
-            개인정보
-          </li>
-          <li
-            id="2"
-            className={activeId === "2" ? "active" : ""}
-            onClick={handleClick}
-          >
-            결제관리
-          </li>
-          <li
-            id="3"
-            className={activeId === "3" ? "active" : ""}
-            onClick={handleClick}
-          >
-            워크스페이스
-          </li>
-        </ul>
-      </Nav>
-    </LeftWrapper>
-  );
-};
+import { SideBar } from "../../components/User/SideBar/SideBar";
+import MenuBar from "../../components/MenuBar/MenuBar";
+import UserProfileEditor from "./Section/UserProfileEidtor";
+import WorkSpace from "./Section/WorkSpace";
+import PaymentAdmin from "./Section/PaymentAdmin";
+
+import { MainContent, UserWrapper } from "./User.styles";
 
 export default function User() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-  const [userClick, setUSerClick] = useState(id || "1");
+  const [userClick, setUserClick] = useState(id || "1");
+
   const handleClick = (e) => {
     const selectedId = e.target.id;
-    setUSerClick(selectedId);
+    setUserClick(selectedId);
   };
 
   return (
     <>
       <MenuBar />
-      <Wrapper>
-        <LeftSideBar handleClick={handleClick} activeId={userClick} />
-        <MainContent menu={userClick} />
-      </Wrapper>
+      <UserWrapper>
+        <SideBar handleClick={handleClick} activeId={userClick} />
+        <MainContent>
+          {userClick === "1" && <UserProfileEditor />}
+          {userClick === "2" && <PaymentAdmin />}
+          {userClick === "3" && <WorkSpace />}
+        </MainContent>
+      </UserWrapper>
     </>
   );
 }

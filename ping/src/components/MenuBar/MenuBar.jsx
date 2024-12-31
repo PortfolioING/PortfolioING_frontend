@@ -1,90 +1,74 @@
 import "./MenuBar.styles";
-import { Bar, Placeholder } from "./MenuBar.styles";
+import { Bar } from "./MenuBar.styles";
 import { useNavigate } from "react-router-dom";
-
 import Ping from "../../asset/ping.jsx";
 import { Button } from "../Button/Button.styles.jsx";
+
 function Menu() {
   const navigate = useNavigate();
-  const navigateToLogin = () => {
-    navigate("/login");
-  };
-  const navigateToLogout = () => {
-    sessionStorage.clear("userId");
-    navigate("/");
-  };
-  const navigateAboutPing = () => {
-    navigate("/about-ping");
-  };
-  const navigatePrice = () => {
-    navigate("/price");
-  };
-  const navigateUserPage = () => {
-    navigate("/user");
-  };
-  const navigateLoginPage = () => {
-    navigate("/login");
-  };
-  const navigateSurvey = () => {
-    navigate("/survey");
+  const handlers = {
+    navigateToLogin: () => navigate("/login"),
+    navigateToLogout: () => {
+      sessionStorage.clear("userId");
+      navigate("/");
+    },
+    navigateAboutPing: () => navigate("/about-ping"),
+    navigatePrice: () => navigate("/price"),
+    navigateUserPage: () => navigate("/user"),
+    navigateSurvey: () => navigate("/survey"),
   };
 
-  const loginIn = sessionStorage.getItem("isLogin"); // 로그인 정보를 가져옴
-  // console.log(loginIn);
+  const isLoggedIn = sessionStorage.getItem("isLogin");
+
   return (
     <>
-      <Placeholder />
       <Bar>
         <div className="left_menu">
           <Ping width={40} height={40} />
-          <p onClick={navigateAboutPing}>about PING</p>
-          <p onClick={navigatePrice}>요금</p>
+          <p onClick={handlers.navigateAboutPing}>about PING</p>
+          <p onClick={handlers.navigatePrice}>요금</p>
         </div>
         <div className="wrap_menu">
-          {loginIn ? (
+          {isLoggedIn ? (
             <>
               <Button
-                onClick={navigateUserPage}
+                onClick={handlers.navigateUserPage}
                 children={"MyPage"}
                 size="xs"
-                mainColor="BlackWhite"
+                mainColor="BlackWhiteB"
               />
-
               <Button
-                onClick={navigateToLogout}
+                onClick={handlers.navigateToLogout}
                 children={"Logout"}
                 size="xs"
                 mainColor="BlackWhiteW"
               />
-
               <Button
-                onClick={navigateSurvey}
+                onClick={handlers.navigateSurvey}
                 children={"무료로 시작하기"}
-                size="sm"
-                mainColor="LimeBlack"
+                size="xs"
+                mainColor="LimeBlackL"
               />
             </>
           ) : (
             <>
               <Button
-                onClick={navigateLoginPage}
+                onClick={handlers.navigateToLogin}
                 children={"MyPage"}
                 size="xs"
-                mainColor="BlackWhite"
+                mainColor="BlackWhiteB"
               />
-
               <Button
-                onClick={navigateToLogin}
+                onClick={handlers.navigateToLogin}
                 children={"LogIn"}
                 size="xs"
                 mainColor="BlackWhiteW"
               />
-
               <Button
-                onClick={navigateLoginPage}
+                onClick={handlers.navigateToLogin}
                 children={"무료로 시작하기"}
-                size="sm"
-                mainColor="LimeBlack"
+                size="xs"
+                mainColor="LimeBlackL"
               />
             </>
           )}
@@ -93,4 +77,5 @@ function Menu() {
     </>
   );
 }
+
 export default Menu;

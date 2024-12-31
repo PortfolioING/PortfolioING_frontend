@@ -1,48 +1,42 @@
 import styled from "styled-components";
-const Wrapper = styled.div`
+import { HEADER } from "../../utils/constant/Bar";
+export const UserWrapper = styled.div`
   width: 100%;
-  display: flex;
+  box-sizing: border-box;
+  margin-top: ${HEADER}px;
+  padding-top: 40px;
 `;
-const LeftWrapper = styled.div`
-  position: fixed;
+export const MainContent = styled.div`
+  width: 600px;
+  margin-left: 35%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  width: 30%;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+`;
+export const Wrapper = styled.div`
+  width: 100%;
+  box-sizing: border-box;
 `;
 
-const Title = styled.div`
-  width: 230px;
-  font-size: 38px;
-  font-weight: 500;
-  margin-bottom: 35px;
-`;
+export const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
 
-const Nav = styled.nav`
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  > .title {
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    font-weight: 600;
   }
-
-  li {
-    width: 230px;
-    padding: 20px;
+  > .search-wrapper {
+    border: 0.5px solid #000000;
+    width: 240px;
+    height: 34px;
     border-radius: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 100;
-
-    &.active {
-      background-color: #e4ff0d;
-      color: white;
-      font-weight: bold;
-    }
-
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
   }
 `;
-
-export { Wrapper, LeftWrapper, Title, Nav };

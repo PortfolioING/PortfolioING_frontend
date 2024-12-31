@@ -6,18 +6,23 @@ import {
   Wrapper,
   LogoWrapper,
   AccountCreationWrapper,
-  UnderlineText,
-  GitImage,
+  CreationTitle,
+  GitHubIcon,
   LoginWrapper,
-  Title,
-  Form,
+  FormWrapper,
 } from "./Login.styles";
 import Button from "../../components/Button/Button";
-import Login from "../../apis/login";
-import Ping from "../../asset/ping.jsx";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
+import Ping from "../../asset/ping.jsx";
+import { useLogin } from "../../hooks/useLogin/useLogin.js";
+function LoginPage() {
+  return (
+    <Wrapper>
+      <LogoSection />
+      <LoginSection />
+    </Wrapper>
+  );
+}
 function LogoSection() {
   return (
     <LogoWrapper>
@@ -28,60 +33,13 @@ function LogoSection() {
     </LogoWrapper>
   );
 }
+function LoginSection() {
+  const { email, setEmail, password, setPassword, handleLogin } = useLogin();
 
-function AccountCreationSection() {
-  return (
-    <AccountCreationWrapper>
-      <UnderlineText>
-        <p className="text">Create an Account</p>
-      </UnderlineText>
-      <GitImage src={GitLogo} alt="Git login button" />
-    </AccountCreationWrapper>
-  );
-}
-function LoginForm({ children }) {
   return (
     <LoginWrapper>
-      <Title>Login</Title>
-      <Form>{children}</Form>
-    </LoginWrapper>
-  );
-}
-
-function LoginPage() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState(""); // 이메일 상태 저장
-  const [password, setPassword] = useState(""); // 비밀번호 상태 저장
-
-  const navigateToLoginSuccess = () => {
-    navigate("/");
-  };
-
-  const handlerClick = async (event) => {
-    event.preventDefault();
-    if (email == "" || password == "") {
-      alert("email과 password를 입력해주세요.");
-      return;
-    }
-    try {
-      const result = await Login(email, password);
-      if (result) {
-        console.log("로그인 성공");
-        sessionStorage.setItem("isLogin", true);
-        sessionStorage.setItem("userId", result.data.userId);
-        navigateToLoginSuccess(); // 로그인 성공시 redirection
-      } else {
-        console.log("로그인 실패");
-      }
-    } catch (error) {
-      console.error("로그인 중 오류 발생:", error);
-    }
-  };
-
-  return (
-    <Wrapper>
-      <LogoSection />
-      <LoginForm>
+      <div className="title">Login</div>
+      <FormWrapper>
         <FormField
           label="Email"
           placeholder="ping@konkuk.ac.kr"
@@ -99,13 +57,22 @@ function LoginPage() {
         <Button
           size="lg"
           children="Login"
-          mainColor="LimeBlack"
-          onClick={handlerClick}
+          mainColor="LimeBlackL"
+          onClick={handleLogin}
         />
-
-        <AccountCreationSection />
-      </LoginForm>
-    </Wrapper>
+      </FormWrapper>
+      <AccountCreationSection />
+    </LoginWrapper>
+  );
+}
+function AccountCreationSection() {
+  return (
+    <AccountCreationWrapper>
+      <CreationTitle>
+        <p className="text">Create an Account</p>
+      </CreationTitle>
+      <GitHubIcon src={GitLogo} alt="Git login button" />
+    </AccountCreationWrapper>
   );
 }
 
