@@ -1,20 +1,18 @@
 import styled from "styled-components";
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  position: relative;
 `;
 
 const LogoWrapper = styled.div`
   position: absolute;
   left: 20%;
   display: flex;
-  position: absolute;
-  left: 20%;
+  justify-content: flex-start;
   width: 380px;
   height: 580px;
   border-radius: 50px;
@@ -28,7 +26,7 @@ const LogoWrapper = styled.div`
 `;
 const LoginWrapper = styled.div`
   position: absolute;
-  left: 40%;
+  left: 35%;
   display: flex;
   flex-direction: column;
   padding-top: 40px;
@@ -38,35 +36,29 @@ const LoginWrapper = styled.div`
   background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
+  > .title {
+    padding-left: 50px;
+    font-size: 45px;
+    font-weight: 700;
+  }
 `;
-
-const Title = styled.div`
-  padding-left: 50px;
-  font-size: 45px;
-  font-weight: 700;
-`;
-
-const Form = styled.form`
+const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 35px;
 `;
-
 const AccountCreationWrapper = styled.div`
-  margin-top: 25px;
+  margin-top: 35px;
   display: flex;
-  width: 430px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
-
-const UnderlineText = styled.div`
-  margin-top: 10px;
-  width: 400px;
+const CreationTitle = styled.div`
   position: relative;
+  width: 400px;
   border-top: 1px solid #dedede;
 
   .text {
@@ -80,19 +72,16 @@ const UnderlineText = styled.div`
     font-size: 16px;
   }
 `;
-
-const GitImage = styled.img`
+const GitHubIcon = styled.img`
   width: 80px;
   margin-top: 30px;
 `;
-
 export {
   Wrapper,
   LogoWrapper,
   AccountCreationWrapper,
-  UnderlineText,
-  GitImage,
+  CreationTitle,
+  GitHubIcon,
   LoginWrapper,
-  Title,
-  Form,
+  FormWrapper,
 };

@@ -1,19 +1,16 @@
 import styled from "styled-components";
 const sizeStyles = {
   xs: {
-    width: "82px",
-    height: "40px",
+    padding: "8px 20px",
     borderRadius: "20px",
   },
   sm: {
-    width: "132px",
-    height: "40px",
+    padding: "10px 25px",
     fontSize: "16px",
     borderRadius: "30px",
   },
   lg: {
-    width: "350px",
-    height: "50px",
+    padding: "13px 150px",
     fontSize: "20px",
     borderRadius: "50px",
   },
@@ -25,7 +22,7 @@ const sizeStyles = {
   },
 };
 const colorCombination = {
-  BlackWhite: {
+  BlackWhiteB: {
     background: "black",
     color: "white",
     border: "black",
@@ -35,12 +32,12 @@ const colorCombination = {
     color: "white",
     border: "white",
   },
-  WhiteBlack: {
+  WhiteBlackB: {
     background: "white",
     color: "black",
     border: "black",
   },
-  LimeBlack: {
+  LimeBlackL: {
     background: "#e4ff0d",
     color: "black",
     border: "#e4ff0d",
@@ -48,12 +45,10 @@ const colorCombination = {
 };
 const Button = styled.button`
   white-space: nowrap;
-  cursor: ${(props) => (props.isDisabled ? "no-drop" : "pointer")};
-  border: none;
-  font-size: ${(props) => sizeStyles[props.size]?.fontSize};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 
-  width: ${(props) => sizeStyles[props.size]?.width};
-  height: ${(props) => sizeStyles[props.size]?.height};
+  font-size: ${(props) => sizeStyles[props.size]?.fontSize};
+  padding: ${(props) => sizeStyles[props.size]?.padding};
   border-radius: ${(props) => sizeStyles[props.size]?.borderRadius};
 
   border: 1px solid ${(props) => colorCombination[props.mainColor]?.border};

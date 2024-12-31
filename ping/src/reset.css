@@ -111,6 +111,8 @@ body {
 ol,
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 blockquote,
 q {
@@ -126,4 +128,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+button {
+  cursor: pointer;
 }

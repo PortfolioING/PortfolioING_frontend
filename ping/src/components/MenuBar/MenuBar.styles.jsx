@@ -66,14 +66,11 @@ const Bar = styled.div`
       width: 82px;
     }
     .free_btn {
-      width: 160px;
       border: 1px solid black;
       background-color: #e4ff0d;
       color: black;
     }
   }
 `;
-const Placeholder = styled.div`
-  margin-bottom: 108px;
-`;
-export { Bar, Placeholder };
+
+export { Bar };

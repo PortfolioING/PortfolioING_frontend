@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FormField from "../../../components/Form/FormField";
-import Button from "../../../components/Button/Button";
+import FormField from "../../../components/Form/FormField.jsx";
+import Button from "../../../components/Button/Button.jsx";
 import styled from "styled-components";
-import FileUpdate from "../../../components/FileUpdate/FileUpdate";
+import FileUpdate from "../../../components/FileUpdate/FileUpdate.jsx";
 import Ping from "../../../asset/ping.jsx";
 import instance from "../../../apis/instance/index.js";
 
@@ -34,16 +34,10 @@ const saveUserProfile = async (userId, userInfo) => {
 
 // 스타일 정의
 const UserProfileWrapper = styled.div`
-  padding-left: 40px;
-  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  > * {
-    margin-bottom: 20px;
-  }
 `;
 
 const UserProfileEditor = () => {
