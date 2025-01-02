@@ -74,7 +74,7 @@ const WorkSpace = () => {
               img={portfolio.img}
               templateId={portfolio.templateId}
               roles={portfolio.roles}
-              last={portfolio.updatedAt}
+              updatedAt={portfolio.updatedAt}
             />
           );
         })}

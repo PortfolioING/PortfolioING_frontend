@@ -5,6 +5,7 @@ const GetProject = async (projectId) => {
     return response.data;
   } catch (error) {
     if (error.response) {
+      console.log(error.response);
       if (error.response.status === 401) {
         alert("잘못된 요청입니다.");
       } else if (error.response.status === 500) {

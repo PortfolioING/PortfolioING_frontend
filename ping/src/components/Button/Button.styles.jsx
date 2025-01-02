@@ -9,6 +9,11 @@ const sizeStyles = {
     fontSize: "16px",
     borderRadius: "30px",
   },
+  m: {
+    padding: "10px 35px",
+    fontSize: "16px",
+    borderRadius: "30px",
+  },
   lg: {
     padding: "13px 150px",
     fontSize: "20px",

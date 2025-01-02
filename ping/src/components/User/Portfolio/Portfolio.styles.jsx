@@ -10,7 +10,7 @@ export const PortfolioWrapper = styled.div`
   margin-bottom: 20px;
   box-sizing: border-box;
 `;
-export const ImgWrapper = styled.div`
+export const Img = styled.div`
   height: inherit;
   box-sizing: border-box;
   display: flex;
@@ -47,7 +47,7 @@ export const PortfolioDesc = styled.div`
   > .btn-wrapper {
     float: left;
   }
-  > .last {
+  > .updatedAt {
     font-size: 11px;
     color: #cbcbcb;
     float: left;
