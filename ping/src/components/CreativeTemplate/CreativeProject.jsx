@@ -9,7 +9,7 @@ import {
 import ProjectImg from "../../asset/project";
 import { useParams } from "react-router-dom";
 import GetProject from "../../apis/getProject";
-import PortfolioButton from "../porfolioButton/PortfolioButton";
+import PortfolioButton from "../PortfolioButton/PortfolioButton";
 
 const ProblemSolution = ({ problem, solution, color }) => {
   return (

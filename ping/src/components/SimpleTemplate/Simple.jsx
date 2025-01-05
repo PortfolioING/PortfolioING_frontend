@@ -8,7 +8,7 @@ import {
 import SimpleBtn from "../../asset/SimpleBtn";
 import { useNavigate } from "react-router-dom";
 import GetPortfolio from "../../apis/GetPortfolio";
-import PortfolioButton from "../porfolioButton/PortfolioButton";
+import PortfolioButton from "../PortfolioButton/PortfolioButton";
 
 const Color = {
   Lime: {
