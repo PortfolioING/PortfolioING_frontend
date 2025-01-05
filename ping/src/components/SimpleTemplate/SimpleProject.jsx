@@ -10,7 +10,7 @@ import {
 
 import { useParams } from "react-router-dom";
 import GetProject from "../../apis/getProject";
-import PortfolioButton from "../porfolioButton/PortfolioButton";
+import PortfolioButton from "../PortfolioButton/PortfolioButton";
 
 const ProjectRight = ({ project, color }) => (
   <ProjectRightSection color={color}>
