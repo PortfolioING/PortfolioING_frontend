@@ -1,14 +1,8 @@
 import React from "react";
 import { Button } from "./Button.styles";
-export default function Btn({
-  size = "lg",
-  mainColor = "LimeBlack",
-  children,
-  onClick,
-  ...props
-}) {
+export default function Btn({ size = "lg", children, onClick, ...props }) {
   return (
-    <Button size={size} mainColor={mainColor} onClick={onClick} {...props}>
+    <Button size={size} onClick={onClick} {...props}>
       {children}
     </Button>
   );

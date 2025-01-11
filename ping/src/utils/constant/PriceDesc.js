@@ -1,7 +1,7 @@
 // PriceDesc 상수 분리
 export const PRICE_DESCRIPTIONS = [
   {
-    key: "FREE",
+    key: "Free",
     descriptions: [
       { isAble: true, desc: "다른 유저들의 포트폴리오 열람 가능" },
       { isAble: false, desc: "템플릿 특성 변경 가능" },
@@ -11,7 +11,7 @@ export const PRICE_DESCRIPTIONS = [
     ],
   },
   {
-    key: "STARTER",
+    key: "Starter",
     descriptions: [
       { isAble: true, desc: "다른 유저들의 포트폴리오 열람 가능" },
       { isAble: true, desc: "템플릿 특성 변경 가능" },
@@ -21,7 +21,7 @@ export const PRICE_DESCRIPTIONS = [
     ],
   },
   {
-    key: "PRO",
+    key: "Pro",
     descriptions: [
       { isAble: true, desc: "다른 유저들의 포트폴리오 열람 가능" },
       { isAble: true, desc: "템플릿 특성 변경 가능" },

@@ -1,76 +1,111 @@
 import styled from "styled-components";
-const Bar = styled.div`
+
+export const Bar = styled.div`
   position: fixed;
   top: 0px;
   display: flex;
   justify-content: space-between;
-  height: 108px;
+  align-items: center;
+  height: 100px;
   width: 100%;
   background-color: #000000;
   z-index: 10;
   padding: 0 40px;
   box-sizing: border-box;
 
-  > div {
-    color: #ffffff;
-  }
-  > div {
-    flex-shrink: 0;
-    min-width: 300px;
-  }
-
-  > div p {
-    white-space: nowrap;
-  }
-
-  .left_menu {
+  .left_menu,
+  .right_menu {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     align-items: center;
     box-sizing: border-box;
-    > * {
-      font-size: 18px;
-      font-weight: 550;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    > p {
-      cursor: pointer;
-      line-height: 108px;
-    }
+
     > img {
       width: 60px;
     }
   }
-  .wrap_menu {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    align-items: center;
-    box-sizing: border-box;
-    > * {
-      font: 25px;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    > p {
-      cursor: pointer;
-      line-height: 108px;
-    }
+`;
 
-    .login_btn {
-      border: none;
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background-color: black;
-      width: 82px;
-    }
-    .free_btn {
-      border: 1px solid black;
-      background-color: #e4ff0d;
-      color: black;
-    }
+export const MenuItem = styled.button`
+  font-weight: 600;
+  font-size: 18px;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  color: ${(props) => (props.isActive ? "#EAFF0D" : "white")};
+
+  &:hover {
+    color: #eaff0d;
   }
 `;
 
-export { Bar };
+export const UserIcon = styled.div`
+  background-color: #d9d9d9;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const PopupWrapper = styled.div`
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  width: 270px;
+  z-index: 20;
+`;
+
+export const Popup = styled.div`
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    > .left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .nickname {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .email {
+        font-size: 14px;
+        color: #888;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e9ecef;
+    margin: 10px 0;
+  }
+`;
+
+export const PopupItem = styled.div`
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding-left: 10px;
+  }
+
+  svg {
+    font-size: 18px;
+  }
+`;
