@@ -1,58 +1,55 @@
 import styled from "styled-components";
+
 const sizeStyles = {
-  xs: {
-    padding: "8px 20px",
-    borderRadius: "20px",
-  },
-  sm: {
-    padding: "10px 25px",
-    fontSize: "16px",
+  s: {
+    fontSize: "18px",
     borderRadius: "30px",
   },
+  m: {
+    fontSize: "19px",
+    borderRadius: "10px",
+  },
   lg: {
-    padding: "13px 150px",
     fontSize: "20px",
-    borderRadius: "50px",
-  },
-  xl: {
-    width: "620px",
-    height: "45px",
-    fontSize: "15px",
-    borderRadius: "50px",
+    borderRadius: "20px",
   },
 };
-const colorCombination = {
-  BlackWhiteB: {
-    background: "black",
-    color: "white",
-    border: "black",
-  },
-  BlackWhiteW: {
-    background: "black",
-    color: "white",
-    border: "white",
-  },
-  WhiteBlackB: {
-    background: "white",
+
+const StyleColors = {
+  Normal: {
+    background: "#EAFF0D",
     color: "black",
-    border: "black",
+    hoverBackground: "#8C9908",
   },
-  LimeBlackL: {
-    background: "#e4ff0d",
-    color: "black",
-    border: "#e4ff0d",
+  Gray: {
+    background: "#656565",
+    color: "#9C9C9C",
   },
 };
+
 const Button = styled.button`
   white-space: nowrap;
+  font-weight: 550;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
-  padding: ${(props) => sizeStyles[props.size]?.padding};
   border-radius: ${(props) => sizeStyles[props.size]?.borderRadius};
+  color: ${StyleColors.Normal.color};
+  background-color: ${StyleColors.Normal.background};
+  width: ${(props) => props.width || "auto"};
+  height: ${(props) => props.height || "auto"};
+  border: none;
 
-  border: 1px solid ${(props) => colorCombination[props.mainColor]?.border};
-  color: ${(props) => colorCombination[props.mainColor]?.color};
-  background-color: ${(props) => colorCombination[props.mainColor]?.background};
+  &:hover {
+    background-color: ${(props) =>
+      props.disabled
+        ? StyleColors.Gray.background
+        : StyleColors.Normal.hoverBackground};
+  }
+
+  &:disabled {
+    background-color: ${StyleColors.Gray.background};
+    color: ${StyleColors.Gray.color};
+  }
 `;
+
 export { Button };

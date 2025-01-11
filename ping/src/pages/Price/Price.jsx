@@ -8,6 +8,7 @@ import {
 } from "./Price.styles";
 import Check from "../../asset/check.svg";
 import { PRICE_DESCRIPTIONS } from "../../utils/constant/PriceDesc";
+import { Button } from "../../components/Button/Button.styles";
 
 export default function PricePage() {
   const isLogin = sessionStorage.getItem("isLogin");
@@ -15,25 +16,20 @@ export default function PricePage() {
     <>
       <MenuBar />
       <PriceContainer>
-        <PriceCard isLogin={isLogin} title="FREE" price="0" color="#000000" />
+        <PriceCard isLogin={isLogin} title="Free" price="0" />
         <PriceCard
           isLogin={isLogin}
-          title="STARTER"
+          title="Starter"
           price="7,900"
-          color="#3621B7"
+          selected={true}
         />
-        <PriceCard
-          isLogin={isLogin}
-          title="PRO"
-          price="13,900"
-          color="#CD12DD"
-        />
+        <PriceCard isLogin={isLogin} title="Pro" price="13,900" />
       </PriceContainer>
     </>
   );
 }
 
-function PriceCard({ title, price, color, isLogin }) {
+function PriceCard({ title, price, selected = false, isLogin }) {
   const navigate = useNavigate();
   const navigateLoginPage = () => {
     navigate("/login");
@@ -45,13 +41,20 @@ function PriceCard({ title, price, color, isLogin }) {
     isLogin ? navigateSurvey() : navigateLoginPage();
   };
   return (
-    <StyledPriceCard color={color}>
+    <StyledPriceCard selected={selected}>
       <div className="price-card-title">{title}</div>
-      <div className="price-card-cost">{price}원/ 월</div>
+      <div className="price-card-cost">
+        <p className="bold">{price}원</p>
+        <p>/ 월</p>
+      </div>
       <PriceDesc title={title} />
-      <button className="price-card-button" onClick={handleClick}>
-        선택
-      </button>
+      <Button
+        size="m"
+        width={"100%"}
+        height="45px"
+        children={"선택"}
+        onClick={handleClick}
+      />
     </StyledPriceCard>
   );
 }

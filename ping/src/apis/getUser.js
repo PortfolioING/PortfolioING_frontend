@@ -1,11 +1,11 @@
 import instance from "./instance";
-const GetProject = async (projectId) => {
+const GetUser = async (userId) => {
   try {
-    const response = await instance.get(`api/projects/${projectId}`);
+    //const response = await instance.get(`api/portfolio/3`);
+    const response = await instance.get(`api/users/${userId}`);
     return response.data;
   } catch (error) {
     if (error.response) {
-      console.log(error.response);
       if (error.response.status === 401) {
         alert("잘못된 요청입니다.");
       } else if (error.response.status === 500) {
@@ -17,4 +17,4 @@ const GetProject = async (projectId) => {
     throw error;
   }
 };
-export default GetProject;
+export default GetUser;

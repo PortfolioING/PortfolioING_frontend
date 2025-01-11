@@ -21,7 +21,17 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Pretendard-Regular", sans-serif;
   }
-
+  @keyframes skeleton-loading {
+    0% {
+      background-color: #e0e0e0;
+    }
+    50% {
+      background-color: #cfcfcf;
+    }
+    100% {
+      background-color: #e0e0e0;
+    }
+  }
 `;
 const App = () => {
   return (

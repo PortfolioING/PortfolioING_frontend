@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Main from "./Main/Main";
 import Login from "./Login/Login";
-import User from "./User/User";
+
 import Price from "./Price/Price";
 import Survey from "./Survey/Survey";
 import Templates from "./PortfolioTemplates/Templates";
@@ -25,10 +25,7 @@ const Router = () => {
       path: "/login",
       element: <Login />,
     },
-    {
-      path: "/user",
-      element: <User />,
-    },
+
     {
       path: "/price",
       element: <Price />,
