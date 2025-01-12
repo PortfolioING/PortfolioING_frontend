@@ -29,7 +29,7 @@ export default function Setting() {
 
   return (
     <PopupWrapper>
-      <PopupContent>
+      <PopupContent className="popup-content">
         <MenuWrapper>
           <User>
             <div className="user-img" />
