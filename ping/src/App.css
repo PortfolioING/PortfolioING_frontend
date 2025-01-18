@@ -3,8 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   font-family: "Pretendard", sans-serif;
+  font-weight: 400; /* Regular가 기본 */
+  -moz-osx-font-smoothing: grayscale; /* Windows 환경 */
 }

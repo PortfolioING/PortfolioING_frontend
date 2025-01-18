@@ -28,6 +28,7 @@ export const Bar = styled.div`
 
 export const MenuItem = styled.button`
   font-size: 18px;
+
   background-color: black;
   border: none;
   cursor: pointer;
