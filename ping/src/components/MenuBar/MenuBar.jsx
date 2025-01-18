@@ -37,8 +37,11 @@ function Menu() {
     },
     navigatePrice: () => navigate("/price"),
     navigateSurvey: () => navigate("/survey"),
+    navigateWorkspace: () => navigate("/workspace"),
   };
-
+  const handleSettingPopupOpen = () => {
+    setIsSettingOpen(true);
+  };
   useEffect(() => {
     const handleClickOutside = (e) => {
       // UserIcon 팝업 닫기
@@ -72,8 +75,8 @@ function Menu() {
         <div className="left_menu">
           <Ping width={40} height={40} />
           <MenuItem
-            isActive={location.pathname === "/about"}
-            onClick={() => navigate("/about")}
+            isActive={location.pathname === "/about-ping"}
+            onClick={() => navigate("/about-ping")}
           >
             About PING
           </MenuItem>
@@ -108,7 +111,7 @@ function Menu() {
           )}
         </div>
       </Bar>
-
+      <div style={{ height: "100px" }}></div>
       {popup && (
         <PopupWrapper>
           <Popup className="popup">
@@ -120,7 +123,7 @@ function Menu() {
               <img src={수정버튼} alt="수정 버튼" />
             </div>
             <hr />
-            <PopupItem onClick={handlers.navigateSettings}>
+            <PopupItem onClick={handleSettingPopupOpen}>
               <img src={setting} alt="설정 아이콘" /> 설정
             </PopupItem>
             <PopupItem onClick={handlers.navigateWorkspace}>

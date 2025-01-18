@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { HEADER } from "../../utils/constant/Bar";
 export const PriceContainer = styled.div`
   background-color: black;
   display: flex;
+  height: calc(100vh - ${HEADER}px);
+  width: 100%;
   justify-content: center;
   gap: 80px;
   align-items: center;
-  height: 100vh;
-  padding-top: 50px;
 `;
 export const StyledPriceCard = styled.div`
   display: flex;

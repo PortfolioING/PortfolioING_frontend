@@ -7,7 +7,7 @@ import CategoryForm from "./CategoryForm";
 import FileUpdate from "../../components/FileUpdate/FileUpdate";
 import { useEffect, useState } from "react";
 import { ProblemBtn, ProblemWrapper } from "./ProjectSurvey.styles";
-import Plus from "../../asset/plus.svg";
+import Plus from "../../asset/icons/plus.svg";
 import FormTextArea from "../../components/Form/FormTextArea";
 const ProjectSurvey = ({ projectNum, onChange, setGuideText }) => {
   // 상태 변수 추가

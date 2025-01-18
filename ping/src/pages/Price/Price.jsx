@@ -6,7 +6,7 @@ import {
   StyledPriceCard,
   Desc,
 } from "./Price.styles";
-import Check from "../../asset/check.svg";
+import Check from "../../asset/icons/check.svg";
 import { PRICE_DESCRIPTIONS } from "../../utils/constant/PriceDesc";
 import { Button } from "../../components/Button/Button.styles";
 
