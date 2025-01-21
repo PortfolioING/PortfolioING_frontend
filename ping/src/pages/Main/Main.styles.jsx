@@ -10,8 +10,6 @@ const FullLogo = styled.div`
   .slogan {
     font-size: 36px;
     font-weight: 700;
-
-    color: #e4ff0d;
   }
 
   > .fullName {

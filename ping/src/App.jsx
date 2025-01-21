@@ -1,7 +1,9 @@
 import Router from "./pages/Router";
 import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
+
 import "./reset.css";
+import "./index.css";
 import "./App.css";
 
 const GlobalStyle = createGlobalStyle`

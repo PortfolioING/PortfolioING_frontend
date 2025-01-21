@@ -15,7 +15,7 @@ function Content() {
 function Logo() {
   return (
     <FullLogo>
-      <div className="slogan">나를 담는 가장 쉬운 방법</div>;
+      <div className="slogan text-ping">나를 담는 가장 쉬운 방법</div>
       <div className="fullName">
         <p>Portfolio-</p>
         <p>ING</p>
