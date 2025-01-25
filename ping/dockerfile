@@ -1,18 +1,54 @@
-#./Dockerfile
+# #./Dockerfile
+# FROM nginx
+
+# WORKDIR /
+
+# COPY ./dist /usr/share/nginx/html
+
+# # 기본 nginx 설정 파일을 삭제합니다. (custom 설정과 충돌 방지)
+# RUN rm /etc/nginx/conf.d/default.conf
+
+# # custom 설정파일을 컨테이너 내부로 복사합니다.
+# COPY /nginx/nginx.conf /etc/nginx/conf.d
+
+# # 컨테이너의 80번 포트를 열어줍니다.
+# EXPOSE 80
+
+# # nginx 서버를 실행하고 백그라운드로 동작하도록 합니다.
+# CMD ["nginx", "-g", "daemon off;"]
+
+
+# ./Dockerfile
+FROM node:18 AS build
+
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# 패키지 파일 복사
+COPY package.json ./
+COPY package-lock.json ./
+
+# 의존성 설치
+RUN npm install
+
+# 애플리케이션 소스 복사
+COPY . .
+
+# 애플리케이션 빌드
+RUN npm run build
+
+
+# Nginx 설정
 FROM nginx
 
-WORKDIR /
+# 빌드 결과물을 Nginx의 HTML 디렉토리로 복사
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY ./dist /usr/share/nginx/html
-
-# 기본 nginx 설정 파일을 삭제합니다. (custom 설정과 충돌 방지)
+# 기본 Nginx 설정 파일을 삭제
 RUN rm /etc/nginx/conf.d/default.conf
 
-# custom 설정파일을 컨테이너 내부로 복사합니다.
-COPY /nginx/nginx.conf /etc/nginx/conf.d
+# 커스텀 Nginx 설정 파일 복사
+COPY ./nginx/nginx.conf /etc/nginx/conf.d
 
-# 컨테이너의 80번 포트를 열어줍니다.
-EXPOSE 80
-
-# nginx 서버를 실행하고 백그라운드로 동작하도록 합니다.
+# Nginx 서버를 백그라운드로 실행
 CMD ["nginx", "-g", "daemon off;"]
