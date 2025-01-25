@@ -7,9 +7,10 @@ import Main from "./Main/Main";
 import Login from "./Login/Login";
 
 import Price from "./Price/Price";
-import Survey from "./Survey/Survey";
+
 import AboutPing from "./AboutPing/AboutPing";
 import WorkSpace from "./WorkSpace/WorkSpace";
+import Default from "../템플릿/Default/Default";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -26,10 +27,7 @@ const Router = () => {
       path: "/price",
       element: <Price />,
     },
-    {
-      path: "/survey",
-      element: <Survey />,
-    },
+
     {
       path: "/about-ping",
       element: <AboutPing />,
@@ -38,6 +36,7 @@ const Router = () => {
       path: "/workspace",
       element: <WorkSpace />,
     },
+    { path: "/default-template", element: <Default /> },
   ]);
 
   return <RouterProvider router={router} />;
