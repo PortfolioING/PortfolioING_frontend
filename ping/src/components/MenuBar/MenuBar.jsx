@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MenuBar.styles";
 import {
   Bar,
@@ -9,14 +9,25 @@ import {
   PopupItem,
 } from "./MenuBar.styles";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import Setting from "../SettingPopup/Setting.tsx";
+
 import Ping from "../../asset/ping.jsx";
 import { Button } from "../Button/Button.styles.jsx";
 import 수정버튼 from "../../asset/icons/수정버튼.svg";
 import setting from "../../asset/icons/setting.svg";
 import workspace from "../../asset/icons/workspace.svg";
+
 function Menu() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // 상태 관리
+  const [popup, setPopup] = useState(false);
+  const [isSettingOpen, setIsSettingOpen] = useState(false); // Setting 팝업 상태
+
+  // 팝업 참조 설정
+  const settingRef = useRef(null);
 
   const handlers = {
     navigateToLogin: () => navigate("/login"),
@@ -26,22 +37,37 @@ function Menu() {
     },
     navigatePrice: () => navigate("/price"),
     navigateSurvey: () => navigate("/survey"),
+    navigateWorkspace: () => navigate("/workspace"),
   };
-
-  const [popup, setPopup] = useState(false);
-  const isLoggedIn = true;
-
+  const handleSettingPopupOpen = () => {
+    setIsSettingOpen(true);
+  };
   useEffect(() => {
     const handleClickOutside = (e) => {
+      // UserIcon 팝업 닫기
       if (popup && !e.target.closest(".popup")) {
         setPopup(false);
       }
+      if (isSettingOpen && !e.target.closest(".popup-content")) {
+        setIsSettingOpen(false);
+      }
+      // Setting 팝업 닫기
+      if (
+        isSettingOpen &&
+        settingRef.current &&
+        !settingRef.current.contains(e.target)
+      ) {
+        setIsSettingOpen(false);
+      }
     };
+
+    // 이벤트 리스너 추가
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
+      // 이벤트 리스너 제거
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [popup]);
+  }, [popup, isSettingOpen]);
 
   return (
     <>
@@ -49,8 +75,8 @@ function Menu() {
         <div className="left_menu">
           <Ping width={40} height={40} />
           <MenuItem
-            isActive={location.pathname === "/about"}
-            onClick={handlers.navigateAboutPing}
+            isActive={location.pathname === "/about-ping"}
+            onClick={() => navigate("/about-ping")}
           >
             About PING
           </MenuItem>
@@ -62,7 +88,7 @@ function Menu() {
           </MenuItem>
         </div>
         <div className="right_menu">
-          {isLoggedIn ? (
+          {true ? (
             <>
               <MenuItem onClick={handlers.navigateSurvey}>
                 무료로 시작하기
@@ -85,7 +111,7 @@ function Menu() {
           )}
         </div>
       </Bar>
-
+      <div style={{ height: "100px" }}></div>
       {popup && (
         <PopupWrapper>
           <Popup className="popup">
@@ -94,20 +120,22 @@ function Menu() {
                 <p className="nickname">닉네임</p>
                 <p className="email">example@konkuk.ac.kr</p>
               </div>
-              <img src={수정버튼} />
+              <img src={수정버튼} alt="수정 버튼" />
             </div>
             <hr />
-            <PopupItem onClick={handlers.navigateSettings}>
-              <img src={setting} /> 설정
+            <PopupItem onClick={handleSettingPopupOpen}>
+              <img src={setting} alt="설정 아이콘" /> 설정
             </PopupItem>
             <PopupItem onClick={handlers.navigateWorkspace}>
-              <img src={workspace} /> 워크스페이스
+              <img src={workspace} alt="워크스페이스 아이콘" /> 워크스페이스
             </PopupItem>
             <hr />
             <PopupItem onClick={handlers.navigateToLogout}>로그아웃</PopupItem>
           </Popup>
         </PopupWrapper>
       )}
+
+      {isSettingOpen && <Setting />}
     </>
   );
 }

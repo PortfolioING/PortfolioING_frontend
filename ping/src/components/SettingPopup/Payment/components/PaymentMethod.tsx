@@ -85,6 +85,7 @@ const AddCard = styled.div`
   color: #d9d9d9;
   border: 1px solid #d9d9d9;
   gap: 10px;
+  cursor: pointer;
   .plus {
     width: 25px;
     height: 25px;

@@ -1,4 +1,3 @@
-import "../../styles/LoginPage.css";
 import github from "../../asset/icons/github.svg";
 import naver from "../../asset/icons/naver.svg";
 import google from "../../asset/icons/google.svg";

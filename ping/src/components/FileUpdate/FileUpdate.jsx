@@ -1,6 +1,6 @@
 import { useState, useId } from "react";
 import { Label, PreviewWrapper, ImgWrapper } from "./FileUpdate.styles";
-import Plus from "../../asset/plus.svg";
+import Plus from "../../asset/icons/plus.svg";
 const Img = ({ previewSrc, onClick, defaultImg }) => {
   return (
     <ImgWrapper>
@@ -35,12 +35,10 @@ const FileUpdate = ({ onChange, defaultImg, onFocus }) => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-
         const imageUrl = e.target.result; // Base64 인코딩된 이미지 URL
         setPreviewSrc(imageUrl); // 미리보기 이미지 업데이트
         onChange(imageUrl); // 부모 컴포넌트에 이미지 URL 전달
         console.log("선택한 이미지 URL:", imageUrl); // 이미지 URL 출력
-
       };
       reader.readAsDataURL(file);
     } else {

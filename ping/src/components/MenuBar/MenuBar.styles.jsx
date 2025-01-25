@@ -1,12 +1,12 @@
 import styled from "styled-components";
-
+import { HEADER } from "../../utils/constant/Bar";
 export const Bar = styled.div`
   position: fixed;
   top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: ${HEADER}px;
   width: 100%;
   background-color: #000000;
   z-index: 10;
@@ -27,16 +27,12 @@ export const Bar = styled.div`
 `;
 
 export const MenuItem = styled.button`
-  font-weight: 600;
   font-size: 18px;
+
   background-color: black;
   border: none;
   cursor: pointer;
   color: ${(props) => (props.isActive ? "#EAFF0D" : "white")};
-
-  &:hover {
-    color: #eaff0d;
-  }
 `;
 
 export const UserIcon = styled.div`
@@ -72,7 +68,7 @@ export const Popup = styled.div`
       gap: 10px;
       .nickname {
         font-size: 16px;
-        font-weight: bold;
+
         color: #333;
       }
 
