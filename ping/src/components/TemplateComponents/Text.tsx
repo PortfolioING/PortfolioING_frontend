@@ -39,7 +39,7 @@ const TextStyle = styled.div<{ background: string; color: string }>`
   color: ${(props) => props.color};
   textarea {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     color: ${(props) => props.color};
     border: none;
     outline: none;

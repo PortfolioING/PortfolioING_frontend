@@ -41,6 +41,7 @@ const ProjectTitleStyle = styled.div<{ background: string; color: string }>`
   textarea {
     width: 100%;
     font-size: 18px;
+    font-weight: 600;
     color: ${(props) => props.color};
     border: none;
     outline: none;

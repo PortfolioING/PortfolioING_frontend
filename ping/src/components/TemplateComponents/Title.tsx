@@ -39,6 +39,7 @@ const TitleStyle = styled.div<{ background: string; color: string }>`
   textarea {
     width: 100%;
     font-size: 30px;
+    font-weight: 700;
     height: 20px;
     color: ${(props) => props.color};
     border: none;
