@@ -3,11 +3,21 @@ import styled from "styled-components";
 
 export default function Wrapper({ children }: { children: React.ReactNode }) {
   const [isHovered, setIsHovered] = useState(false); // 마우스 호버 상태 관리
-
+  const handleSave = () => {
+    const input = document.querySelector("input") as HTMLInputElement;
+    if (input) {
+      const value = input.value;
+    }
+  };
+  const handleDrag = () => {
+    console.log("darg enter");
+  };
   return (
     <WrapperStyle
+      onBlur={() => handleSave()}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onDragEnter={handleDrag}
     >
       <div className={`button ${isHovered ? "visible" : ""}`}>P</div>
       <div>{children}</div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Component from "../../interface/templateComponent";
 import Wrapper from "./Wrapper/Wrapper";
@@ -8,10 +8,26 @@ export default function ProjectTitle({
   background,
   color,
 }: Component) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const adjustHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // 높이를 초기화
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // 스크롤 높이에 따라 설정
+    }
+  };
+
+  useEffect(() => {
+    adjustHeight(); // 컴포넌트가 처음 렌더링될 때 높이 조정
+  }, []);
   return (
     <Wrapper>
       <ProjectTitleStyle background={background} color={color}>
-        <input placeholder={guide} />
+        <textarea
+          rows={1}
+          ref={textareaRef}
+          placeholder={guide}
+          onInput={adjustHeight}
+        />
       </ProjectTitleStyle>
     </Wrapper>
   );
@@ -22,16 +38,16 @@ const ProjectTitleStyle = styled.div<{ background: string; color: string }>`
   background: ${(props) => props.background};
   color: ${(props) => props.color};
 
-  input {
+  textarea {
     width: 100%;
-    padding: 8px;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 600;
     color: ${(props) => props.color};
     border: none;
     outline: none;
-    padding: 0;
     background: transparent;
-    resize: none;
+    resize: none; /* 크기 조정 비활성화 */
     line-height: 1.5;
+    overflow: hidden; /* 스크롤바 숨김 */
   }
 `;

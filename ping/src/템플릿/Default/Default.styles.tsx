@@ -4,9 +4,9 @@ export const DefaultTemplateWrapper = styled.div`
   flex-direction: column;
   margin: 0 auto;
   background-color: black;
-  padding: 8%;
+  padding: 8% 20%;
   min-height: 100vh;
-  gap: 20px;
+  gap: 30px;
   > .ping {
     color: #d3e60c;
   }
