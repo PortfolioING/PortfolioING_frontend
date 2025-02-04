@@ -17,6 +17,13 @@ import UserMenuBar from "../../components/UserMenuBar/UserMenuBar";
 export default function WorkSpace() {
     const [searchMyPortfolio, setSearchMyPortfolio] = useState("");
     const [searchTemplates, setSearchTemplates] = useState("");
+    const [hasPortfolio, setHasPortfolio] = useState(true);
+
+    const templates = [
+        { title: '포트폴리오 1', date: '2025/02/04', hashtags: ['#기획', '#디자인'] },
+        { title: '포트폴리오 2', date: '2025/02/03', hashtags: ['#개발', '#프로그래밍'] },
+        { title: '포트폴리오 3', date: '2025/02/02', hashtags: ['#마케팅', '#기획'] },
+    ];
 
     return (
         <WorkSpaceContainer>
@@ -39,7 +46,30 @@ export default function WorkSpace() {
                                 onChange={(e) => setSearchMyPortfolio(e.target.value)}
                             />
                         </div>
-                        <p className="empty-text">제작된 포트폴리오가 없습니다.</p>
+                        {hasPortfolio ? ( // 포트폴리오가 있을 때
+                            <TemplateGrid>
+                                {templates.map((template, index) => (
+                                    <TemplateItem key={index}>
+                                    <Thumbnail />
+                                    <div className="portfolio-info">
+                                        <h3 className="portfolio-title">{template.title}</h3>
+                                        <p className="portfolio-exp">마지막 수정: {template.date}</p>
+                                        {template.hashtags.map((hashtag, idx) => (
+                                            <p key={idx} className="hashtag">{hashtag}</p>
+                                        ))}
+                                    </div>
+                                    </TemplateItem>
+                                ))}
+                            </TemplateGrid>
+                        ) : (
+                            <p className="empty-text">제작된 포트폴리오가 없습니다.</p> // 포트폴리오가 없을 때
+                        )}
+
+                        <Pagination>
+                            <span>&lt;</span>
+                            <span>1 / 2</span>
+                            <span>&gt;</span>
+                        </Pagination>
                     </Section>
 
                     <hr className="hr"/>
@@ -59,9 +89,9 @@ export default function WorkSpace() {
                             {[1, 2, 3].map((_, index) => (
                                 <TemplateItem key={index}>
                                     <Thumbnail />
-                                        <div className="info">
-                                            <h3>템플릿 제목</h3>
-                                            <p>템플릿 설명</p>
+                                        <div className="template-info">
+                                            <h3 className="template-title">템플릿 제목</h3>
+                                            <p className="template-exp">템플릿 설명</p>
                                         </div>
                                 </TemplateItem>
                             ))}

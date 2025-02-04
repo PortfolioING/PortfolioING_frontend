@@ -24,7 +24,7 @@ export const UserIcon = styled.div`
 
 export const PopupWrapper = styled.div`
   position: absolute;
-  top: 18%;
+  top: 28%;
   right: 8%;
   width: 270px;
   z-index: 20;

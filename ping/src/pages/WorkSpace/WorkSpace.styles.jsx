@@ -101,29 +101,55 @@ export const TemplateItem = styled.div`
         background: #ccc;
     }
 
-    .info {
+    .template-info {
         margin-top: 50px;
 
-        h3 {
-            font-size: 28px;
-            font-weight: 700;
+        .template-title {
+            font-size: 25px;
+            font-weight: 600;
             margin: 10px 0;
         }
 
-        p {
+        .template-exp {
             margin-top: 30px;
-            font-size: 21px;
+            font-size: 19px;
             font-weight: 400;
+        }
+    }
+
+    .portfolio-info {
+        margin-top: 20px;
+        
+        .portfolio-title {
+            font-size: 25px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .portfolio-exp {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 200;
+        }
+
+        .hashtag {
+            margin-top: 30%;
+            margin-right: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            padding: 7px 10px;
+            background-color: #ECECEC;
+            
         }
     }
 `;
 
 export const Thumbnail = styled.div`
-    width: 20%;
+    width: 30%;
     height: 100%;
     background: #eee;
     border-radius: 4px;
-    margin: 0 30px;
+    margin: 0 40px 20px 0;
 `;
 
 export const Pagination = styled.div`
@@ -132,15 +158,15 @@ export const Pagination = styled.div`
     color: #666;
 
     span {
-        font-size: 28px;
-        margin: 0 10px;
-        cursor: pointer;
+        font-size: 20px;
+        margin: 0 8px;
     }
 
     span:nth-child(1),
     span:nth-child(3) {
         &:hover {
             background-color: #ECECEC;
+            cursor: pointer;
         }
     }
 `;
