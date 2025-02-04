@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 .react-datepicker__portal {
   z-index: 5; /* 팝업으로 열릴 경우 */
 }
-
+ 
   @keyframes skeleton-loading {
     0% {
       background-color: #e0e0e0;
