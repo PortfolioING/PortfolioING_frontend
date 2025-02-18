@@ -30,14 +30,14 @@ jobs:
       - name: react build
         run: |
           npm install
-          npm build
+          npm run build
 
       # S3에 build 파일을 올림.
       - name: Upload to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }}
+        run: aws s3 sync build/ s3://${{ secrets.AWS_S3_BUCKET_NAME }}
 
         
       # # 아직 서버에서 HTTP를 사용하므로 CloudFront 사용하지 X
