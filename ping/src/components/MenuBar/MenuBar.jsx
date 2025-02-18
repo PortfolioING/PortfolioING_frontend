@@ -36,7 +36,7 @@ function Menu() {
       navigate("/");
     },
     navigatePrice: () => navigate("/price"),
-    navigateSurvey: () => navigate("/survey"),
+    navigateDefaultTemplate: () => navigate("/default-template"),
     navigateWorkspace: () => navigate("/workspace"),
   };
   const handleSettingPopupOpen = () => {
@@ -90,7 +90,7 @@ function Menu() {
         <div className="right_menu">
           {true ? (
             <>
-              <MenuItem onClick={handlers.navigateSurvey}>
+              <MenuItem onClick={handlers.navigateDefaultTemplate}>
                 무료로 시작하기
               </MenuItem>
               <UserIcon onClick={() => setPopup(!popup)} />
