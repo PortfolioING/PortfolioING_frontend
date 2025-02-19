@@ -122,7 +122,7 @@ export const TemplateItem = styled.div`
     }
 
     .portfolio-info {
-        margin-top: 20px;
+        margin-top: 15px;
         
         .portfolio-title {
             font-size: 25px;
@@ -138,7 +138,7 @@ export const TemplateItem = styled.div`
 
         .portfolio-hash {
             margin-top: 60px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
 
             .hashtag {
                 margin-right: 20px;
@@ -151,14 +151,13 @@ export const TemplateItem = styled.div`
 
         
         .portfolio-tech {
-            margin-top: 10px;
-
             .tech {
                 margin-right: 20px;
                 border-radius: 5px;
                 display: inline-block;
                 padding: 7px 10px;
-                background-color: #ECECEC;
+                background-color: black;
+                color: white;
             }
         }
     }
@@ -182,11 +181,12 @@ export const Pagination = styled.div`
         margin: 0 8px;
     }
 
-    span:nth-child(1),
-    span:nth-child(3) {
+    button {
+        background-color: white;
+        border: none;
+
         &:hover {
             background-color: #ECECEC;
-            cursor: pointer;
         }
     }
 `;
