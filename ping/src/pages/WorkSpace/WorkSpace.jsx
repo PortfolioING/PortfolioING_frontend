@@ -14,6 +14,9 @@ import {
 } from "./WorkSpace.styles";
 import UserMenuBar from "../../components/UserMenuBar/UserMenuBar";
 import search from "../../asset/icons/icon_search.svg";
+import figma from "../../asset/icons/figma_icon.svg";
+import notion from "../../asset/icons/notion_icon.svg";
+
 
 
 export default function WorkSpace() {
@@ -22,9 +25,9 @@ export default function WorkSpace() {
     const [hasPortfolio, setHasPortfolio] = useState(true);
 
     const templates = [
-        { title: '포트폴리오 1', date: '2025/02/04', hashtags: ['#기획', '#디자인'] },
-        { title: '포트폴리오 2', date: '2025/02/03', hashtags: ['#개발', '#프로그래밍'] },
-        { title: '포트폴리오 3', date: '2025/02/02', hashtags: ['#마케팅', '#기획'] },
+        { title: '포트폴리오 1', date: '2025/02/04', hashtags: ['#기획', '#디자인'], techs: ['figma', 'notion'] },
+        { title: '포트폴리오 2', date: '2025/02/03', hashtags: ['#개발', '#프로그래밍'], techs: ['figma', 'notion'] },
+        { title: '포트폴리오 3', date: '2025/02/02', hashtags: ['#마케팅', '#기획'], techs: ['figma', 'notion'] },
     ];
 
     return (
@@ -41,12 +44,26 @@ export default function WorkSpace() {
                     <Section>
                         <div className="section-header">
                             <h2>나의 포트폴리오</h2>
-                            <Input 
-                                type="text" 
-                                placeholder="검색"
-                                value={searchMyPortfolio}
-                                onChange={(e) => setSearchMyPortfolio(e.target.value)}
-                            />
+                            <div>
+                                <Input 
+                                    type="text" 
+                                    placeholder="검색"
+                                    value={searchTemplates}
+                                    onChange={(e) => setSearchTemplates(e.target.value)}
+                                />
+                                <img 
+                                    src={search}
+                                    alt="검색"
+                                    style={{
+                                        position: 'relative',
+                                        right: '11%',
+                                        transform: 'translateY(25%)',
+                                        width: '22px',
+                                        height: '22px',
+                                        cursor: 'pointer' // 클릭 가능하게 변경
+                                    }}
+                                />
+                            </div>
                         </div>
                         {hasPortfolio ? ( // 포트폴리오가 있을 때
                             <TemplateGrid>
@@ -56,9 +73,16 @@ export default function WorkSpace() {
                                     <div className="portfolio-info">
                                         <h3 className="portfolio-title">{template.title}</h3>
                                         <p className="portfolio-exp">마지막 수정: {template.date}</p>
-                                        {template.hashtags.map((hashtag, idx) => (
-                                            <p key={idx} className="hashtag">{hashtag}</p>
-                                        ))}
+                                        <div className="portfolio-hash">
+                                            {template.hashtags.map((hashtag, idx) => (
+                                                <p key={idx} className="hashtag">{hashtag}</p>
+                                            ))}
+                                        </div>
+                                        <div className="portfolio-tech">
+                                            {template.techs.map((tech, idx) => (
+                                                <p key={idx} className="tech">{tech}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                     </TemplateItem>
                                 ))}
@@ -79,13 +103,26 @@ export default function WorkSpace() {
                     <Section>
                         <div className="section-header">
                             <h2>포트폴리오 템플릿</h2>
-                            <Input 
-                                type="text" 
-                                placeholder="검색"
-                                value={searchTemplates}
-                                onChange={(e) => setSearchTemplates(e.target.value)}
-                            />
-                            <img src={search} />
+                            <div>
+                                <Input 
+                                    type="text" 
+                                    placeholder="검색"
+                                    value={searchTemplates}
+                                    onChange={(e) => setSearchTemplates(e.target.value)}
+                                />
+                                <img 
+                                    src={search}
+                                    alt="검색"
+                                    style={{
+                                        position: 'relative',
+                                        right: '11%',
+                                        transform: 'translateY(25%)',
+                                        width: '22px',
+                                        height: '22px',
+                                        cursor: 'pointer' // 클릭 가능하게 변경
+                                    }}
+                                />
+                            </div>
                         </div>
 
                         <TemplateGrid>

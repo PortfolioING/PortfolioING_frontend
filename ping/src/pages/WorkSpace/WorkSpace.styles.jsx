@@ -6,7 +6,7 @@ export const WorkSpaceContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding: 50px 30px;
+    padding: 50px 50px;
 `;
 
 export const WorkSpaceWrapper = styled.div`
@@ -57,6 +57,10 @@ export const Section = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        div {
+            position: inline-block;
+        }
     }
 
     h2 {
@@ -132,14 +136,30 @@ export const TemplateItem = styled.div`
             font-weight: 200;
         }
 
-        .hashtag {
-            margin-top: 30%;
-            margin-right: 20px;
-            border-radius: 5px;
-            display: inline-block;
-            padding: 7px 10px;
-            background-color: #ECECEC;
-            
+        .portfolio-hash {
+            margin-top: 60px;
+            margin-bottom: 20px;
+
+            .hashtag {
+                margin-right: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                padding: 7px 10px;
+                background-color: #ECECEC;
+            }
+        }
+
+        
+        .portfolio-tech {
+            margin-top: 10px;
+
+            .tech {
+                margin-right: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                padding: 7px 10px;
+                background-color: #ECECEC;
+            }
         }
     }
 `;
