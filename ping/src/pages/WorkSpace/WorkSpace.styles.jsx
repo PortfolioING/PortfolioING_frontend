@@ -6,14 +6,14 @@ export const WorkSpaceContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding-top: 50px;
+    padding: 50px 30px;
 `;
 
 export const WorkSpaceWrapper = styled.div`
     background-color: white;
     display: flex;
     border-radius: 10px;
-    padding: 80px 20px;
+    padding: 80px 0px 20px;
     width: 95%;
     height: 100%;
     justify-content: center;

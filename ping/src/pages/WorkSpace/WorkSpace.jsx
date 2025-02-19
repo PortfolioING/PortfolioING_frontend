@@ -13,6 +13,8 @@ import {
     Pagination 
 } from "./WorkSpace.styles";
 import UserMenuBar from "../../components/UserMenuBar/UserMenuBar";
+import search from "../../asset/icons/icon_search.svg";
+
 
 export default function WorkSpace() {
     const [searchMyPortfolio, setSearchMyPortfolio] = useState("");
@@ -83,6 +85,7 @@ export default function WorkSpace() {
                                 value={searchTemplates}
                                 onChange={(e) => setSearchTemplates(e.target.value)}
                             />
+                            <img src={search} />
                         </div>
 
                         <TemplateGrid>

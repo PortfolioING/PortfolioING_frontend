@@ -10,8 +10,11 @@ import 수정버튼 from "../../asset/icons/수정버튼.svg";
 import setting from "../../asset/icons/setting.svg";
 import workspace from "../../asset/icons/workspace.svg";
 
+import Setting from "../SettingPopup/Setting.tsx";
+
 function Menu() {
   const [popup, setPopup] = useState(false);
+  const [isSettingOpen, setIsSettingOpen] = useState(false); // Setting 팝업 상태
   const isLoggedIn = true;
 
   const handlers = {
@@ -22,18 +25,36 @@ function Menu() {
     }
   };
 
+  const handleSettingPopupOpen = () => {
+    setIsSettingOpen(true);
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (popup && !e.target.closest(".popup"))
         setPopup(false);
+
+      if (isSettingOpen && !e.target.closest(".popup-content")) {
+        setIsSettingOpen(false);
+      }
+
+      // Setting 팝업 닫기
+      if (
+        isSettingOpen &&
+        settingRef.current &&
+        !settingRef.current.contains(e.target)
+      ) {
+        setIsSettingOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     
     return () => {
+      // 이벤트 리스너 제거
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [popup]);
+  }, [popup, isSettingOpen]);
 
   return (
     <>
@@ -68,7 +89,7 @@ function Menu() {
 
             <hr />
 
-            <PopupItem onClick={handlers.navigateSettings}>
+            <PopupItem onClick={handleSettingPopupOpen}>
               <img src={setting} /> 설정</PopupItem>
             <PopupItem onClick={handlers.navigateWorkspace}>
               <img src={workspace} /> 워크스페이스</PopupItem>
@@ -79,6 +100,7 @@ function Menu() {
           </Popup>
         </PopupWrapper>
       )}
+      {isSettingOpen && <Setting />}
     </>
   );
 }

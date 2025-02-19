@@ -39,9 +39,11 @@ function Menu() {
     navigateSurvey: () => navigate("/survey"),
     navigateWorkspace: () => navigate("/workspace"),
   };
+
   const handleSettingPopupOpen = () => {
     setIsSettingOpen(true);
   };
+  
   useEffect(() => {
     const handleClickOutside = (e) => {
       // UserIcon 팝업 닫기
