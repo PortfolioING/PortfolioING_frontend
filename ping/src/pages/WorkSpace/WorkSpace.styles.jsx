@@ -6,14 +6,14 @@ export const WorkSpaceContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding-top: 50px;
+    padding: 50px 50px;
 `;
 
 export const WorkSpaceWrapper = styled.div`
     background-color: white;
     display: flex;
     border-radius: 10px;
-    padding: 80px 20px;
+    padding: 80px 0px 20px;
     width: 95%;
     height: 100%;
     justify-content: center;
@@ -57,6 +57,10 @@ export const Section = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        div {
+            position: inline-block;
+        }
     }
 
     h2 {
@@ -118,7 +122,7 @@ export const TemplateItem = styled.div`
     }
 
     .portfolio-info {
-        margin-top: 20px;
+        margin-top: 15px;
         
         .portfolio-title {
             font-size: 25px;
@@ -132,14 +136,29 @@ export const TemplateItem = styled.div`
             font-weight: 200;
         }
 
-        .hashtag {
-            margin-top: 30%;
-            margin-right: 20px;
-            border-radius: 5px;
-            display: inline-block;
-            padding: 7px 10px;
-            background-color: #ECECEC;
-            
+        .portfolio-hash {
+            margin-top: 60px;
+            margin-bottom: 15px;
+
+            .hashtag {
+                margin-right: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                padding: 7px 10px;
+                background-color: #ECECEC;
+            }
+        }
+
+        
+        .portfolio-tech {
+            .tech {
+                margin-right: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                padding: 7px 10px;
+                background-color: black;
+                color: white;
+            }
         }
     }
 `;
@@ -162,11 +181,12 @@ export const Pagination = styled.div`
         margin: 0 8px;
     }
 
-    span:nth-child(1),
-    span:nth-child(3) {
+    button {
+        background-color: white;
+        border: none;
+
         &:hover {
             background-color: #ECECEC;
-            cursor: pointer;
         }
     }
 `;
