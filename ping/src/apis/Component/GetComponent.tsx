@@ -2,7 +2,7 @@ import instance from "../instance";
 import { createErrorResponse } from "../../interface/api/Message";
 const GetComponent = async (component_id: number) => {
   try {
-    return await instance.get(`api/components/component_id=${omponent_id}`);
+    return await instance.get(`api/components/component_id=${component_id}`);
   } catch (error) {
     if (error.response) {
       const errorData = createErrorResponse(error.response.status.toString());
