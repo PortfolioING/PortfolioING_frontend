@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const SideStyleBarWrapper = styled.div`
+  position: fixed;
+  top: 30px;
+  right: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
   width: 300px;
-  height: 90%;
+  height: 600px;
   border-radius: 20px;
   background-color: #2a2a2a;
   padding: 20px;
-
   > * {
     width: 100%;
     box-sizing: border-box;
