@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Setting from "../SettingPopup/Setting.tsx";
 
 import Ping from "../../asset/ping.jsx";
-import { Button } from "../Button/Button.styles.jsx";
+// import { Button } from "../Button/Button.styles.tsx";
 import 수정버튼 from "../../asset/icons/수정버튼.svg";
 import setting from "../../asset/icons/setting.svg";
 import workspace from "../../asset/icons/workspace.svg";
@@ -43,7 +43,7 @@ function Menu() {
   const handleSettingPopupOpen = () => {
     setIsSettingOpen(true);
   };
-  
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       // UserIcon 팝업 닫기
@@ -102,13 +102,13 @@ function Menu() {
               <MenuItem onClick={handlers.navigateToLogin}>
                 무료로 시작하기
               </MenuItem>
-              <Button
+              {/* <Button
                 onClick={handlers.navigateToLogin}
                 children={"LogIn"}
                 size="s"
                 width="90px"
                 height="40px"
-              />
+              /> */}
             </>
           )}
         </div>

@@ -47,9 +47,9 @@ export default function PaymentMethod() {
           ))}
         </Cards>
       </Section>
-      <Button onClick={() => console.log()} size="s" width="100%" height="55px">
+      {/* <Button onClick={() => console.log()} size="s" width="100%" height="55px">
         1000,000원 결제하기
-      </Button>
+      </Button> */}
     </>
   );
 }

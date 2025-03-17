@@ -11,6 +11,7 @@ import Price from "./Price/Price";
 import AboutPing from "./AboutPing/AboutPing";
 import WorkSpace from "./WorkSpace/WorkSpace";
 import Default from "../템플릿/Default/Default";
+import SideStyleBar from "../components/SideStyleBar/SideStyleBar";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const Router = () => {
       element: <WorkSpace />,
     },
     { path: "/default-template", element: <Default /> },
+    { path: "/test", element: <SideStyleBar /> },
   ]);
 
   return <RouterProvider router={router} />;

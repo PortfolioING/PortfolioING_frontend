@@ -8,7 +8,7 @@ import {
 } from "./Price.styles";
 import Check from "../../asset/icons/check.svg";
 import { PRICE_DESCRIPTIONS } from "../../utils/constant/PriceDesc";
-import { Button } from "../../components/Button/Button.styles";
+// import { Button } from "../../components/Button/Button.styles";
 
 export default function PricePage() {
   const isLogin = sessionStorage.getItem("isLogin");
@@ -48,13 +48,13 @@ function PriceCard({ title, price, selected = false, isLogin }) {
         <p>/ 월</p>
       </div>
       <PriceDesc title={title} />
-      <Button
+      {/* <Button
         size="m"
         width={"100%"}
         height="45px"
         children={"선택"}
         onClick={handleClick}
-      />
+      /> */}
     </StyledPriceCard>
   );
 }
