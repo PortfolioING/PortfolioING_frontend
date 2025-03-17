@@ -36,7 +36,7 @@ function Menu() {
       navigate("/");
     },
     navigatePrice: () => navigate("/price"),
-    navigateDefaultTemplate: () => navigate("/default-template"),
+    navigateDefaultTemplate: () => navigate("/test"),
     navigateWorkspace: () => navigate("/workspace"),
   };
 

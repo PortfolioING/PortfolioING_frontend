@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { HEADER } from "../../utils/constant/Bar";
+
 export const PriceContainer = styled.div`
   background-color: black;
   display: flex;
@@ -9,7 +10,12 @@ export const PriceContainer = styled.div`
   gap: 80px;
   align-items: center;
 `;
-export const StyledPriceCard = styled.div`
+
+interface StyledPriceCardProps {
+  selected?: boolean;
+}
+
+export const StyledPriceCard = styled.div<StyledPriceCardProps>`
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
@@ -65,7 +71,12 @@ export const DescWrapper = styled.div`
   flex-direction: column;
   box-sizing: border-box;
 `;
-export const Desc = styled.div`
+
+interface DescProps {
+  isAble: boolean;
+}
+
+export const Desc = styled.div<DescProps>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -83,14 +94,13 @@ export const Desc = styled.div`
     box-sizing: border-box;
 
     > img {
-      visibility: ${(props) =>
-        props.isAble ? "visible" : "hidden"}; /* display 대신 visibility 사용 */
+      visibility: ${({ isAble }) => (isAble ? "visible" : "hidden")};
     }
   }
 
   > .text {
     font-size: 17px;
     text-align: left;
-    color: ${(props) => (props.isAble ? "black" : "#C8C8C8")};
+    color: ${({ isAble }) => (isAble ? "black" : "#C8C8C8")};
   }
 `;

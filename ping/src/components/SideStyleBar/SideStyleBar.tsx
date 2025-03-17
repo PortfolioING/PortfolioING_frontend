@@ -27,50 +27,45 @@ import selectBtn from "../../asset/icons/SideStyleBar/selectBtn.svg";
 const COLORS = ["#FFFFFF", "#E4FF0D", "#000000"];
 const FONT_WEIGHTS = ["400", "500", "600", "700", "800"];
 const FONT_SIZES = ["12px", "14px", "16px", "18px", "20px"];
-
+//각 컴포넌트마다 달아서 적용하기,
+// 접었다 폈다,
+// 이탈릭 저 부분 상태관리
 const SideStyleBar = () => {
   return (
-    <div style={{ height: "100vh" }}>
-      <SideStyleBarWrapper>
-        <Header>Design</Header>
-        <StyleMain>
-          <StyleWrapper>
-            <StyleTitle>Font</StyleTitle>
-            <FontStyleWrapper>
-              <DropDown options={FONT_WEIGHTS} defaultText="폰트 굵기" />
-              <DropDown options={FONT_SIZES} defaultText="폰트 크기" />
-            </FontStyleWrapper>
-            <TextToolBar>
-              <TextImg src={leftSort} />
-              <TextImg src={centerSort} />
-              <TextImg src={rightSort} />
-              <TextImg src={boldBtn} />
-              <TextImg src={underLineBtn} />
-              <TextImg src={italicBtn} />
-            </TextToolBar>
-          </StyleWrapper>
-          <StyleWrapper>
-            <StyleTitle>Color</StyleTitle>
-            <DropDown options={COLORS} defaultText="폰트 색상" />
-            <DropDown options={COLORS} defaultText="텍스트 배경 색상" />
-          </StyleWrapper>
-        </StyleMain>
-        <ButtonWrapper>
-          <Button
-            size="m"
-            color="Normal"
-            children={"저장하기"}
-            onClick={() => {}}
-          />
-          <Button
-            size="m"
-            color="Normal"
-            children={"완료"}
-            onClick={() => {}}
-          />
-        </ButtonWrapper>
-      </SideStyleBarWrapper>
-    </div>
+    <SideStyleBarWrapper>
+      <Header>Design</Header>
+      <StyleMain>
+        <StyleWrapper>
+          <StyleTitle>Font</StyleTitle>
+          <FontStyleWrapper>
+            <DropDown options={FONT_WEIGHTS} defaultText="폰트 굵기" />
+            <DropDown options={FONT_SIZES} defaultText="폰트 크기" />
+          </FontStyleWrapper>
+          <TextToolBar>
+            <TextImg src={leftSort} />
+            <TextImg src={centerSort} />
+            <TextImg src={rightSort} />
+            <TextImg src={boldBtn} />
+            <TextImg src={underLineBtn} />
+            <TextImg src={italicBtn} />
+          </TextToolBar>
+        </StyleWrapper>
+        <StyleWrapper>
+          <StyleTitle>Color</StyleTitle>
+          <DropDown options={COLORS} defaultText="폰트 색상" />
+          <DropDown options={COLORS} defaultText="텍스트 배경 색상" />
+        </StyleWrapper>
+      </StyleMain>
+      <ButtonWrapper>
+        <Button
+          size="m"
+          color="Normal"
+          children={"저장하기"}
+          onClick={() => {}}
+        />
+        <Button size="m" color="Normal" children={"완료"} onClick={() => {}} />
+      </ButtonWrapper>
+    </SideStyleBarWrapper>
   );
 };
 
