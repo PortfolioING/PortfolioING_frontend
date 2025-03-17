@@ -5,9 +5,11 @@ export const DefaultTemplateWrapper = styled.div`
   margin: 0 auto;
   background-color: black;
   padding: 8% 20%;
-  min-height: 100vh;
+  min-height: 100%;
+
   gap: 30px;
   > .ping {
     color: #d3e60c;
   }
+  box-sizing: border-box;
 `;
